@@ -19,6 +19,6 @@ public class sistemAkademik {
         nilaiTugas = sc.nextInt();
         System.out.println("Masukkan Nilai Ulangan Harian :");
         nilaiUlanganHarian = sc.nextInt();
-        System.out.println("Masukkan Nilai Ujian Tengah Semester")
+        System.out.println("Masukkan Nilai Ujian Tengah Semester");
     }
 }
