@@ -50,12 +50,11 @@ public class sistemAkademik {
             System.out.println("Hasil Nilai Akhir Bahasa Inggris : " + nABing);
             System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
             System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
-            System.out.println("Indeks Prestasi siswa : " + (nAMat + nAIpa + nABin + nABing)/14);
-        
-        rataRata = (nAMat+nAIpa+nABin+nABing)/4;
+        indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/((bMat+bIpa+bBin+bBing)*10);
+            System.out.println("Indeks Prestasi siswa : " + indeksPrestasi);
+        rataRata = (nAMat+nAIpa+nABin+nABing)/(4*10);
             System.out.println("Nilai rata-rata siswa : " + rataRata);
-        indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/14;
-            System.out.println("Indeks Prestasi siswa" + indeksPrestasi);
+
         
         sc.close();
     }
