@@ -8,8 +8,8 @@ public class sistemAkademik {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-            String maPel;
-            int nilaiTugas, nilaiUlanganHarian, nilaiTengah;
+            String mat, ipa, bIng, bIn;
+            int nilaiTugas, nilaiUlanganHarian, nilaiUjian;
             double rataRata, nilaiAkhir, indeksPrestasi;
             char nilaiHuruf;
 
@@ -19,6 +19,15 @@ public class sistemAkademik {
         nilaiTugas = sc.nextInt();
         System.out.println("Masukkan Nilai Ulangan Harian :");
         nilaiUlanganHarian = sc.nextInt();
-        System.out.println("Masukkan Nilai Ujian Tengah Semester");
+        System.out.println("Masukkan Nilai Ujian");
+        nilaiUjian = sc.nextInt();
+        System.out.println("Masukkan Nilai Akhir");
+        nilaiAkhir = sc.nextDouble();
+        indeksPrestasi = 
+        nilaiAkhir = nilaiTugas + nilaiUlanganHarian + nilaiUjian;
+        rataRata = nilaiAkhir / maPel
+        
+        
+
     }
 }
