@@ -7,7 +7,7 @@ public class sistemAkademik {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-            int nMat, nIpa, nBing, nBin, nUHMat, nUHIpa, nUHBing, nUHBin, nUMat, nUIpa, nUBing, nUBin, bMat, bIpa, bBing, bBin, nbMat, nbIpa, nbBing, nbBin;
+            int nMat, nIpa, nBing, nBin, nUHMat, nUHIpa, nUHBing, nUHBin, nUMat, nUIpa, nUBing, nUBin, bMat, bIpa, bBing, bBin;
             double rataRata, indeksPrestasi, nAMat, nAIpa, nABing, nABin;
             char nilaiHuruf;
                 bMat  = 4;
@@ -17,42 +17,46 @@ public class sistemAkademik {
                 
                 
         System.out.println("Nilai Tugas Matematika : ");
-        nMat = sc.nextInt();
+            nMat = sc.nextInt();
         System.out.println("Nilai Tugas IPA : ");
-        nIpa = sc.nextInt();
+            nIpa = sc.nextInt();
         System.out.println("Nilai Tugas Bahasa Inggris : ");
-        nBing = sc.nextInt();
+            nBing = sc.nextInt();
         System.out.println("Nilai Tugas Bahasa Indonesia : ");
-        nBin = sc.nextInt();
+            nBin = sc.nextInt();
         System.out.println("Nilai Ulangan Harian Matematika : ");
-        nUHMat = sc.nextInt();
+            nUHMat = sc.nextInt();
         System.out.println("Nilai Ulangan Harian IPA : ");
-        nUHIpa = sc.nextInt();
+            nUHIpa = sc.nextInt();
         System.out.println("Nilai Ulangan Harian Bahasa Inggris: ");
-        nUHBing = sc.nextInt();
+            nUHBing = sc.nextInt();
         System.out.println("Nilai Ulangan Harian Bahasa Indonesia: ");
-        nUHBin = sc.nextInt();
+            nUHBin = sc.nextInt();
         System.out.println("Nilai Ujian Matematika : ");
-        nUMat = sc.nextInt();
+            nUMat = sc.nextInt();
         System.out.println("Nilai Ujian IPA");
-        nUIpa = sc.nextInt();
+            nUIpa = sc.nextInt();
         System.out.println("Nilai Ujian Bahasa Inggris");
-        nUBing = sc.nextInt();
+            nUBing = sc.nextInt();
         System.out.println("Nilai Ujian Bahasa Indonesia");
-        nUBin = sc.nextInt();
+            nUBin = sc.nextInt();
 
 
-        nAIpa = (nIpa + nUHIpa + nUIpa)*4;
-        nABing = (nBing + nUHBing + nUBing)*4;
-        nABin = (nBin + nUHBin + nUBin)*4;
-        nAMat = (nMat + nUHMat + nUMat)*4;
-        System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
-        System.out.println("Hasil Nilai Akhir Bahasa Inggris : " + nABing);
-        System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
-        System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
-        System.out.println("Indeks Prestasi siswa : " + (nAMat + nAIpa + nABin + nABing)/14);
-            
-                indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/14;
+        nAIpa = (nIpa + nUHIpa + nUIpa)*bIpa;
+        nABing = (nBing + nUHBing + nUBing)*bBing;
+        nABin = (nBin + nUHBin + nUBin)*bBin;
+        nAMat = (nMat + nUHMat + nUMat)*bMat;
+            System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
+            System.out.println("Hasil Nilai Akhir Bahasa Inggris : " + nABing);
+            System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
+            System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
+            System.out.println("Indeks Prestasi siswa : " + (nAMat + nAIpa + nABin + nABing)/14);
+        
+        rataRata = (nAMat+nAIpa+nABin+nABing)/4;
+            System.out.println("Nilai rata-rata siswa : " + rataRata);
+        indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/14;
+            System.out.println("Indeks Prestasi siswa" + indeksPrestasi);
+        
         sc.close();
     }
 }
