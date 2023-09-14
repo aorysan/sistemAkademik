@@ -1,1 +1,1 @@
-Bersama kita kerjakan tugas membuat sistem akademik ini untuk Indonesia cerdas
+Bersama kita kerjakan tugas membuat sistem akademik ini untuk Indonesia cerdas.
