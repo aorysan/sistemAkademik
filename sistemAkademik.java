@@ -8,10 +8,11 @@ public class sistemAkademik {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
             int nMat, nIpa, nBing, nBin, nUHMat, nUHIpa, nUHBing, nUHBin, nUMat, nUIpa, nUBing, nUBin, bMat, bIpa, bBing, bBin;
+            int jmlPenilaian = 3;
             double rataRata, indeksPrestasi, nAMat, nAIpa, nABing, nABin;
             char nilaiHuruf;
-                bMat  = 4;
-                bIpa = 4;
+                bMat  = 3;
+                bIpa = 3;
                 bBing = 3;
                 bBin = 3;
                 
@@ -42,17 +43,21 @@ public class sistemAkademik {
             nUBin = sc.nextInt();
 
 
-        nAIpa = (nIpa + nUHIpa + nUIpa)*bIpa;
-        nABing = (nBing + nUHBing + nUBing)*bBing;
-        nABin = (nBin + nUHBin + nUBin)*bBin;
-        nAMat = (nMat + nUHMat + nUMat)*bMat;
+        nAIpa = (nIpa + nUHIpa + nUIpa)/jmlPenilaian*bIpa; //cari rata-rata nilai mapel dulu (dibagi 3), lalu kali beban mapel = nilai akhir mapel
+        nABing = (nBing + nUHBing + nUBing)/jmlPenilaian*bBing;
+        nABin = (nBin + nUHBin + nUBin)/jmlPenilaian*bBin;
+        nAMat = (nMat + nUHMat + nUMat)/jmlPenilaian*bMat;
             System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
             System.out.println("Hasil Nilai Akhir Bahasa Inggris : " + nABing);
             System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
             System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
-        indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/((bMat+bIpa+bBin+bBing)*10);
+        indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/(bMat+bIpa+bBin+bBing);
             System.out.println("Indeks Prestasi siswa : " + indeksPrestasi);
-        rataRata = (nAMat+nAIpa+nABin+nABing)/(4*10);
+        
+        double ipDalamPersen = indeksPrestasi * 25;
+        System.out.println("IP dalam bentuk persen : " + ipDalamPersen); 
+
+        rataRata = (nAMat+nAIpa+nABin+nABing)/(4);
             System.out.println("Nilai rata-rata siswa : " + rataRata);
 
         
