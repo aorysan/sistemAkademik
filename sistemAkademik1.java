@@ -1,4 +1,3 @@
-package sistemAkademik;
 import java.util.Scanner;
 public class sistemAkademik1 {
     

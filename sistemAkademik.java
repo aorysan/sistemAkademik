@@ -1,4 +1,3 @@
-package sistemAkademik;
 /**
  * sistemAkademik
  */
@@ -41,19 +40,19 @@ public class sistemAkademik {
         System.out.println("Nilai Ujian Bahasa Indonesia");
             nUBin = sc.nextInt();
 
-
         nAIpa = (nIpa + nUHIpa + nUIpa)*bIpa;
         nABing = (nBing + nUHBing + nUBing)*bBing;
         nABin = (nBin + nUHBin + nUBin)*bBin;
         nAMat = (nMat + nUHMat + nUMat)*bMat;
-            System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
-            System.out.println("Hasil Nilai Akhir Bahasa Inggris : " + nABing);
-            System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
-            System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
+
+        System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
+        System.out.println("Hasil Nilai Akhir Bahasa Inggris : " + nABing);
+        System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
+        System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
         indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/((bMat+bIpa+bBin+bBing)*10);
-            System.out.println("Indeks Prestasi siswa : " + indeksPrestasi);
+        System.out.println("Indeks Prestasi siswa : " + indeksPrestasi);
         rataRata = (nAMat+nAIpa+nABin+nABing)/(4*10);
-            System.out.println("Nilai rata-rata siswa : " + rataRata);
+        System.out.println("Nilai rata-rata siswa : " + rataRata);
 
         
         sc.close();
