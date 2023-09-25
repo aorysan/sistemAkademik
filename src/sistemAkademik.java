@@ -1,4 +1,3 @@
-package sistemAkademik;
 /**
  * sistemAkademik
  */
@@ -42,6 +41,19 @@ public class sistemAkademik {
         System.out.println("Nilai Ujian Bahasa Indonesia");
             nUBin = sc.nextDouble();
 
+        nAIpa = (nIpa + nUHIpa + nUIpa)*bIpa;
+        nABing = (nBing + nUHBing + nUBing)*bBing;
+        nABin = (nBin + nUHBin + nUBin)*bBin;
+        nAMat = (nMat + nUHMat + nUMat)*bMat;
+
+        System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
+        System.out.println("Hasil Nilai Akhir Bahasa Inggris : " + nABing);
+        System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
+        System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
+        indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/((bMat+bIpa+bBin+bBing)*10);
+        System.out.println("Indeks Prestasi siswa : " + indeksPrestasi);
+        rataRata = (nAMat+nAIpa+nABin+nABing)/(4*10);
+        System.out.println("Nilai rata-rata siswa : " + rataRata);
 
         nAIpa = (nIpa + nUHIpa + nUIpa)/jmlPenilaian*bIpa; //cari rata-rata nilai mapel dulu (dibagi 3), lalu kali beban mapel = nilai akhir mapel
         nABing = (nBing + nUHBing + nUBing)/jmlPenilaian*bBing;
@@ -55,11 +67,10 @@ public class sistemAkademik {
             System.out.println("Indeks Prestasi siswa : " + indeksPrestasi);
         
         double ipDalamPersen = indeksPrestasi * 25;
-        System.out.println("IP dalam bentuk persen : " + ipDalamPersen); 
+            System.out.println("IP dalam bentuk persen : " + ipDalamPersen); 
 
         rataRata = (nAMat+nAIpa+nABin+nABing)/(4);
             System.out.println("Nilai rata-rata siswa : " + rataRata);
-
         
         sc.close();
     }
