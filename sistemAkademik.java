@@ -6,15 +6,10 @@ public class sistemAkademik {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-            double nMat, nIpa, nBing, nBin, nUHMat, nUHIpa, nUHBing, nUHBin, nUMat, nUIpa, nUBing, nUBin, bMat, bIpa, bBing, bBin;
+            double nMat, nIpa, nBing, nBin, nUHMat, nUHIpa, nUHBing, nUHBin, nUMat, nUIpa, nUBing, nUBin, bMat = 3, bIpa = 3, bBing = 3, bBin = 3;
             double jmlPenilaian = 3;
-            double rataRata, indeksPrestasi, nAMat, nAIpa, nABing, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
+            double rataRata, indeksPrestasi, nAIpa, nAMat, nABin, nABing; //int ganti ke double karena input nilai bisa berupa pecahan
             char nilaiHuruf;
-                bMat  = 3;
-                bIpa = 3;
-                bBing = 3;
-                bBin = 3;
-                
                 
         System.out.println("Nilai Tugas Matematika : ");
             nMat = sc.nextDouble();
@@ -59,10 +54,47 @@ public class sistemAkademik {
         nABing = (nBing + nUHBing + nUBing)/jmlPenilaian*bBing;
         nABin = (nBin + nUHBin + nUBin)/jmlPenilaian*bBin;
         nAMat = (nMat + nUHMat + nUMat)/jmlPenilaian*bMat;
+
             System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
+                if (nAIpa>80) {
+                    System.out.println("IPA : A");
+                } else if (nAIpa>=65) {
+                    System.out.println("IPA : B");
+                } else if (nAIpa>=50) {
+                    System.out.println("IPA : C");
+                } else {
+                    System.out.println("IPA : D");
+                }
             System.out.println("Hasil Nilai Akhir Bahasa Inggris : " + nABing);
+                if (nABing>80) {
+                    System.out.println("BAHASA INGGRIS : A");
+                } else if (nABing>=65) {
+                    System.out.println("BAHASA INGGRIS : B");
+                } else if (nABing>=50) {
+                    System.out.println("BAHASA INGGRIS : C");
+                } else {
+                    System.out.println("BAHASA INGGRIS : D");
+                }
             System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
+                if (nABin>80) {
+                    System.out.println("BAHASA INDONESIA : A");
+                } else if (nABin>=65) {
+                    System.out.println("BAHASA INDONESIA : B");
+                } else if (nABin>=50) {
+                    System.out.println("BAHASA INDONESIA : C");
+                } else {
+                    System.out.println("BAHASA INDONESIA : D");
+                }
             System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
+                if (nAMat>80) {
+                    System.out.println("MATEMATIKA : A");
+                } else if (nAMat>=65) {
+                    System.out.println("MATEMATIKA : B");
+                } else if (nAMat>=50) {
+                    System.out.println("MATEMATIKA : C");
+                } else {
+                    System.out.println("MATEMATIKA : D");
+                }
         indeksPrestasi = (nAMat+nAIpa+nABin+nABing)/(bMat+bIpa+bBin+bBing);
             System.out.println("Indeks Prestasi siswa : " + indeksPrestasi);
         
