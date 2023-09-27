@@ -1,8 +1,6 @@
 /**
  * sistemAkademik
  */
-package src;
-
 import java.util.Scanner;
 public class sistemAkademik {
 
