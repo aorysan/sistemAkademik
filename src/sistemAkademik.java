@@ -6,11 +6,23 @@ public class sistemAkademik {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+            String userA = "admin", passA = "admin", user, pass;
             double nMat, nIpa, nBin, nUHMat, nUHIpa, nUHBin, nUMat, nUIpa, nUBin, bMat = 3, bIpa = 3, bBin = 3;
             double jmlPenilaian = 10;
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
             char nilaiHuruf;
                 
+            System.out.println("Masukkan username : ");
+            user = sc.nextLine();
+            System.out.println("Masukkan password : ");
+            pass = sc.nextLine();
+    
+            if (user.equals(userA) && pass.equals(passA)){
+                System.out.println("Login berhasil");
+            } else {
+                System.out.println("username atau password salah");
+            }
+            
         System.out.println("Nilai Tugas Matematika : ");
             nMat = sc.nextDouble();
         System.out.println("Nilai Tugas IPA : ");
