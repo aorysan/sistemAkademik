@@ -95,5 +95,6 @@ public class sistemAkademik {
             System.out.println("Nilai rata-rata siswa : " + rataRata);
         
         sc.close();
+        
     }
 }
