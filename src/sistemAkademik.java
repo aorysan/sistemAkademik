@@ -8,7 +8,7 @@ public class sistemAkademik {
         Scanner sc = new Scanner(System.in);
             String userA = "admin", passA = "admin", user, pass;
             double nMat, nIpa, nBin, nUHMat, nUHIpa, nUHBin, nUMat, nUIpa, nUBin, bMat = 3, bIpa = 3, bBin = 3;
-            double jmlPenilaian = 10;
+            double jmlPenilaian = 3; //jml penilaian tiap mapel saja (skrng cuma ada tugas, UH, sm ujian)
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
             char nilaiHuruf;
                 
@@ -44,6 +44,7 @@ public class sistemAkademik {
         System.out.println("Nilai Ujian Bahasa Indonesia");
             nUBin = sc.nextDouble();
 
+            /* 
         nAIpa = (nIpa + nUHIpa + nUIpa)*bIpa;
         nABin = (nBin + nUHBin + nUBin)*bBin;
         nAMat = (nMat + nUHMat + nUMat)*bMat;
@@ -57,6 +58,7 @@ public class sistemAkademik {
         
         rataRata = (nAMat+nAIpa+nABin)/(3*10);
         System.out.println("Nilai rata-rata siswa : " + rataRata);
+        */ //ini yang lama
 
         nAIpa = (nIpa + nUHIpa + nUIpa)/jmlPenilaian*bIpa; //cari rata-rata nilai mapel dulu (dibagi 3), lalu kali beban mapel = nilai akhir mapel
         nABin = (nBin + nUHBin + nUBin)/jmlPenilaian*bBin;
