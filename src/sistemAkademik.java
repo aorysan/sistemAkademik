@@ -70,25 +70,6 @@ public class sistemAkademik {
             } else {
                 System.out.println("Tidak Remidi");
             }
-            
-
-            /* 
-        nAIpa = (nIpa + nUHIpa + nUIpa)*bIpa;
-        nABin = (nBin + nUHBin + nUBin)*bBin;
-        nAMat = (nMat + nUHMat + nUMat)*bMat;
-
-        System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
-        System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
-        System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
-
-        indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*10);
-        System.out.println("Indeks Prestasi siswa : " + indeksPrestasi);
-        
-        rataRata = (nAMat+nAIpa+nABin)/(3*10);
-        System.out.println("Nilai rata-rata siswa : " + rataRata);
-        */ //ini yang lama
-
-         //cari rata-rata nilai mapel dulu (dibagi 3), lalu kali beban mapel = nilai akhir mapel
         
         double jmlPresensi = (presensi/132)*1;
             System.out.println("Persentase kehadiran siswa dalam 1 semester : "+ (jmlPresensi*100)+" %");
