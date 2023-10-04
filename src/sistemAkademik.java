@@ -30,6 +30,7 @@ public class sistemAkademik {
         System.out.println("Nilai Tugas Bahasa Indonesia : ");
             nBin = sc.nextDouble();
 
+            
         System.out.println("Nilai Ulangan Harian Matematika : ");
             nUHMat = sc.nextDouble();
         System.out.println("Nilai Ulangan Harian IPA : ");
