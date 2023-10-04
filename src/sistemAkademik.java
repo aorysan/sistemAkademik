@@ -17,7 +17,7 @@ public class sistemAkademik {
 
             System.out.println("Masukkan username : ");
             user = sc.nextLine();
-            System.out.println("Masukkan password : \n");
+            System.out.println("\nMasukkan password : ");
             pass = sc.nextLine();
     
             if (user.equals(userA) && pass.equals(passA)){
