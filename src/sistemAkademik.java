@@ -27,7 +27,8 @@ public class sistemAkademik {
             }
             
         System.out.println("Masukkan jumlah kehadiran siswa dalam 1 semester : ");
-            int presensi = sc.nextInt();
+            double presensi = sc.nextDouble();
+
         System.out.println("\nNilai Tugas Matematika : ");
             nMat = sc.nextDouble();
         System.out.println("Nilai Ulangan Harian Matematika : ");
@@ -89,7 +90,8 @@ public class sistemAkademik {
 
          //cari rata-rata nilai mapel dulu (dibagi 3), lalu kali beban mapel = nilai akhir mapel
         
-        double jmlPresensi = 100/presensi;
+        double jmlPresensi = (presensi/132)*1;
+            System.out.println("Persentase kehadiran siswa dalam 1 semester : "+ (jmlPresensi*100)+" %");
 
         indeksPrestasi = (nAMat+nAIpa+nABin)/(225);
             System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
