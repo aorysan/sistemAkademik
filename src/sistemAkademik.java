@@ -37,7 +37,7 @@ public class sistemAkademik {
                 System.out.println("Silahkan coba lagi dalam 1 menit!");
             }
             
-        System.out.println("Masukkan jumlah kehadiran siswa dalam 1 semester : ");
+        System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester : ");
             double presensi = sc.nextDouble();
 
         System.out.println("\nNilai Tugas Matematika : ");
@@ -49,9 +49,9 @@ public class sistemAkademik {
             nAMat = (nMat + nUHMat + nUMat)/jmlPenilaian*bMat;
         System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
             if (nAMat<75) {
-                System.out.println("Remidi");
+                System.out.println("Remedi");
             } else {
-                System.out.println("Tidak Remidi");
+                System.out.println("Tidak Remedi");
             }
 
         System.out.println("\nNilai Tugas IPA : ");
@@ -63,9 +63,9 @@ public class sistemAkademik {
             nAIpa = (nIpa + nUHIpa + nUIpa)/jmlPenilaian*bIpa;
         System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
             if (nAIpa<75) {
-                System.out.println("Remidi");
+                System.out.println("Remedi");
             } else {
-                System.out.println("Tidak Remidi");
+                System.out.println("Tidak Remedi");
             }
 
         System.out.println("\nNilai Tugas Bahasa Indonesia : ");
@@ -77,9 +77,9 @@ public class sistemAkademik {
             nABin = (nBin + nUHBin + nUBin)/jmlPenilaian*bBin;
         System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
             if (nABin<75) {
-                System.out.println("Remidi");
+                System.out.println("Remedi.");
             } else {
-                System.out.println("Tidak Remidi");
+                System.out.println("Tidak Remedi.");
             }
         
         double jmlPresensi = (presensi/132)*1;
@@ -93,12 +93,12 @@ public class sistemAkademik {
 
         if(indeksPrestasi>=3.0) {
             if(jmlPresensi>=0.7) {
-                System.out.println("\nSiswa memnuhi syarat untuk naik kelas");
+                System.out.println("\nSiswa memnuhi syarat untuk naik kelas.");
             } else {
-                System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas");
+                System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.");
             }
         } else {
-            System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas");
+            System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.");
         }
 
         sc.close();
