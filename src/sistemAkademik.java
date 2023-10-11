@@ -15,15 +15,26 @@ public class sistemAkademik {
             System.out.println("    Selamat Datang di Sistem Akademik    ");
             System.out.println("#########################################\n");
 
-            System.out.println("Masukkan username : ");
-            user = sc.nextLine();
-            System.out.println("\nMasukkan password : ");
-            pass = sc.nextLine();
-    
-            if (user.equals(userA) && pass.equals(passA)){
-                System.out.println("Login berhasil\n");
-            } else {
-                System.out.println("username atau password salah\n");
+            int retry = 5;
+
+            do {
+                System.out.println("Masukkan username : ");
+                user = sc.nextLine();
+                System.out.println("Masukkan password : ");
+                pass = sc.nextLine();
+                
+                if (user.equals("admin") && pass.equals("admin")){
+                    System.out.println("\nAnda berhasil login");
+                    break;
+                } else {
+                    retry--;
+                    System.out.println("Username atau Password yang anda masukkan salah!");
+                    System.out.println("Sisa percobaan anda tersisa "+ retry);
+                }
+            } while (retry != 0);
+
+            if (retry == 0) {
+                System.out.println("Silahkan coba lagi dalam 1 menit!");
             }
             
         System.out.println("Masukkan jumlah kehadiran siswa dalam 1 semester : ");
