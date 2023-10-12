@@ -38,9 +38,9 @@ public class sistemAkademik {
             nAMat = (nMat + nUHMat + nUMat)/jmlPenilaian*bMat;
         System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
             if (nAMat<75) {
-                System.out.println("Remedi");
+                System.out.println("Remedi.");
             } else {
-                System.out.println("Tidak Remedi");
+                System.out.println("Tidak Remedi.");
             }
 
         System.out.println("\nNilai Tugas IPA : ");
@@ -52,9 +52,9 @@ public class sistemAkademik {
             nAIpa = (nIpa + nUHIpa + nUIpa)/jmlPenilaian*bIpa;
         System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
             if (nAIpa<75) {
-                System.out.println("Remedi");
+                System.out.println("Remedi.");
             } else {
-                System.out.println("Tidak Remedi");
+                System.out.println("Tidak Remedi.");
             }
 
         System.out.println("\nNilai Tugas Bahasa Indonesia : ");
