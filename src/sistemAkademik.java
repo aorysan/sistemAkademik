@@ -11,12 +11,13 @@ public class sistemAkademik {
             double jmlPenilaian = 3; //jml penilaian tiap mapel saja (skrng cuma ada tugas, UH, sm ujian)
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
                 
-            System.out.println("\n\n#########################################");
-            System.out.println("    Selamat Datang di Sistem Akademik    ");
-            System.out.println("#########################################\n");
+            System.out.println("\n\n###################################################");
+            System.out.println("    Selamat Datang di Sistem Informasi Akademik    ");
+            System.out.println("###################################################\n");
 
-            int retry = 5;
-
+            int retry = 0;
+            for (;retry == 0;){
+                retry = 5;
             do {
                 System.out.println("Masukkan username : ");
                 user = sc.nextLine();
@@ -39,9 +40,10 @@ public class sistemAkademik {
             } while (retry != 0);
 
             if (retry == 0) {
-                System.out.println("Silahkan coba lagi dalam 1 menit!");
+                System.out.println("Silahkan coba lagi dalam 1 menit!\n\n");
             }
-            
+        }
+
         System.out.println("Selamat datang di Sistem Informasi Akademik SMAN 1 Malang.");
         System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
         double presensi;
