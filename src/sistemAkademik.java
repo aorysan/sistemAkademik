@@ -42,8 +42,17 @@ public class sistemAkademik {
                 System.out.println("Silahkan coba lagi dalam 1 menit!");
             }
             
-        System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester : ");
-            double presensi = sc.nextDouble();
+        System.out.println("Selamat datang di Sistem Informasi Akademik SMAN 1 Malang.");
+        System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
+        double presensi;
+        
+        do {
+           presensi = sc.nextDouble();
+            if (presensi > 132) {
+                System.out.println("\nAnda memasukkan jumlah yang tidak valid.\nSilakan coba lagi.");
+                System.out.println("\nMasukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
+            }
+        } while (presensi > 132);
 
         System.out.println("\nNilai Tugas Matematika : ");
             nMat = sc.nextDouble();
