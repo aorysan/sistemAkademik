@@ -26,11 +26,16 @@ public class sistemAkademik {
                 if (user.equals("admin") && pass.equals("admin")){
                     System.out.println("\nAnda berhasil login");
                     break;
+                } else if (user.equals("admin")){
+                    retry--;
+                    System.out.println("Password yang Anda masukkan salah!");
+                    System.out.println("Sisa percobaan anda tersisa "+ retry);
                 } else {
                     retry--;
-                    System.out.println("Username atau Password yang anda masukkan salah!");
+                    System.out.println("Username yang Anda masukkan salah!");
                     System.out.println("Sisa percobaan anda tersisa "+ retry);
                 }
+
             } while (retry != 0);
 
             if (retry == 0) {
