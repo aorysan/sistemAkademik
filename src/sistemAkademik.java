@@ -55,13 +55,25 @@ public class sistemAkademik {
                 System.out.println("\nMasukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
             }
         } while (presensi > 132);
-
-        System.out.println("\nNilai Tugas Matematika : ");
+        
+        do {
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+            System.out.println("\nNilai Tugas Matematika : ");
             nMat = sc.nextDouble();
-        System.out.println("Nilai Ulangan Harian Matematika : ");
+        } while (nMat < 0 || nMat > 100);
+        
+       do {
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+            System.out.println("\nNilai Ulangan Harian Matematika : ");
             nUHMat = sc.nextDouble();
-        System.out.println("Nilai Ujian Matematika : ");
+       } while (nUHMat < 0 || nUHMat >100);
+        
+       do {
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+            System.out.println("Nilai Ujian Matematika : ");
             nUMat = sc.nextDouble();
+       } while (nUMat < 0 || nUMat > 100);
+        
             nAMat = (nMat + nUHMat + nUMat)/jmlPenilaian*bMat;
         System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
             if (nAMat<75) {
@@ -70,12 +82,24 @@ public class sistemAkademik {
                 System.out.println("Tidak Remedi.");
             }
 
-        System.out.println("\nNilai Tugas IPA : ");
+        do {
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+            System.out.println("\nNilai Tugas IPA : ");
             nIpa = sc.nextDouble();
-        System.out.println("Nilai Ulangan Harian IPA : ");
+        } while (nIpa < 0 || nIpa > 100);
+        
+        do {
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+            System.out.println("Nilai Ulangan Harian IPA : ");
             nUHIpa = sc.nextDouble();  
-        System.out.println("Nilai Ujian IPA");
+        } while (nUHIpa < 0 || nUHIpa > 100);
+        
+        do {
+             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+             System.out.println("Nilai Ujian IPA");
             nUIpa = sc.nextDouble();
+        } while (nUIpa < 0 || nUIpa > 100);
+       
             nAIpa = (nIpa + nUHIpa + nUIpa)/jmlPenilaian*bIpa;
         System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
             if (nAIpa<75) {
@@ -84,12 +108,24 @@ public class sistemAkademik {
                 System.out.println("Tidak Remedi.");
             }
 
-        System.out.println("\nNilai Tugas Bahasa Indonesia : ");
+        do {
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+            System.out.println("\nNilai Tugas Bahasa Indonesia : ");
             nBin = sc.nextDouble();
-        System.out.println("Nilai Ulangan Harian Bahasa Indonesia: ");
+        } while (nBin < 0 || nBin > 100);
+        
+        do {
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+            System.out.println("Nilai Ulangan Harian Bahasa Indonesia: ");
             nUHBin = sc.nextDouble();
-        System.out.println("Nilai Ujian Bahasa Indonesia");
+        } while (nUHBin < 0 || nUHBin > 100);
+        
+        do {
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lgai.");
+            System.out.println("Nilai Ujian Bahasa Indonesia");
             nUBin = sc.nextDouble();
+        } while (nUBin < 0 || nUBin > 100);
+        
             nABin = (nBin + nUHBin + nUBin)/jmlPenilaian*bBin;
         System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
             if (nABin<75) {
