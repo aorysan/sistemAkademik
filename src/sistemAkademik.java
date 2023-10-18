@@ -64,16 +64,22 @@ public class sistemAkademik {
             }
         } while (nMat < 0 || nMat > 100);
         
+        System.out.println("\nNilai Ulangan Harian Matematika : ");
        do {
+            nUHMat = sc.nextDouble();
+            if (nUHMat < 0 || nUHMat > 100) {
             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
             System.out.println("\nNilai Ulangan Harian Matematika : ");
-            nUHMat = sc.nextDouble();
-       } while (nUHMat < 0 || nUHMat >100);
+            }
+        } while (nUHMat < 0 || nUHMat > 100);
         
+        System.out.println("\nNilai Ujian Matematika : ");
        do {
+            nUMat = sc.nextDouble();
+            if (nUMat < 0 || nUMat > 100) {
             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
             System.out.println("Nilai Ujian Matematika : ");
-            nUMat = sc.nextDouble();
+            }
        } while (nUMat < 0 || nUMat > 100);
         
             nAMat = (nMat + nUHMat + nUMat)/jmlPenilaian*bMat;
@@ -84,22 +90,31 @@ public class sistemAkademik {
                 System.out.println("Tidak Remedi.");
             }
 
+        System.out.println("\nNilai Tugas IPA : ");
         do {
+            nIpa = sc.nextDouble();
+            if (nIpa < 0 || nIpa > 100) {
             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
             System.out.println("\nNilai Tugas IPA : ");
-            nIpa = sc.nextDouble();
+            }
         } while (nIpa < 0 || nIpa > 100);
         
+        System.out.println("\nNilai Ulangan Harian IPA : ");
         do {
+            nUHIpa = sc.nextDouble();  
+            if (nUHIpa < 0 || nUHIpa > 100) {
             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
             System.out.println("Nilai Ulangan Harian IPA : ");
-            nUHIpa = sc.nextDouble();  
+            }
         } while (nUHIpa < 0 || nUHIpa > 100);
         
+        System.out.println("\nNilai Ujian IPA : ");
         do {
-             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-             System.out.println("Nilai Ujian IPA");
             nUIpa = sc.nextDouble();
+            if (nUIpa < 0 || nUIpa > 100){
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+            System.out.println("Nilai Ujian IPA");
+            }
         } while (nUIpa < 0 || nUIpa > 100);
        
             nAIpa = (nIpa + nUHIpa + nUIpa)/jmlPenilaian*bIpa;
@@ -110,22 +125,31 @@ public class sistemAkademik {
                 System.out.println("Tidak Remedi.");
             }
 
+        System.out.println("\nNilai Tugas Bahasa Indonesia : ");
         do {
+            nBin = sc.nextDouble();
+            if (nBin < 0 || nBin > 100) {
             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
             System.out.println("\nNilai Tugas Bahasa Indonesia : ");
-            nBin = sc.nextDouble();
+            }
         } while (nBin < 0 || nBin > 100);
         
+        System.out.println("\nNilai Ulangan Harian Bahasa Indonesia : ");
         do {
+            nUHBin = sc.nextDouble();
+            if (nUHBin < 0 || nUHBin > 100) {
             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
             System.out.println("Nilai Ulangan Harian Bahasa Indonesia: ");
-            nUHBin = sc.nextDouble();
+            }
         } while (nUHBin < 0 || nUHBin > 100);
         
+        System.out.println("\nNilai Ujian Bahasa Indonesia : ");
         do {
+            nUBin = sc.nextDouble();
+            if (nUBin < 0 || nUBin > 100){
             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lgai.");
             System.out.println("Nilai Ujian Bahasa Indonesia");
-            nUBin = sc.nextDouble();
+            }
         } while (nUBin < 0 || nUBin > 100);
         
             nABin = (nBin + nUHBin + nUBin)/jmlPenilaian*bBin;
