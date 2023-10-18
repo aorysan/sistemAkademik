@@ -16,8 +16,7 @@ public class sistemAkademik {
             System.out.println("###################################################\n");
 
              int retry = 0;
-            for (;retry == 0;){
-                retry = 5;
+            //for (;retry == 0;){
             do {
                 System.out.println("Masukkan username : ");
                 user = sc.nextLine();
@@ -28,21 +27,21 @@ public class sistemAkademik {
                     System.out.println("\nAnda berhasil login");
                     break;
                 } else if (user.equals("admin")){
-                    retry--;
+                    retry++;
                     System.out.println("Password yang Anda masukkan salah!");
-                    System.out.println("Sisa percobaan anda tersisa "+ retry);
+                    System.out.println("Input invalid sebanyak "+ retry+" kali.");
                 } else {
-                    retry--;
+                    retry++;
                     System.out.println("Username yang Anda masukkan salah!");
-                    System.out.println("Sisa percobaan anda tersisa "+ retry);
+                    System.out.println(("Input invalid sebanyak "+ retry+" kali."));
                 }
-
-            } while (retry != 0);
+                
+            } while (user!=userA && pass!=passA);
 
             if (retry == 0) {
                 System.out.println("Silahkan coba lagi dalam 1 menit!\n\n");
             }
-        } 
+        //} 
 
         System.out.println("Selamat datang di Sistem Informasi Akademik SMAN 1 Malang.");
         System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
