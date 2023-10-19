@@ -8,7 +8,7 @@ public class sistemAkademik {
         Scanner sc = new Scanner(System.in);
             String userA = "admin", passA = "admin", user, pass;
             double nMat, nIpa, nBin, nUHMat, nUHIpa, nUHBin, nUMat, nUIpa, nUBin, bMat = 3, bIpa = 3, bBin = 3;
-            double jmlPenilaian = 3; //jml penilaian tiap mapel saja (skrng cuma ada tugas, UH, sm ujian)
+            double proporsiTugas = 0.4, proporsiUH = 0.25, proporsiU = 0.35; //proporsi setiap tugas/penilaian
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
                 
             System.out.println("\n\n###################################################");
@@ -82,7 +82,7 @@ public class sistemAkademik {
             }
        } while (nUMat < 0 || nUMat > 100);
         
-            nAMat = (nMat + nUHMat + nUMat)/jmlPenilaian*bMat;
+            nAMat = (nMat*proporsiTugas+nUMat*proporsiU+nUHMat*proporsiUH)*bMat;
         System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
             if (nAMat<75) {
                 System.out.println("Remedi.");
@@ -117,7 +117,7 @@ public class sistemAkademik {
             }
         } while (nUIpa < 0 || nUIpa > 100);
        
-            nAIpa = (nIpa + nUHIpa + nUIpa)/jmlPenilaian*bIpa;
+            nAIpa = (nIpa*proporsiTugas+nUIpa*proporsiU+nUHIpa*proporsiUH)*bIpa;
         System.out.println("Hasil Nilai Akhir IPA : " + nAIpa);
             if (nAIpa<75) {
                 System.out.println("Remedi.");
@@ -152,7 +152,7 @@ public class sistemAkademik {
             }
         } while (nUBin < 0 || nUBin > 100);
         
-            nABin = (nBin + nUHBin + nUBin)/jmlPenilaian*bBin;
+            nABin = (nBin*proporsiTugas+nUBin*proporsiU+nUHBin*proporsiUH)*bBin;
         System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
             if (nABin<75) {
                 System.out.println("Remedi.");
