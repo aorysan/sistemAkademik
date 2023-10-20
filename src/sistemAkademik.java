@@ -163,7 +163,7 @@ public class sistemAkademik {
         double jmlPresensi = (presensi/132)*1;
             System.out.println("Persentase kehadiran siswa dalam 1 semester : "+ (jmlPresensi*100)+" %");
 
-        indeksPrestasi = (nAMat+nAIpa+nABin)/(225);
+        indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*25);
             System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
 
         rataRata = (nAMat+nAIpa+nABin)/(3);
