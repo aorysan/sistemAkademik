@@ -1,3 +1,5 @@
+package sistemAkademik;
+
 /**
  * sistemAkademik
  */
@@ -9,7 +11,6 @@ public class sistemAkademik {
             double nMat, nIpa, nBing, nBin, nUHMat, nUHIpa, nUHBing, nUHBin, nUMat, nUIpa, nUBing, nUBin, bMat = 3, bIpa = 3, bBing = 3, bBin = 3;
             double jmlPenilaian = 3;
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin, nABing; //int ganti ke double karena input nilai bisa berupa pecahan
-            char nilaiHuruf;
                 
         System.out.println("Nilai Tugas Matematika : ");
             nMat = sc.nextDouble();

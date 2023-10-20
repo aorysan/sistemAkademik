@@ -15,7 +15,6 @@ public class sistemAkademik {
             System.out.println("    Selamat Datang di Sistem Informasi Akademik    ");
             System.out.println("###################################################\n");
 
-             int retry = 0;
             //for (;retry == 0;){
             do {
                 System.out.println("Masukkan username : ");
@@ -26,29 +25,25 @@ public class sistemAkademik {
                 if (user.equals(userA) && pass.equals(passA)){
                     System.out.println("\nAnda berhasil login");
                     break;
-                } else if (user.equals("admin")){
-                    retry++;
-                    System.out.println("Password yang Anda masukkan salah!");
-                    System.out.println("Input invalid sebanyak "+ retry+" kali.");
                 } else {
-                    retry++;
-                    System.out.println("Username yang Anda masukkan salah!");
-                    System.out.println(("Input invalid sebanyak "+ retry+" kali."));
+                    System.out.println("\nUsername atau Password yang Anda masukkan salah!");
+                    System.out.println("Silahkan mencoba kembali\n");
                 }
                 
             } while (user!=userA && pass!=passA);
 
-            if (retry == 0) {
-                System.out.println("Silahkan coba lagi dalam 1 menit!\n\n");
-            }
         //} 
 
-        System.out.println("Selamat datang di Sistem Informasi Akademik SMAN 1 Malang.");
+        System.out.println("\n\n#############################################################");
+        System.out.println("  Selamat datang di Sistem Informasi Akademik SMAN 1 Malang  ");
+        System.out.println("#############################################################\n");
+
+
         System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
         double presensi;
+        presensi = sc.nextDouble();
         
         do {
-           presensi = sc.nextDouble();
            if (presensi > 132) {
                 System.out.println("\nAnda memasukkan jumlah yang tidak valid.\nSilakan coba lagi.");
                 System.out.println("\nMasukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
@@ -147,7 +142,7 @@ public class sistemAkademik {
         do {
             nUBin = sc.nextDouble();
             if (nUBin < 0 || nUBin > 100){
-            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lgai.");
+            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
             System.out.println("Nilai Ujian Bahasa Indonesia");
             }
         } while (nUBin < 0 || nUBin > 100);
@@ -160,8 +155,8 @@ public class sistemAkademik {
                 System.out.println("Tidak Remedi.");
             }
         
-        double jmlPresensi = (presensi/132)*1;
-            System.out.println("Persentase kehadiran siswa dalam 1 semester : "+ (jmlPresensi*100)+" %");
+        double jmlPresensi = (presensi/132)*100;
+            System.out.printf("Persentase kehadiran siswa dalam 1 semester : %.1f", jmlPresensi);
 
         indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*25);
             System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
