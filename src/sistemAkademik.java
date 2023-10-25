@@ -19,23 +19,29 @@ public class sistemAkademik {
             System.out.println("###################################################\n");
 
             //for (;retry == 0;){
+                boolean loginSuccess = false;
             do {
                 System.out.println("Masukkan username : ");
                 username = sc.nextLine();
                 System.out.println("Masukkan password : ");
                 password = sc.nextLine();
                 
-                for (int i = 0; user.length.(username)) {
-                   if (user[i])
+                for (int i = 0; i < user.length; i++) {
+                   if (user[i].equals(username)&&pass[i].equals(password)){
+                    loginSuccess = true;
                     System.out.println("\nAnda berhasil login");
                     break;
-                } else {
-                    System.out.println("\nUsername atau Password yang Anda masukkan salah!");
-                    System.out.println("Silahkan mencoba kembali\n");
-                }
+                   }
+                    
+                } 
                 
-            } while (user[]!=username && pass!=password);
-
+                if (!loginSuccess){
+                    System.out.println("\nUsername atau Password yang Anda masukkan salah!");
+                    System.out.println("Silahkan coba kembali\n");
+                }
+            }while (!loginSuccess);
+        
+        
         //} 
 
         System.out.println("\n\n#############################################################");
