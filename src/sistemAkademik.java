@@ -6,11 +6,14 @@ public class sistemAkademik {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-            String userA = "admin", passA = "admin", user, pass;
+            String[] user = {"userA", "userB", "userC"};
+            String username;
+            String[] pass = {"passA", "passB", "passC"};
+            String password;
             double nMat, nIpa, nBin, nUHMat, nUHIpa, nUHBin, nUMat, nUIpa, nUBin, bMat = 3, bIpa = 3, bBin = 3;
             double proporsiTugas = 0.4, proporsiUH = 0.25, proporsiU = 0.35; //proporsi setiap tugas/penilaian
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
-                
+            
             System.out.println("\n\n###################################################");
             System.out.println("    Selamat Datang di Sistem Informasi Akademik    ");
             System.out.println("###################################################\n");
@@ -18,11 +21,12 @@ public class sistemAkademik {
             //for (;retry == 0;){
             do {
                 System.out.println("Masukkan username : ");
-                user = sc.nextLine();
+                username = sc.nextLine();
                 System.out.println("Masukkan password : ");
-                pass = sc.nextLine();
+                password = sc.nextLine();
                 
-                if (user.equals(userA) && pass.equals(passA)){
+                for (int i = 0; user.length.(username)) {
+                   if (user[i])
                     System.out.println("\nAnda berhasil login");
                     break;
                 } else {
@@ -30,14 +34,15 @@ public class sistemAkademik {
                     System.out.println("Silahkan mencoba kembali\n");
                 }
                 
-            } while (user!=userA && pass!=passA);
+            } while (user[]!=username && pass!=password);
 
         //} 
 
         System.out.println("\n\n#############################################################");
         System.out.println("  Selamat datang di Sistem Informasi Akademik SMAN 1 Malang  ");
         System.out.println("#############################################################\n");
-
+        
+        
 
         System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
         double presensi;
