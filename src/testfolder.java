@@ -9,7 +9,9 @@ public class testfolder {
         String password;
 
         System.out.println("\n\n###################################################");
-        System.out.println("    Selamat Datang di Sistem Informasi Akademik    ");
+        System.out.println("#                                                 #");
+        System.out.println("#   SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK   #");
+        System.out.println("#                                                 #");
         System.out.println("###################################################\n");
 
         boolean loginSuccess = false;
