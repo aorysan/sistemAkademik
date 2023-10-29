@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class testfolder {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String[] user = {"userA", "userB", "userC"};
-        String[] pass = {"passA", "passB", "passC"};
+        String[] user = {"admin", "userA", "userB"};
+        String pass[] = {"admin", "passA", "passB"};
         String username;
         String password;
 
@@ -15,15 +15,15 @@ public class testfolder {
         boolean loginSuccess = false;
 
         do {
-            System.out.println("Masukkan username : ");
+            System.out.print("Masukkan username : ");
             username = sc.nextLine();
-            System.out.println("Masukkan password : ");
+            System.out.print("Masukkan password : ");
             password = sc.nextLine();
 
             for (int i = 0; i < user.length; i++) {
-                if (user[i].equals(username) && pass[i].equals(password)) {
-                    loginSuccess = true;
+                if (username.equals(user[i]) && pass[i].equals(password)) {
                     System.out.println("\nAnda berhasil login");
+                    loginSuccess = true;
                     break;
                 }
             }
@@ -34,5 +34,6 @@ public class testfolder {
             }
 
         } while (!loginSuccess);
+        sc.close();
     }
 }
