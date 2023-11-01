@@ -8,6 +8,10 @@ public class testfolder {
         String username;
         String password;
 
+        int jmlKelas = 3;
+        int jmlSiswaPerKelas = 5;
+        String[][] dataKelas = new String[3][5];
+
         System.out.println("\n\n###################################################");
         System.out.println("#                                                 #");
         System.out.println("#   SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK   #");
@@ -36,6 +40,23 @@ public class testfolder {
             }
 
         } while (!loginSuccess);
+
+        for (int kelas = 0; kelas < jmlKelas; kelas++){
+            System.out.println("Kelas " + (kelas + 1));
+            for (int siswa = 0; siswa < jmlSiswaPerKelas; siswa++){
+               System.out.println("Nama siswa ke-" + (siswa + 1) + ": ");
+               String nama = sc.next();
+               dataKelas[kelas][siswa] = nama;
+
+            }
+        }
+        for (int kelas = 0; kelas < jmlKelas; kelas++){
+            System.out.println("Kelas " + (kelas + 1));
+            for (int siswa = 0; siswa < jmlSiswaPerKelas; siswa++){
+                String nama = dataKelas[kelas][siswa];
+                System.out.println("Nama siswa ke- " + (siswa + 1) + nama);
+            }
+        }
         sc.close();
     }
 }
