@@ -31,36 +31,36 @@ public class sistemAkademik {
             // data murid
             
 
-        // System.out.println("\n\n#######################################################");
-        // System.out.println("#                                                     #");
-        // System.out.println("#     SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK     #");
-        // System.out.println("#                                                     #");
-        // System.out.println("#######################################################\n");
+        System.out.println("\n\n#######################################################");
+        System.out.println("#                                                     #");
+        System.out.println("#     SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK     #");
+        System.out.println("#                                                     #");
+        System.out.println("#######################################################\n");
 
-        // boolean loginSuccess = false;
+        boolean loginSuccess = false;
 
-        // do {
-        //     System.out.print("Masukkan username : ");
-        //     username = sc.nextLine();
-        //     System.out.print("Masukkan password : ");
-        //     password = sc.nextLine();
+        do {
+            System.out.print("Masukkan username : ");
+            username = sc.nextLine();
+            System.out.print("Masukkan password : ");
+            password = sc.nextLine();
 
-        //     for (int i = 0; i < user.length; i++) {
-        //         if (username.equals(user[i]) && pass[i].equals(password)) {
-        //             System.out.println("\nAnda berhasil login");
-        //             loginSuccess = true;
-        //             break;
-        //         }
-        //     }
-        //     if (!loginSuccess) {
-        //         System.out.println("\nUsername atau Password yang Anda masukkan salah!");
-        //         System.out.println("Silahkan mencoba kembali\n");
-        //     }
-        // } while (!loginSuccess);
+            for (int i = 0; i < user.length; i++) {
+                if (username.equals(user[i]) && pass[i].equals(password)) {
+                    System.out.println("\nAnda berhasil login");
+                    loginSuccess = true;
+                    break;
+                }
+            }
+            if (!loginSuccess) {
+                System.out.println("\nUsername atau Password yang Anda masukkan salah!");
+                System.out.println("Silahkan mencoba kembali\n");
+            }
+        } while (!loginSuccess);
 
-        // System.out.println("\n\n###################################################################");
-        // System.out.println("     Selamat datang di Sistem Informasi Akademik SMAN x Malang     ");
-        // System.out.println("###################################################################\n");
+        System.out.println("\n\n###################################################################");
+        System.out.println("     Selamat datang di Sistem Informasi Akademik SMAN x Malang     ");
+        System.out.println("###################################################################\n");
 
         System.out.println("Berikut kelas yang ada di sekolah ini :");
         System.out.println("1A    2A    3A\n\n1B    2B    3B\n\n1C    2C    3C");
