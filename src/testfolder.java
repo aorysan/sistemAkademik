@@ -1,3 +1,5 @@
+package sistemAkademik.src;
+
 import java.util.Scanner;
 
 public class testfolder {
