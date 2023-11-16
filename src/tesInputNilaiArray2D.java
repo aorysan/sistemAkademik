@@ -28,14 +28,14 @@ public class tesInputNilaiArray2D {
             i++;
         } while (i<nilai.length);
 
-        for (int j = 0; j < nilai.length; j++) {
+        for (int j = 0; j < nilai[0].length; j++) {
             jml_nilaiTugas = nilai[0][j]+jml_nilaiTugas;
         }
         rata_nilaiTugas =  jml_nilaiTugas/nilai[0].length;
         System.out.println("Rata-rata nilai tugas adalah "+rata_nilaiTugas);
 
-        for (int j = 0; j < nilai.length; j++) {
-            jml_nilaiUH = nilai[0][j]+jml_nilaiUH;
+        for (int j = 0; j < nilai[1].length; j++) {
+            jml_nilaiUH = nilai[1][j]+jml_nilaiUH;
         }
         rata_nilaiUH =  jml_nilaiUH/nilai[0].length;
         System.out.println("Rata-rata nilai UH adalah "+rata_nilaiUH);
