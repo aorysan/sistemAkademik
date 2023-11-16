@@ -1,5 +1,3 @@
-package sistemAkademik.src;
-
 /**
  * sistemAkademik
  */
@@ -76,25 +74,11 @@ public class sistemAkademik {
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                case "1":
-                nama = murid[0][0];
-                System.out.println(murid[0][0]);
-                break;
-                case "2":
-                nama = murid[0][1];
-                System.out.println(murid[0][1]);
-                break;
-                case "3":
-                nama = murid[0][2];
-                System.out.println(murid[0][2]);
-                break;
-                case "4":
-                nama = murid[0][3];
-                System.out.println(murid[0][3]);
-                break;
-                case "5":
-                nama = murid[0][4];
-                System.out.println(murid[0][4]);
+                for (int i = 0; i < murid[0].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[0][i])) {
+                        System.out.print(murid[0][i]);
+                    }
+                }
                 break;
             case "1B":
             for (int i = 0; i < murid[1].length; i++) {
@@ -102,25 +86,11 @@ public class sistemAkademik {
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                case "6":
-                nama = murid[1][0];
-                System.out.println(murid[1][0]);
-                break;
-                case "7":
-                nama = murid[1][1];
-                System.out.println(murid[1][1]);
-                break;
-                case "8":
-                nama = murid[1][4];
-                System.out.println(murid[1][2]);
-                break;
-                case "9":
-                nama = murid[1][4];
-                System.out.println(murid[1][3]);
-                break;
-                case "10":
-                nama = murid[1][4];
-                System.out.println(murid[1][4]);
+                for (int i = 0; i < murid[1].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[1][i])) {
+                        System.out.print(murid[1][i]);
+                    }
+                }
                 break;
             case "1C":
             for (int i = 0; i < murid[2].length; i++) {
@@ -128,25 +98,11 @@ public class sistemAkademik {
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                case "11":
-                nama = murid[2][0];
-                System.out.println(murid[2][0]);
-                break;
-                case "12":
-                nama = murid[2][1];
-                System.out.println(murid[2][1]);
-                break;
-                case "13":
-                nama = murid[2][2];
-                System.out.println(murid[2][2]);
-                break;
-                case "14":
-                nama = murid[2][3];
-                System.out.println(murid[2][3]);
-                break;
-                case "15":
-                nama = murid[2][4];
-                System.out.println(murid[2][4]);
+                for (int i = 0; i < murid[2].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[2][i])) {
+                        System.out.print(murid[2][i]);
+                    }
+                }
                 break;
             case "2A":
             for (int i = 0; i < murid[3].length; i++) {
@@ -154,25 +110,11 @@ public class sistemAkademik {
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                case "16":
-                nama = murid[3][0];
-                System.out.println(murid[3][0]);
-                break;
-                case "17":
-                nama = murid[3][1];
-                System.out.println(murid[3][1]);
-                break;
-                case "18":
-                nama = murid[3][2];
-                System.out.println(murid[3][2]);
-                break;
-                case "19":
-                nama = murid[3][3];
-                System.out.println(murid[3][3]);
-                break;
-                case "20":
-                nama = murid[3][4];
-                System.out.println(murid[3][4]);
+                for (int i = 0; i < murid[3].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[3][i])) {
+                        System.out.print(murid[3][i]);
+                    }
+                }
                 break;
             case "2B":
             for (int i = 0; i < murid[4].length; i++) {
@@ -180,25 +122,11 @@ public class sistemAkademik {
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                case "21":
-                nama = murid[4][0];
-                System.out.println(murid[4][0]);
-                break;
-                case "22":
-                nama = murid[4][1];
-                System.out.println(murid[4][1]);
-                break;
-                case "23":
-                nama = murid[4][2];
-                System.out.println(murid[4][2]);
-                break;
-                case "24":
-                nama = murid[4][3];
-                System.out.println(murid[4][3]);
-                break;
-                case "25":
-                nama = murid[4][4];
-                System.out.println(murid[4][4]);
+                for (int i = 0; i < murid[4].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[4][i])) {
+                        System.out.print(murid[4][i]);
+                    }
+                }
                 break;
             case "2C":
             for (int i = 0; i < murid[5].length; i++) {
@@ -206,104 +134,48 @@ public class sistemAkademik {
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                case "26":
-                nama = murid[5][0];
-                System.out.println(murid[5][0]);
-                break;
-                case "27":
-                nama = murid[5][1];
-                System.out.println(murid[5][1]);
-                break;
-                case "28":
-                nama = murid[5][2];
-                System.out.println(murid[5][2]);
-                break;
-                case "29":
-                nama = murid[5][3];
-                System.out.println(murid[5][3]);
-                break;
-                case "30":
-                nama = murid[5][4];
-                System.out.println(murid[5][4]);
+                for (int i = 0; i < murid[5].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[5][i])) {
+                        System.out.print(murid[5][i]);
+                    }
+                }
                 break;
                 case "3A":
-                for (int i = 0; i < murid[0].length; i++) {
+                for (int i = 0; i < murid[6].length; i++) {
                     System.out.println(murid[6][i]);
                 }
                 System.out.print("Silahkan pilih siswa : ");
                 nama = sc.nextLine();
-                    case "31":
-                    nama = murid[6][0];
-                    System.out.println(murid[6][0]);
-                    break;
-                    case "32":
-                    nama = murid[6][1];
-                    System.out.println(murid[6][1]);
-                    break;
-                    case "33":
-                    nama = murid[6][2];
-                    System.out.println(murid[6][2]);
-                    break;
-                    case "34":
-                    nama = murid[6][3];
-                    System.out.println(murid[6][3]);
-                    break;
-                    case "35":
-                    nama = murid[6][4];
-                    System.out.println(murid[6][4]);
-                    break;
+                    for (int i = 0; i < murid[6].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[6][i])) {
+                        System.out.print(murid[6][i]);
+                    }
+                }
+                break;
                 case "3B":
-                for (int i = 0; i < murid[0].length; i++) {
+                for (int i = 0; i < murid[7].length; i++) {
                     System.out.println(murid[7][i]);
                 }
                 System.out.print("Silahkan pilih siswa : ");
                 nama = sc.nextLine();
-                    case "36":
-                    nama = murid[7][0];
-                    System.out.println(murid[7][0]);
-                    break;
-                    case "37":
-                    nama = murid[7][1];
-                    System.out.println(murid[7][1]);
-                    break;
-                    case "38":
-                    nama = murid[7][2];
-                    System.out.println(murid[7][2]);
-                    break;
-                    case "39":
-                    nama = murid[7][3];
-                    System.out.println(murid[7][3]);
-                    break;
-                    case "40":
-                    nama = murid[7][4];
-                    System.out.println(murid[7][4]);
-                    break;
+                    for (int i = 0; i < murid[7].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[7][i])) {
+                        System.out.print(murid[7][i]);
+                    }
+                }
+                break;
                 case "3C":
-                for (int i = 0; i < murid[0].length; i++) {
+                for (int i = 0; i < murid[8].length; i++) {
                     System.out.println(murid[8][i]);
                 }
                 System.out.print("Silahkan pilih siswa : ");
                 nama = sc.nextLine();
-                    case "41":
-                    nama = murid[8][0];
-                    System.out.println(murid[8][0]);
-                    break;
-                    case "42":
-                    nama = murid[8][1];
-                    System.out.println(murid[8][1]);
-                    break;
-                    case "43":
-                    nama = murid[8][2];
-                    System.out.println(murid[8][2]);
-                    break;
-                    case "44":
-                    nama = murid[8][3];
-                    System.out.println(murid[8][3]);
-                    break;
-                    case "45":
-                    nama = murid[8][4];
-                    System.out.println(murid[8][4]);
-                    break;
+                    for (int i = 0; i < murid[8].length; i++) {
+                    if (nama.equalsIgnoreCase(murid[8][i])) {
+                        System.out.print(murid[8][i]);
+                    }
+                }
+                break;
         }
 
         System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
@@ -510,6 +382,6 @@ public class sistemAkademik {
         } else {
             System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.");
         }
-    
+    sc.close();
     }
 }
