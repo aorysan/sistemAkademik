@@ -30,7 +30,6 @@ public class sistemAkademik {
             };
             // data murid
             
-
         System.out.println("\n\n#######################################################");
         System.out.println("#                                                     #");
         System.out.println("#     SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK     #");

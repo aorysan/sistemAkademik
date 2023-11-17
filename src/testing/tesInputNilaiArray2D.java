@@ -1,4 +1,4 @@
-package sistemAkademik.src;
+package testing;
 import java.util.Scanner;
 public class tesInputNilaiArray2D {
     public static void main(String[] args) {
