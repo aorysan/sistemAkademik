@@ -1,3 +1,5 @@
+package sistemAkademik.src;
+
 /**
  * sistemAkademik
  */
@@ -359,7 +361,8 @@ public class sistemAkademik {
                 System.out.println("Tidak Remedi.\n");
             }
 
-            
+// PENCETAK RAPOR
+    // VAR MASUK: nama, presensi, nAMat, nAIpa, nABin, bMat, bIpa, bBin, nAMat, nAIpa, nABin
         System.out.println("Siswa "+nama);
         
         double jmlPresensi = (presensi/132)*100;
@@ -371,7 +374,8 @@ public class sistemAkademik {
         rataRata = (nAMat+nAIpa+nABin)/(4);
             System.out.println("Nilai rata-rata siswa : " + rataRata);
 
-
+    //  MESIN DECISION KELULUSAN
+        // VAR MASUK: indeksPrestasi, jmlPresensi
         if(indeksPrestasi>=4.0) {
             if(jmlPresensi>=0.7) {
                 System.out.println("\nSiswa memnuhi syarat untuk naik kelas.");
