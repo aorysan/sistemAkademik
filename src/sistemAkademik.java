@@ -1,11 +1,7 @@
-package sistemAkademik.src;
-
-/**
- * sistemAkademik
- */
 import java.util.Scanner;
 public class sistemAkademik {
 
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
             double nUMat, nUIpa, nUBin, bMat = 4, bIpa = 4, bBin = 4;
@@ -376,8 +372,11 @@ public class sistemAkademik {
 
     //  MESIN DECISION KELULUSAN
         // VAR MASUK: indeksPrestasi, jmlPresensi
-        if(indeksPrestasi>=4.0) {
-            if(jmlPresensi>=0.7) {
+        kelulusan(indeksPrestasi, presensi);
+    }
+        static void kelulusan(double indeksPrestasi, double jmlPresensi){
+        if(indeksPrestasi >= 4.0) {
+            if(jmlPresensi >= 0.7) {
                 System.out.println("\nSiswa memnuhi syarat untuk naik kelas.");
             } else {
                 System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.");
@@ -388,3 +387,4 @@ public class sistemAkademik {
     sc.close();
     }
 }
+
