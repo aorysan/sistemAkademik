@@ -175,6 +175,7 @@ public class sistemAkademik {
                 break;
         }
 
+        // PRESENSI
         System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
         double presensi;
         presensi = sc.nextDouble();
@@ -375,7 +376,7 @@ public class sistemAkademik {
         kelulusan(indeksPrestasi, presensi);
     }
         static void kelulusan(double indeksPrestasi, double jmlPresensi){
-        if(indeksPrestasi >= 4.0) {
+        if(indeksPrestasi >= 3.0) {
             if(jmlPresensi >= 0.7) {
                 System.out.println("\nSiswa memnuhi syarat untuk naik kelas.");
             } else {
