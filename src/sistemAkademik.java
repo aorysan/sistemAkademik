@@ -7,7 +7,7 @@ public class sistemAkademik {
             double nUMat, nUIpa, nUBin, bMat = 4, bIpa = 4, bBin = 4;
             double[] nMat = new double[4], nUHMat = new double[4], nIpa = new double[4], nUHIpa = new double[4], nBin = new double[4], nUHBin = new double[4];
             double rata_nMat, rata_nUHMat, rata_nIpa, rata_nUHIpa, rata_nBin, rata_nUHBin;
-            double proporsiTugas = 0.4, proporsiUH = 0.45, proporsiU = 0.45; //proporsi setiap tugas/penilaian
+            double proporsiTugas = 0.3, proporsiUH = 0.35, proporsiU = 0.35; //proporsi setiap tugas/penilaian
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
             String[] user = {"admin", "userA", "userB"};
             String pass[] = {"admin", "passA", "passB"};
@@ -228,14 +228,17 @@ public class sistemAkademik {
             j = nMat[i] +j;
         }
         rata_nMat = j/nMat.length;
+        
 
         j=0;
         for(i=0; i<4; i++){
             j= nUHMat[i]+j;
         }
         rata_nUHMat= j/nUHMat.length;
+        
 
-            nAMat = (rata_nMat*proporsiTugas+nUMat*proporsiU+rata_nUHMat*proporsiUH)*bMat;
+        nAMat = (rata_nMat*proporsiTugas+nUMat*proporsiU+rata_nUHMat*proporsiUH)*bMat;
+
         System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
             if (nAMat<75) {
                 System.out.println("Remedi.");
@@ -284,13 +287,15 @@ public class sistemAkademik {
         for(i=0; i<nIpa.length; i++){
             j = nIpa[i] +j;
         }
-        rata_nIpa = j/4;
+        rata_nIpa = j/nIpa.length;
+        
 
         j=0;
         for(i=0; i<4; i++){
             j= nUHIpa[i]+j;
         }
         rata_nUHIpa= j/nUHIpa.length;
+        
 
             nAIpa = (rata_nIpa*proporsiTugas+nUIpa*proporsiU+rata_nUHIpa*proporsiUH)*bIpa;
         System.out.println("Hasil Nilai Akhir Matematika : " + nAIpa);
@@ -342,12 +347,14 @@ public class sistemAkademik {
             j = nBin[i] +j;
         }
         rata_nBin = j/4;
+        
 
         j=0;
         for(i=0; i<4; i++){
             j= nUHBin[i]+j;
         }
         rata_nUHBin= j/nUHBin.length;
+        
 
             nABin = (rata_nBin*proporsiTugas+nUBin*proporsiU+rata_nUHBin*proporsiUH)*bBin;
         System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
@@ -362,9 +369,11 @@ public class sistemAkademik {
         System.out.println("Siswa "+nama);
         
         double jmlPresensi = (presensi/132)*100;
-            System.out.printf("Persentase kehadiran siswa dalam 1 semester : %.1f", jmlPresensi);
+            System.out.printf("Persentase kehadiran siswa dalam 1 semester : %.1f\n", jmlPresensi);
 
-        indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*45);
+        indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*25);
+        // System.out.println((nAMat+nAIpa+nABin));
+        // System.out.println((bMat+bIpa+bBin)); untuk tes
             System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
 
         rataRata = (nAMat+nAIpa+nABin)/(4);
@@ -375,7 +384,7 @@ public class sistemAkademik {
         kelulusan(indeksPrestasi, presensi);
     }
         static void kelulusan(double indeksPrestasi, double jmlPresensi){
-        if(indeksPrestasi >= 4.0) {
+        if(indeksPrestasi >= 2.5) {
             if(jmlPresensi >= 0.7) {
                 System.out.println("\nSiswa memnuhi syarat untuk naik kelas.");
             } else {
