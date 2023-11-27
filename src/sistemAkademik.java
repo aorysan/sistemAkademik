@@ -186,7 +186,7 @@ public class sistemAkademik {
                 System.out.println("\nMasukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
             }
         } while (presensi > 132);
-
+        
         //INPUT NILAI DENGAN ARRAY - MATEMATIKA
         int i = 0;
         do {
