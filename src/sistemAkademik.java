@@ -11,9 +11,8 @@ public class sistemAkademik {
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
             String[] user = {"admin", "userA", "userB"};
             String pass[] = {"admin", "passA", "passB"};
-            String username;
-            String password;
-            String kelas;
+            String username, password, menu, biodata, pilihKelas;
+            String kelas[] = {"1A", "1B", "1C", "2A", "2B", "2C", "3A", "3B", "3C",};
             String nama = "";
             String murid[][] = {
                 {"1", "2", "3", "4", "5"},
@@ -59,13 +58,20 @@ public class sistemAkademik {
         System.out.println("     Selamat datang di Sistem Informasi Akademik SMAN x Malang     ");
         System.out.println("###################################################################\n");
 
-        System.out.println("Berikut kelas yang ada di sekolah ini :");
-        System.out.println("1A    2A    3A\n\n1B    2B    3B\n\n1C    2C    3C");
-        System.out.print("Silahkan pilih kelas : ");
-        kelas = sc.nextLine();
+        System.out.println("Biodata\nKelas");
+        System.out.print("Pilih menu Anda : ");
+        menu = sc.next();
+        if (menu.equalsIgnoreCase("kelas")) {
+            Kelas(kelas);
+        } else if (menu.equalsIgnoreCase("Biodata")) {
+            Biodata();
+        }
 
-        switch (kelas) {
-            case "1A":
+        System.out.print("Silahkan pilih kelas : ");
+        pilihKelas = sc.next();
+        
+        switch (menu) {
+            case "biodata":
             for (int i = 0; i < murid[0].length; i++) {
                 System.out.println(murid[0][i]);
             }
@@ -77,13 +83,13 @@ public class sistemAkademik {
                     }
                 }
                 break;
-            case "1B":
+                case "1B":
             for (int i = 0; i < murid[1].length; i++) {
                 System.out.println(murid[1][i]);
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                for (int i = 0; i < murid[1].length; i++) {
+            for (int i = 0; i < murid[1].length; i++) {
                     if (nama.equalsIgnoreCase(murid[1][i])) {
                         System.out.print(murid[1][i]);
                     }
@@ -101,15 +107,15 @@ public class sistemAkademik {
                     }
                 }
                 break;
-            case "2A":
+                case "2A":
             for (int i = 0; i < murid[3].length; i++) {
                 System.out.println(murid[3][i]);
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                for (int i = 0; i < murid[3].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[3][i])) {
-                        System.out.print(murid[3][i]);
+            for (int i = 0; i < murid[3].length; i++) {
+                if (nama.equalsIgnoreCase(murid[3][i])) {
+                    System.out.print(murid[3][i]);
                     }
                 }
                 break;
@@ -125,13 +131,13 @@ public class sistemAkademik {
                     }
                 }
                 break;
-            case "2C":
-            for (int i = 0; i < murid[5].length; i++) {
-                System.out.println(murid[5][i]);
+                case "2C":
+                for (int i = 0; i < murid[5].length; i++) {
+                    System.out.println(murid[5][i]);
             }
             System.out.print("Silahkan pilih siswa : ");
             nama = sc.nextLine();
-                for (int i = 0; i < murid[5].length; i++) {
+            for (int i = 0; i < murid[5].length; i++) {
                     if (nama.equalsIgnoreCase(murid[5][i])) {
                         System.out.print(murid[5][i]);
                     }
@@ -143,7 +149,7 @@ public class sistemAkademik {
                 }
                 System.out.print("Silahkan pilih siswa : ");
                 nama = sc.nextLine();
-                    for (int i = 0; i < murid[6].length; i++) {
+                for (int i = 0; i < murid[6].length; i++) {
                     if (nama.equalsIgnoreCase(murid[6][i])) {
                         System.out.print(murid[6][i]);
                     }
@@ -156,7 +162,7 @@ public class sistemAkademik {
                 System.out.print("Silahkan pilih siswa : ");
                 nama = sc.nextLine();
                     for (int i = 0; i < murid[7].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[7][i])) {
+                        if (nama.equalsIgnoreCase(murid[7][i])) {
                         System.out.print(murid[7][i]);
                     }
                 }
@@ -167,23 +173,23 @@ public class sistemAkademik {
                 }
                 System.out.print("Silahkan pilih siswa : ");
                 nama = sc.nextLine();
-                    for (int i = 0; i < murid[8].length; i++) {
+                for (int i = 0; i < murid[8].length; i++) {
                     if (nama.equalsIgnoreCase(murid[8][i])) {
                         System.out.print(murid[8][i]);
                     }
                 }
                 break;
-        }
-
-        // PRESENSI
-        System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
-        double presensi;
-        presensi = sc.nextDouble();
-        
-        do {
-           if (presensi > 132) {
-                System.out.println("\nAnda memasukkan jumlah yang tidak valid.\nSilakan coba lagi.");
-                System.out.println("\nMasukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
+            }
+            
+            // PRESENSI
+            System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
+            double presensi;
+            presensi = sc.nextDouble();
+            
+            do {
+                if (presensi > 132) {
+                    System.out.println("\nAnda memasukkan jumlah yang tidak valid.\nSilakan coba lagi.");
+                    System.out.println("\nMasukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
             }
         } while (presensi > 132);
         
@@ -194,13 +200,13 @@ public class sistemAkademik {
             do {
                 nMat[i] = sc.nextDouble();
                 if (nMat[i] < 0 || nMat[i] > 100) {
-                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
                 System.out.println("\nNilai Tugas Matematika \n Tugas ke-"+(i+1)+" : ");
-                }
-            } while (nMat[i] < 0 || nMat[i] > 100);
-            i++;
+            }
+        } while (nMat[i] < 0 || nMat[i] > 100);
+        i++;
         } while (i<4);
-
+        
         i = 0;
         do {
             System.out.println("\nNilai Ulangan Harian Matematika \n UH ke-"+(i+1)+" : ");
@@ -215,7 +221,7 @@ public class sistemAkademik {
         } while (i<nUHMat.length);
         
         System.out.println("\nNilai Ujian Matematika : ");
-       do {
+        do {
             nUMat = sc.nextDouble();
             if (nUMat < 0 || nUMat > 100) {
             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
@@ -230,31 +236,31 @@ public class sistemAkademik {
         }
         rata_nMat = j/nMat.length;
         
-
+        
         j=0;
         for(i=0; i<4; i++){
             j= nUHMat[i]+j;
         }
         rata_nUHMat= j/nUHMat.length;
         
-
+        
         nAMat = (rata_nMat*proporsiTugas+nUMat*proporsiU+rata_nUHMat*proporsiUH)*bMat;
-
+        
         System.out.println("Hasil Nilai Akhir Matematika : " + nAMat);
-            if (nAMat<75) {
-                System.out.println("Remedi.");
+        if (nAMat<75) {
+            System.out.println("Remedi.");
             } else {
                 System.out.println("Tidak Remedi.\n");
             }
-        
-        // INPUT NILAI ARRAY - IPA
-        i = 0;
+            
+            // INPUT NILAI ARRAY - IPA
+            i = 0;
         do {
             System.out.println("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
             do {
                 nIpa[i] = sc.nextDouble();
                 if (nIpa[i] < 0 || nIpa[i] > 100) {
-                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
                 System.out.println("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
                 }
             } while (nIpa[i] < 0 || nIpa[i] > 100);
@@ -275,13 +281,13 @@ public class sistemAkademik {
         } while (i<nUHIpa.length);
         
         System.out.println("\nNilai Ujian IPA : ");
-       do {
+        do {
             nUIpa = sc.nextDouble();
             if (nUIpa < 0 || nUIpa > 100) {
-            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-            System.out.println("Nilai Ujian IPA : ");
+                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                System.out.println("Nilai Ujian IPA : ");
             }
-       } while (nUIpa < 0 || nUIpa > 100);
+        } while (nUIpa < 0 || nUIpa > 100);
         
         //rata-rata nilai ipa dalam array
         j=0;
@@ -290,22 +296,22 @@ public class sistemAkademik {
         }
         rata_nIpa = j/nIpa.length;
         
-
+        
         j=0;
         for(i=0; i<4; i++){
             j= nUHIpa[i]+j;
         }
         rata_nUHIpa= j/nUHIpa.length;
         
-
-            nAIpa = (rata_nIpa*proporsiTugas+nUIpa*proporsiU+rata_nUHIpa*proporsiUH)*bIpa;
+        
+        nAIpa = (rata_nIpa*proporsiTugas+nUIpa*proporsiU+rata_nUHIpa*proporsiUH)*bIpa;
         System.out.println("Hasil Nilai Akhir Matematika : " + nAIpa);
-            if (nAIpa<75) {
-                System.out.println("Remedi.");
-            } else {
-                System.out.println("Tidak Remedi.\n");
-            }
-
+        if (nAIpa<75) {
+            System.out.println("Remedi.");
+        } else {
+            System.out.println("Tidak Remedi.\n");
+        }
+        
         // INPUT NILAI ARRAY - BIN
         i = 0;
         do {
@@ -313,34 +319,34 @@ public class sistemAkademik {
             do {
                 nBin[i] = sc.nextDouble();
                 if (nBin[i] < 0 || nBin[i] > 100) {
-                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                System.out.println("\nNilai Tugas Bahasa Indonesia \n Tugas ke-"+(i+1)+" : ");
+                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                    System.out.println("\nNilai Tugas Bahasa Indonesia \n Tugas ke-"+(i+1)+" : ");
                 }
             } while (nBin[i] < 0 || nBin[i] > 100);
             i++;
         } while (i<nBin.length);
-
+        
         i = 0;
         do {
             System.out.println("\nNilai Ulangan Harian Bahasa Indonesia \n UH ke-"+(i+1)+" : ");
             do {
                 nUHBin[i] = sc.nextDouble();
                 if (nUHBin[i] < 0 || nUHBin[i] > 100) {
-                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                System.out.println("\nNilai Ulangan Harian Bahasa Indonesia \n UH ke-"+(i+1)+" : ");
+                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                    System.out.println("\nNilai Ulangan Harian Bahasa Indonesia \n UH ke-"+(i+1)+" : ");
                 }
             } while (nUHBin[i] < 0 || nUHBin[i] > 100);
             i++;
         } while (i<nUHBin.length);
         
         System.out.println("\nNilai Ujian Bahasa Indonesia : ");
-       do {
+        do {
             nUBin = sc.nextDouble();
             if (nUBin < 0 || nUBin > 100) {
-            System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-            System.out.println("Nilai Ujian Bahasa Indonesia : ");
+                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                System.out.println("Nilai Ujian Bahasa Indonesia : ");
             }
-       } while (nUBin < 0 || nUBin > 100);
+        } while (nUBin < 0 || nUBin > 100);
         
         //rata-rata nilai BIN dalam array
         j=0;
@@ -349,42 +355,41 @@ public class sistemAkademik {
         }
         rata_nBin = j/4;
         
-
+        
         j=0;
         for(i=0; i<4; i++){
             j= nUHBin[i]+j;
         }
         rata_nUHBin= j/nUHBin.length;
         
-
-            nABin = (rata_nBin*proporsiTugas+nUBin*proporsiU+rata_nUHBin*proporsiUH)*bBin;
+        nABin = (rata_nBin*proporsiTugas+nUBin*proporsiU+rata_nUHBin*proporsiUH)*bBin;
         System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
-            if (nABin<75) {
-                System.out.println("Remedi.");
-            } else {
-                System.out.println("Tidak Remedi.\n");
-            }
+        if (nABin<75) {
+            System.out.println("Remedi.");
+        } else {
+            System.out.println("Tidak Remedi.\n");
+        }
 
-// PENCETAK RAPOR
+        // PENCETAK RAPOR
     // VAR MASUK: nama, presensi, nAMat, nAIpa, nABin, bMat, bIpa, bBin, nAMat, nAIpa, nABin
-        System.out.println("Siswa "+nama);
-        
-        double jmlPresensi = (presensi/132)*100;
-            System.out.printf("Persentase kehadiran siswa dalam 1 semester : %.1f\n", jmlPresensi);
-
-        indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*25);
-        // System.out.println((nAMat+nAIpa+nABin));
-        // System.out.println((bMat+bIpa+bBin)); untuk tes
-            System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
-
+    System.out.println("Siswa "+nama);
+    
+    double jmlPresensi = (presensi/132)*100;
+    System.out.printf("Persentase kehadiran siswa dalam 1 semester : %.1f\n", jmlPresensi);
+    
+    indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*25);
+    // System.out.println((nAMat+nAIpa+nABin));
+    // System.out.println((bMat+bIpa+bBin)); untuk tes
+    System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
+    
         rataRata = (nAMat+nAIpa+nABin)/(4);
-            System.out.println("Nilai rata-rata siswa : " + rataRata);
-
-    //  MESIN DECISION KELULUSAN
+        System.out.println("Nilai rata-rata siswa : " + rataRata);
+        
+        //  MESIN DECISION KELULUSAN
         // VAR MASUK: indeksPrestasi, jmlPresensi
         kelulusan(indeksPrestasi, presensi);
     }
-        static void kelulusan(double indeksPrestasi, double jmlPresensi){
+    static void kelulusan(double indeksPrestasi, double jmlPresensi){
         if(indeksPrestasi >= 2.5) {
             if(jmlPresensi >= 0.7) {
                 System.out.println("\nSiswa memnuhi syarat untuk naik kelas.");
@@ -394,7 +399,15 @@ public class sistemAkademik {
         } else {
             System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.");
         }
-    sc.close();
     }
+    static void Kelas (String kelas[]) {
+        System.out.println("Berikut kelas yang ada di sekolah ini :");
+        for (int i = 0; i < kelas.length; i++) {
+            System.out.print(kelas[i] + "\t");
+        }
+        System.out.println();
+    }
+
+    public static void Biodata(String )
 }
 
