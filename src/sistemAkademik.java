@@ -11,7 +11,7 @@ public class sistemAkademik {
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
             String[] user = {"admin", "userA", "userB"};
             String pass[] = {"admin", "passA", "passB"};
-            String username, password, menu, biodata, pilihKelas;
+            String username, password, menu, biodata, pilihKelas = "";
             String kelas[] = {"1A", "1B", "1C", "2A", "2B", "2C", "3A", "3B", "3C",};
             String nama = "";
             String murid[][] = {
@@ -61,123 +61,12 @@ public class sistemAkademik {
         System.out.println("Biodata\nKelas");
         System.out.print("Pilih menu Anda : ");
         menu = sc.next();
-        if (menu.equalsIgnoreCase("kelas")) {
-            Kelas(kelas);
-        } else if (menu.equalsIgnoreCase("Biodata")) {
-            Biodata();
-        }
 
-        System.out.print("Silahkan pilih kelas : ");
-        pilihKelas = sc.next();
-        
+        //Hasil setelah user memilih menu
         switch (menu) {
-            case "biodata":
-            for (int i = 0; i < murid[0].length; i++) {
-                System.out.println(murid[0][i]);
-            }
-            System.out.print("Silahkan pilih siswa : ");
-            nama = sc.nextLine();
-                for (int i = 0; i < murid[0].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[0][i])) {
-                        System.out.print(murid[0][i]);
-                    }
-                }
-                break;
-                case "1B":
-            for (int i = 0; i < murid[1].length; i++) {
-                System.out.println(murid[1][i]);
-            }
-            System.out.print("Silahkan pilih siswa : ");
-            nama = sc.nextLine();
-            for (int i = 0; i < murid[1].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[1][i])) {
-                        System.out.print(murid[1][i]);
-                    }
-                }
-                break;
-            case "1C":
-            for (int i = 0; i < murid[2].length; i++) {
-                System.out.println(murid[2][i]);
-            }
-            System.out.print("Silahkan pilih siswa : ");
-            nama = sc.nextLine();
-                for (int i = 0; i < murid[2].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[2][i])) {
-                        System.out.print(murid[2][i]);
-                    }
-                }
-                break;
-                case "2A":
-            for (int i = 0; i < murid[3].length; i++) {
-                System.out.println(murid[3][i]);
-            }
-            System.out.print("Silahkan pilih siswa : ");
-            nama = sc.nextLine();
-            for (int i = 0; i < murid[3].length; i++) {
-                if (nama.equalsIgnoreCase(murid[3][i])) {
-                    System.out.print(murid[3][i]);
-                    }
-                }
-                break;
-            case "2B":
-            for (int i = 0; i < murid[4].length; i++) {
-                System.out.println(murid[4][i]);
-            }
-            System.out.print("Silahkan pilih siswa : ");
-            nama = sc.nextLine();
-                for (int i = 0; i < murid[4].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[4][i])) {
-                        System.out.print(murid[4][i]);
-                    }
-                }
-                break;
-                case "2C":
-                for (int i = 0; i < murid[5].length; i++) {
-                    System.out.println(murid[5][i]);
-            }
-            System.out.print("Silahkan pilih siswa : ");
-            nama = sc.nextLine();
-            for (int i = 0; i < murid[5].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[5][i])) {
-                        System.out.print(murid[5][i]);
-                    }
-                }
-                break;
-                case "3A":
-                for (int i = 0; i < murid[6].length; i++) {
-                    System.out.println(murid[6][i]);
-                }
-                System.out.print("Silahkan pilih siswa : ");
-                nama = sc.nextLine();
-                for (int i = 0; i < murid[6].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[6][i])) {
-                        System.out.print(murid[6][i]);
-                    }
-                }
-                break;
-                case "3B":
-                for (int i = 0; i < murid[7].length; i++) {
-                    System.out.println(murid[7][i]);
-                }
-                System.out.print("Silahkan pilih siswa : ");
-                nama = sc.nextLine();
-                    for (int i = 0; i < murid[7].length; i++) {
-                        if (nama.equalsIgnoreCase(murid[7][i])) {
-                        System.out.print(murid[7][i]);
-                    }
-                }
-                break;
-                case "3C":
-                for (int i = 0; i < murid[8].length; i++) {
-                    System.out.println(murid[8][i]);
-                }
-                System.out.print("Silahkan pilih siswa : ");
-                nama = sc.nextLine();
-                for (int i = 0; i < murid[8].length; i++) {
-                    if (nama.equalsIgnoreCase(murid[8][i])) {
-                        System.out.print(murid[8][i]);
-                    }
-                }
+            case "kelas":
+                Kelas(kelas);
+                pemilihanKelas(pilihKelas, kelas, murid, nama);
                 break;
             }
             
@@ -205,18 +94,18 @@ public class sistemAkademik {
             }
         } while (nMat[i] < 0 || nMat[i] > 100);
         i++;
-        } while (i<4);
-        
-        i = 0;
+    } while (i<4);
+    
+    i = 0;
+    do {
+        System.out.println("\nNilai Ulangan Harian Matematika \n UH ke-"+(i+1)+" : ");
         do {
-            System.out.println("\nNilai Ulangan Harian Matematika \n UH ke-"+(i+1)+" : ");
-            do {
-                nUHMat[i] = sc.nextDouble();
-                if (nUHMat[i] < 0 || nUHMat[i] > 100) {
+            nUHMat[i] = sc.nextDouble();
+            if (nUHMat[i] < 0 || nUHMat[i] > 100) {
                 System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
                 System.out.println("\nNilai Ulangan Harian Matematika \n UH ke-"+(i+1)+" : ");
-                }
-            } while (nUHMat[i] < 0 || nUHMat[i] > 100);
+            }
+        } while (nUHMat[i] < 0 || nUHMat[i] > 100);
             i++;
         } while (i<nUHMat.length);
         
@@ -255,28 +144,28 @@ public class sistemAkademik {
             
             // INPUT NILAI ARRAY - IPA
             i = 0;
-        do {
-            System.out.println("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
             do {
-                nIpa[i] = sc.nextDouble();
-                if (nIpa[i] < 0 || nIpa[i] > 100) {
-                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
                 System.out.println("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
-                }
-            } while (nIpa[i] < 0 || nIpa[i] > 100);
-            i++;
-        } while (i<nIpa.length);
-
-        i = 0;
-        do {
-            System.out.println("\nNilai Ulangan Harian IPA \n UH ke-"+(i+1)+" : ");
+                do {
+                    nIpa[i] = sc.nextDouble();
+                    if (nIpa[i] < 0 || nIpa[i] > 100) {
+                        System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                        System.out.println("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
+                    }
+                } while (nIpa[i] < 0 || nIpa[i] > 100);
+                i++;
+            } while (i<nIpa.length);
+            
+            i = 0;
+            do {
+                System.out.println("\nNilai Ulangan Harian IPA \n UH ke-"+(i+1)+" : ");
             do {
                 nUHIpa[i] = sc.nextDouble();
                 if (nUHIpa[i] < 0 || nUHIpa[i] > 100) {
-                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
                 System.out.println("\nNilai Ulangan Harian IPA \n UH ke-"+(i+1)+" : ");
-                }
-            } while (nUHIpa[i] < 0 || nUHIpa[i] > 100);
+            }
+        } while (nUHIpa[i] < 0 || nUHIpa[i] > 100);
             i++;
         } while (i<nUHIpa.length);
         
@@ -382,13 +271,15 @@ public class sistemAkademik {
     // System.out.println((bMat+bIpa+bBin)); untuk tes
     System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
     
-        rataRata = (nAMat+nAIpa+nABin)/(4);
+    rataRata = (nAMat+nAIpa+nABin)/(4);
         System.out.println("Nilai rata-rata siswa : " + rataRata);
         
         //  MESIN DECISION KELULUSAN
         // VAR MASUK: indeksPrestasi, jmlPresensi
         kelulusan(indeksPrestasi, presensi);
     }
+
+    //Fungsi untuk pembuat keputusan kelulusan
     static void kelulusan(double indeksPrestasi, double jmlPresensi){
         if(indeksPrestasi >= 2.5) {
             if(jmlPresensi >= 0.7) {
@@ -400,6 +291,8 @@ public class sistemAkademik {
             System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.");
         }
     }
+
+    //Fungsi untuk print out kelas
     static void Kelas (String kelas[]) {
         System.out.println("Berikut kelas yang ada di sekolah ini :");
         for (int i = 0; i < kelas.length; i++) {
@@ -408,6 +301,33 @@ public class sistemAkademik {
         System.out.println();
     }
 
-    public static void Biodata(String )
+    //Fungsi untuk pemilihan murid
+    static void pemilihanKelas (String pilihKelas, String kelas[], String murid[][], String nama) {
+        System.out.print("Silahkan pilih kelas : ");
+        pilihKelas = sc.next();
+        for (int i = 0; i < kelas.length; i++) {
+            if (pilihKelas.equals(kelas[i])) {
+                int j = 0;
+                plusMurid(j, murid, i);
+            }
+        }
+        System.out.print("Silahkan pilih siswa : ");
+        nama = sc.next();
+        for (int i = 0; i < kelas.length; i++) {
+            for (int j = 0; j < murid[i].length; j++) {
+                if (nama.equalsIgnoreCase(murid[i][j])) {
+                    System.out.print(murid[i][j] + "\n\n");
+                }
+            }
+        }
+    }
+    static void plusMurid (int j, String murid[][], int i) {
+        if (j < murid[i].length) {
+            System.out.println(murid[i][j]);
+            j++;
+            plusMurid(j, murid, i);
+            
+        }
+    }
+    // public static void Biodata(String )
 }
-
