@@ -296,7 +296,7 @@ public class sistemAkademik {
         System.out.println("Nilai rata-rata siswa : " + rataRata);
         
         //Pemanggilan Fungsi Cetak Rapor
-        cetakRapor(nama, pilihKelas, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
+        cetakRapor(nama, pilihKelas, nUMat, nAMat, nUIpa, nAIpa, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
         
         //  MESIN DECISION KELULUSAN
         // VAR MASUK: indeksPrestasi, jmlPresensi
@@ -354,14 +354,15 @@ public class sistemAkademik {
         }
     }
     
-    static void cetakRapor(String nama, String kelas, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
+    static void cetakRapor(String nama, String kelas, double nUMat, double nAMat, double nUIpa, double nAIpa, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
+    System.out.println("\n=============== RAPOR ===============");
     System.out.println("Nama Siswa : " + nama);
     System.out.println("Kelas      : " + kelas);
 
     System.out.println("\n=============== NILAI ===============");
-    cetakMapel("Matematika", rata_nMat, rata_nUHMat, nUMat, nAMat);
-    cetakMapel("IPA", rata_nIpa, rata_nUHIpa, nUIpa, nAIpa);
-    cetakMapel("Bahasa Indoneisa", rata_nBin, rata_nUHBin, nUBin, nABin);
+    cetakMapel("Matematika", nUMat, nAMat);
+    cetakMapel("IPA", nUIpa, nAIpa);
+    cetakMapel("Bahasa Indoneisa", nUBin, nABin);
 
     System.out.println("\n=============== KEHADIRAN ===============");
     System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensi);
@@ -371,10 +372,9 @@ public class sistemAkademik {
     System.out.println(" Indeks Prestasi  : " + indeksPrestasi);
     System.out.println("Rata-rata Nilai : " + rataRata);
 }
-    static void cetakMapel(String Mapel, double rataTugas, double rataUH, double nUjian, double nAKhir){
+    static void cetakMapel(String Mapel, double nUjian, double nAKhir){
     System.out.println("Mata Pelajaran : " + Mapel);
-    System.out.printf("Tugas : %.1f\n", rataTugas);
-    System.out.printf("UH : %.1f\n", rataUH);
+    
     System.out.printf("Ujian : %.1f\n", nUjian);
     System.out.printf("Nilai Akhir : %.1f\n", nAKhir);
 }
