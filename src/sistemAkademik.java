@@ -1,14 +1,30 @@
+import java.net.Socket;
 import java.util.Scanner;
 public class sistemAkademik {
 
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        
             double nUMat, nUIpa, nUBin, bMat = 4, bIpa = 4, bBin = 4;
             double[] nMat = new double[4], nUHMat = new double[4], nIpa = new double[4], nUHIpa = new double[4], nBin = new double[4], nUHBin = new double[4];
             double rata_nMat, rata_nUHMat, rata_nIpa, rata_nUHIpa, rata_nBin, rata_nUHBin;
             double proporsiTugas = 0.3, proporsiUH = 0.35, proporsiU = 0.35; //proporsi setiap tugas/penilaian
             double rataRata, indeksPrestasi, nAIpa, nAMat, nABin; //int ganti ke double karena input nilai bisa berupa pecahan
+            double jmlPresensi = 0;
+            rata_nMat = 0; 
+            rata_nUHMat = 0;
+            nUMat = 0;
+            nAMat = 0;
+            rata_nIpa = 0;
+            rata_nUHIpa = 0;
+            nUIpa = 0;
+            nAIpa = 0;
+            rata_nBin = 0;
+            rata_nUHBin = 0;
+            nUBin = 0;
+            nABin = 0;
+            indeksPrestasi = 0;
+            rataRata = 0;
             String[] user = {"admin", "userA", "userB"};
             String pass[] = {"admin", "passA", "passB"};
             String username, password, menu, biodata, pilihKelas = "";
@@ -25,6 +41,7 @@ public class sistemAkademik {
                 {"36", "37", "38", "39", "40"},
                 {"41", "42", "43", "44", "45"}
             };
+        
             // data murid
             
         System.out.println("\n\n#######################################################");
@@ -73,9 +90,10 @@ public class sistemAkademik {
             // PRESENSI
             System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
             double presensi;
-            presensi = sc.nextDouble();
             
+
             do {
+                presensi = sc.nextDouble();
                 if (presensi > 132) {
                     System.out.println("\nAnda memasukkan jumlah yang tidak valid.\nSilakan coba lagi.");
                     System.out.println("\nMasukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
@@ -263,7 +281,7 @@ public class sistemAkademik {
     // VAR MASUK: nama, presensi, nAMat, nAIpa, nABin, bMat, bIpa, bBin, nAMat, nAIpa, nABin
     System.out.println("Siswa "+nama);
     
-    double jmlPresensi = (presensi/132)*100;
+    jmlPresensi = (presensi/132)*100;
     System.out.printf("Persentase kehadiran siswa dalam 1 semester : %.1f\n", jmlPresensi);
     
     indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*25);
@@ -273,6 +291,9 @@ public class sistemAkademik {
     
     rataRata = (nAMat+nAIpa+nABin)/(4);
         System.out.println("Nilai rata-rata siswa : " + rataRata);
+        
+        //Pemanggilan Fungsi Cetak Rapor
+        cetakRapor(nama, pilihKelas, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
         
         //  MESIN DECISION KELULUSAN
         // VAR MASUK: indeksPrestasi, jmlPresensi
@@ -329,5 +350,29 @@ public class sistemAkademik {
             
         }
     }
-    // public static void Biodata(String )
+    
+    static void cetakRapor(String nama, String kelas, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
+    System.out.println("Nama Siswa : " + nama);
+    System.out.println("Kelas      : " + kelas);
+
+    System.out.println("\n=============== NILAI ===============");
+    cetakMapel("Matematika", rata_nMat, rata_nUHMat, nUMat, nAMat);
+    cetakMapel("IPA", rata_nIpa, rata_nUHIpa, nUIpa, nAIpa);
+    cetakMapel("Bahasa Indoneisa", rata_nBin, rata_nUHBin, nUBin, nABin);
+
+    System.out.println("\n=============== KEHADIRAN ===============");
+    System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensi);
+
+
+    System.out.println("\n=============== HASIL ===============");
+    System.out.println(" Indeks Prestasi  : " + indeksPrestasi);
+    System.out.println("Rata-rata Nilai : " + rataRata);
+}
+    static void cetakMapel(String Mapel, double rataTugas, double rataUH, double nUjian, double nAKhir){
+    System.out.println("Mata Pelajaran : " + Mapel);
+    System.out.printf("Tugas : %.1f\n", rataTugas);
+    System.out.printf("UH : %.1f\n", rataUH);
+    System.out.printf("Ujian : %.1f\n", nUjian);
+    System.out.printf("Nilai Akhir : %.1f\n", nAKhir);
+}
 }
