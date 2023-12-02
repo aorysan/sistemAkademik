@@ -81,6 +81,9 @@ public class sistemAkademik {
 
         //Hasil setelah user memilih menu
         switch (menu) {
+            case "biodata":
+                Biodata(murid);
+
             case "kelas":
                 Kelas(kelas);
                 pemilihanKelas(pilihKelas, kelas, murid, nama);
@@ -375,4 +378,86 @@ public class sistemAkademik {
     System.out.printf("Ujian : %.1f\n", nUjian);
     System.out.printf("Nilai Akhir : %.1f\n", nAKhir);
 }
+
+public static void Biodata(String murid[][]){
+    String nama;
+    boolean isEnd = false;
+    String biodata[][] = {
+        // Nama 0
+        {"Abdul Khamid Jalaludin", "Aifatul Khoiridah", "Alya Nur Azizah", "Alia Dzikrussofiana", "Amin Ustadzi", "Anggun Puspita Sari", "Azkiyatul Falihah", "Bambang Sudarsono", "Citra Indah Sari", "Dewi Sofiah", "Dika Putra", "Elisa Andriani", "Eva Nia Maulida", "Fajar Setiawan", "Fariska Naftalia", "Farzan Abdul Latif", "Fernando Ardiansyah", "Gina Melati", "Gita Putri Utami", "Hafizh Satrio", "Hendra Gunawan", "Ibnu Fajar Auliya", "Indra Kusuma", "Inayah Nurul Hidayah", "Jihan Aulia", "Joko Susilo", "Kartika Sari", "Lia Nur Fitriani", "Maulana Ridwan", "Nadia Rachmawati", "Oktavia Putri Ramadhani", "Putra Pratama", "Qori Ramadhan", "Rahma Wahyuningrum", "Rendi Pratama", "Siti Nurjanah", "Taufik Hidayat", "Ulfa Khairunnisa", "Vivi Septiani", "Wahyu Setiawan", "Xena Putri Arifin", "Yoga Pratama", "Zahra Rizki Amalia", "Zainal Arifin",  "Zuhair Alami"},
+        // Jenis Kelamin 1
+        {"L",                       "P",                    "P",            "P",                    "L",            "P",                    "P",                "L",                "P",                    "P",        "L",            "P",                "P",            "L.",               "P",                "L",                "L",                    "P",            "P",                "L",            "L",                "L",                "L",            "P",                    "P",            "L",          "P",          "P",                "L",                "P",                "L",                        "L",            "L",            "P",                    "L",            "P",            "L",               "P",                 "P",            "L",              "P",                  "L",          "P",                  "L",                    "L"},
+        // Tempat lahir 2
+        {"Malang",                  "Magetan",           "Sleman",          "Surabaya",             "Sidoarjo",     "Pasuruan",             "Probolinggo",      "Banyuwangi",       "Jember",           "Blitar",       "Kediri",       "Mojokerto",        "Madiun",       "Tuban",        "Bojonegoro",         "Ngawi",              "Tulungagung",        "Pamekasan",  "Sumenep",          "Lamongan",      "Ponorogo",        "Pacitan",          "Bondowoso",        "Situbondo",        "Trenggalek", "Madiun",         "Gresik",       "Bangkalan",        "Tulungagung",   "Tulungagung",       "Nganjuk",                "Magetan",      "Pacitan",      "Lumajang",             "Batu",         "Malang",        "Blitar",          "Kediri",           "Tulungagung",      "Banyuwangi", "Jombang",            "Sampang",      "Malang",            "Malang",              "Kudus"},
+        // Tanggal lahir 3
+        {"2004-01-15",              "2004-03-27",       "2004-05-10",       "2004-07-18",       "2004-09-05",     "2004-11-12",         "2005-02-22",         "2005-04-30",         "2005-06-07",       "2005-08-14", "2004-02-01", "2004-04-18",       "2004-06-25",       "2004-08-03",   "2004-10-20",       "2005-01-08",           "2005-03-19",        "2005-05-28", "2005-07-09",        "2005-09-16",   "2004-01-25",      "2004-03-08",        "2004-05-17",    "2004-07-21",          "2004-09-30", "2004-11-05",   "2005-02-12",   "2005-04-20",         "2005-06-29",   "2005-08-10",       "2004-02-10",               "2004-04-28",   "2004-06-07",    "2004-08-18",          "2004-10-22",   "2005-01-05",    "2005-03-15",      "2005-05-24",       "2005-07-30",   "2005-09-11",     "2004-01-12",         "2004-03-21",   "2004-05-30",        "2004-07-04",      "2004-09-10"},
+        // agama 4
+        {"Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam"},
+        // alamat 5
+        {"Jalan Pisang Kipas, Gang VI, Nomor 21", "Jalan Veteran Nomor 23", "Jalan Bunga Mawar, Gang Berduri Nomor 11", "Jalan Cendana Nomor 7", "Jalan Kenanga, Perumahan Citra Indah Blok C2 Nomor 15", "Jalan Dahlia, Gang Melati Nomor 3", "Jalan Melati, Perumahan Bumi Asri Blok D Nomor 8", "Jalan Flamboyan Nomor 12", "Jalan Mawar, Perumahan Mekar Jaya Blok E Nomor 5", "Jalan Anggrek, Gang Seroja Nomor 9", "Jalan Kenari, Perumahan Bunga Indah Blok F Nomor 4", "Jalan Rafflesia Nomor 6", "Jalan Dahlia, Perumahan Bumi Asri Blok G Nomor 10", "Jalan Flamboyan Nomor 18", "Jalan Melati, Gang Mawar Nomor 7", "Jalan Dahlia, Perumahan Anggrek Indah Blok H Nomor 14", "Jalan Kenanga, Gang Flamboyan Nomor 13", "Jalan Mawar Nomor 16", "Jalan Rafflesia, Perumahan Bunga Citra Blok I Nomor 2", "Jalan Flamboyan, Gang Dahlia Nomor 17", "Jalan Kenari Nomor 19", "Jalan Mawar, Perumahan Kenanga Indah Blok J Nomor 22", "Jalan Dahlia, Gang Anggrek Nomor 20", "Jalan Melati Nomor 25", "Jalan Flamboyan, Perumahan Rafflesia Blok K Nomor 28", "Jalan Rafflesia Nomor 27", "Jalan Anggrek Nomor 30", "Jalan Kenanga, Gang Flamboyan Nomor 32", "Jalan Mawar Nomor 34", "Jalan Dahlia Nomor 36", "Jalan Melati, Perumahan Kenari Indah Blok L Nomor 38", "Jalan Flamboyan, Gang Rafflesia Nomor 40", "Jalan Rafflesia Nomor 42", "Jalan Anggrek Nomor 44", "Jalan Kenanga Nomor 46", "Jalan Mawar Nomor 48", "Jalan Dahlia Nomor 50", "Jalan Melati Nomor 52", "Jalan Flamboyan Nomor 54", "Jalan Rafflesia Nomor 56", "Jalan Anggrek Nomor 58", "Jalan Kenanga Nomor 60", "Jalan Mawar Nomor 62", "Jalan Dahlia Nomor 64", "Dusun Kenangan, Desa Rindu"},
+        // nama ayah 6
+        {"Ahmad", "Muhammad", "Abdullah", "Rizky", "Fahmi", "Irfan", "Syamsul", "Haris", "Ari", "Fandi", "Ridwan", "Ilham", "Hendra", "Rizaldi", "Dede", "Ricky", "Budi", "Arif", "Yudi", "Eko", "Maulana", "Rizki", "Adi", "Hadi", "Firman", "Yoga", "Dian", "Rendi", "Surya", "Andi", "Joko", "Eko", "Fajar", "Rizal", "Suryadi", "Agus", "Aldi", "Galih", "Hendri", "Anwar", "Aditya", "Bayu", "Irfan", "Irsan", "Krisna"},
+        // nama ibu 7
+        {"Siti", "Lina", "Ayu", "Ratna", "Sinta", "Rina", "Eka", "Dewi", "Laras", "Yuni", "Novi", "Rini", "Nur", "Rina", "Sari", "Dian", "Dewi", "Putri", "Indah", "Lia", "Wulan", "Ani", "Fita", "Maya", "Nina", "Sari", "Citra", "Sari", "Ayu", "Nur", "Sari", "Ria", "Mega", "Anisa", "Sari", "Sri", "Rika", "Lia", "Yuli", "Evi", "Lesti", "Rini", "Ayu", "Dwi", "Rina", "Lia"},
+        // pekerjaan ayah 8
+        {"Pengacara", "Dokter", "Insinyur", "Pilot", "Polisi", "Pengusaha", "Desainer", "Programmer", "Penulis", "Musisi", "Guru", "Aktor", "Ahli IT", "Peneliti", "Pengembang Perangkat Lunak", "Analis Keuangan", "Dosen", "Petani", "Teknisi", "Ahli Bedah", "Ahli Biologi", "Psikolog", "Ilmuwan", "Arsitek", "Konsultan", "Manajer Proyek", "Pengrajin", "Montir", "Pedagang", "Jurnalis", "Editor", "Teknisi Listrik", "Koki", "Tukang Kayu", "Pemadam Kebakaran", "Pemimpin Bisnis", "Ahli Kimia", "Pengacara", "Desainer Interior", "Pembuat Film", "Ahli Geologi", "Pemrogram", "Penyiar", "Ahli Bahasa", "Pemilik Bisnis Kecil", "Ahli Fisika"},
+        // pekerjaan ibu 9
+        {"Pegawai Negeri Sipil", "Guru", "Wiraswasta", "Pengusaha", "Dokter", "Pengacara", "Insinyur", "Petani", "Pilot", "Pedagang", "Arsitek", "Polisi", "Pramusaji", "Pengemudi Taksi", "Peneliti", "Seniman", "Tentara", "Nelayan", "Peternak", "Sopir Truk", "Ahli IT", "Seniman", "Koki", "Birokrat", "Guru", "Atlet", "Penulis", "Konsultan", "Bidan", "Montir", "Penyanyi", "Sopir Bus", "Dosen", "Psikolog", "Perawat", "Desainer", "Tukang Kayu", "Petugas Kebersihan", "Manajer", "Pemadam Kebakaran", "Pengemudi Ojek Online", "Petugas Keamanan", "Petani", "Teknisi Komputer", "Jurutulis", "Pekerja Sosial"}
+        };
+    
+        System.out.println("╔═══════════════════════╗");
+        System.out.println("║      B I O D A T A    ║");
+        System.out.println("╚═══════════════════════╝\n");
+    
+
+    for (; isEnd == false;) {
+        System.out.print("Silakan pilih siswa (1 s.d. 45) : ");
+        int i = sc.nextInt();
+        for (int j = 0; j < biodata.length; j++) {
+            switch (j) {
+                case 0:
+                    System.out.print("Nama Lengkap    : ");
+                    break;
+                
+                case 1:
+                    System.out.print("Jenis Kelamin   : ");
+                    break;
+                case 2:
+                    System.out.print("Tempat Lahir    : ");
+                    break;
+                case 3:
+                    System.out.print("Tanggal Lahir   : ");
+                    break;
+                case 4:
+                    System.out.print("Agama           : ");
+                    break;
+                case 5:
+                    System.out.print("Alamat          : ");
+                    break;
+                case 6:
+                    System.out.print("Nama Ayah       : ");
+                    break;
+                case 7:
+                    System.out.print("Nama Ibu        : ");
+                    break;
+                case 8:
+                    System.out.print("Pekerjaan Ayah  : ");
+                    break;
+                case 9:
+                    System.out.print("Pekerjaan Ibu   : ");
+                default:
+                    break;
+            }
+            System.out.print(biodata[j][(i-1)]+"\n");
+        }
+
+        System.out.print("\nIngin melihat siswa lain? (y/t) :");
+        char isLagi = sc.next().charAt(0);
+        if (isLagi == 't') {
+            isEnd = true;
+        }
+    }
+
+}
+
 }
