@@ -281,17 +281,73 @@ public class sistemAkademik {
         
         //  MESIN DECISION KELULUSAN
         // VAR MASUK: indeksPrestasi, jmlPresensi
+        
+        pilih(loginSucces, username, password, user, pass, pilih, murid, pilihKelas, nama, kelas, nUHBin, nUHBin, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
+    }
+    
+    static void cetakRapor(String nama, String pilihKelas, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
+        System.out.println("Nama Siswa : " + nama);
+        System.out.println("Kelas      : " + pilihKelas);
+
+        System.out.println("\n=============== NILAI ===============");
+        cetakMapel("Matematika", rata_nMat, rata_nUHMat, nUMat, nAMat);
+        cetakMapel("IPA", rata_nIpa, rata_nUHIpa, nUIpa, nAIpa);
+        cetakMapel("Bahasa Indoneisa", rata_nBin, rata_nUHBin, nUBin, nABin);
+
+        System.out.println("\n=============== KEHADIRAN ===============");
+        System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensi);
+
+        System.out.println("\n=============== HASIL ===============");
+        System.out.println("Indeks Prestasi  : " + indeksPrestasi);
+        System.out.println("Rata-rata Nilai : " + rataRata);
+        kelulusan(indeksPrestasi, jmlPresensi);
+    }
+    static void cetakMapel(String Mapel, double rataTugas, double rataUH, double nUjian, double nAKhir){
+        System.out.println("Mata Pelajaran : " + Mapel);
+        System.out.printf("Tugas\t\t: %.1f\n", rataTugas);
+        System.out.printf("UH\t\t: %.1f\n", rataUH);
+        System.out.printf("Ujian\t\t: %.1f\n", nUjian);
+        System.out.printf("Nilai Akhir\t: %.1f\n", nAKhir);
+    }
+    static void pilih (boolean loginSucces, String username, String password, String user[], String pass[], String pilih, String murid[][], String pilihKelas, String nama, String kelas[], double nMat[], double nUHMat[], double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
+        
+        System.out.print("Apakah Anda ingin mencetek rapor?(y/n)");
+        pilih = sc.next();
+        
+        if(pilih.equalsIgnoreCase("y")) {
+            //Pemanggilan Fungsi Cetak Rapor
+            cetakRapor(nama, pilihKelas, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
+            System.out.print("Apakah Anda ingin kembali ke menu awal?(y/n)");
+            pilih = sc.next();
+            if (pilih.equalsIgnoreCase("y")) {
+                Menu(pilih, murid, kelas, nama, pilihKelas);
+            }
+        } else if (pilih.equalsIgnoreCase("n")) {
+            System.out.print("Apakah Anda ingin kembali ke menu?(y/n)");
+            pilih = sc.next();
+            if (pilih.equalsIgnoreCase("y")) {
+                Menu(pilih, murid, kelas, nama, pilihKelas);
+            } else if (pilih.equalsIgnoreCase("n")) {
+                System.out.print("Apakah Anda ingin logout?(y/n)");
+                pilih = sc.next();
+                if (pilih.equalsIgnoreCase("y")) {
+                    loginSucces = false;
+                    siakad(loginSucces, pilihKelas, nUMat, nUIpa, nUBin, nAMat, nUIpa, nABin, nUHMat, nUHMat, nUHMat, rata_nBin, rata_nMat, rata_nIpa, rata_nUHBin, rata_nUHIpa, rata_nUHMat, jmlPresensi, nUMat, nUHMat, nMat, nUHMat, rata_nUHBin, nUBin, jmlPresensi, rataRata, indeksPrestasi, nAIpa, nAMat, nABin);
+                }
+            }
+        }
+    }
 
     //Fungsi untuk pembuat keputusan kelulusan
     static void kelulusan(double indeksPrestasi, double jmlPresensi){
         if(indeksPrestasi >= 2.5) {
             if(jmlPresensi >= 0.7) {
-                System.out.println("\nSiswa memnuhi syarat untuk naik kelas.");
+                System.out.println("\nSiswa memenuhi syarat untuk naik kelas.\n");
             } else {
-                System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.");
+                System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.\n");
             }
         } else {
-            System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.");
+            System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.\n");
         }
     }
 
@@ -305,138 +361,135 @@ public class sistemAkademik {
     }
 
     //Fungsi untuk pemilihan murid
-    static void pemilihanKelas (String pilihKelas, String kelas[], String murid[][], String nama) {
-        System.out.print("Silahkan pilih kelas : ");
-        pilihKelas = sc.next();
-        for (int i = 0; i < kelas.length; i++) {
-            if (pilihKelas.equals(kelas[i])) {
-                int j = 0;
-                plusMurid(j, murid, i);
-            }
-        }
-        System.out.print("Silahkan pilih siswa : ");
-        nama = sc.next();
-        for (int i = 0; i < kelas.length; i++) {
-            for (int j = 0; j < murid[i].length; j++) {
-                if (nama.equalsIgnoreCase(murid[i][j])) {
-                    System.out.print(murid[i][j] + "\n\n");
-                }
-            }
-        }
-    }
     static void plusMurid (int j, String murid[][], int i) {
         if (j < murid[i].length) {
             System.out.println(murid[i][j]);
             j++;
             plusMurid(j, murid, i);
-            
         }
     }
     
-    static void cetakRapor(String nama, String kelas, double nUMat, double nAMat, double nUIpa, double nAIpa, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
-    System.out.println("\n=============== RAPOR ===============");
-    System.out.println("Nama Siswa : " + nama);
-    System.out.println("Kelas      : " + kelas);
+    public static void Biodata(boolean loginSucces, String murid[][], String pilih, String nama, String kelas[]){
+        boolean isEnd = false;
+        String biodata[][] = {
+            // Nama 0
+            {"Abdul Khamid Jalaludin", "Aifatul Khoiridah", "Alya Nur Azizah", "Alia Dzikrussofiana", "Amin Ustadzi", "Anggun Puspita Sari", "Azkiyatul Falihah", "Bambang Sudarsono", "Citra Indah Sari", "Dewi Sofiah", "Dika Putra", "Elisa Andriani", "Eva Nia Maulida", "Fajar Setiawan", "Fariska Naftalia", "Farzan Abdul Latif", "Fernando Ardiansyah", "Gina Melati", "Gita Putri Utami", "Hafizh Satrio", "Hendra Gunawan", "Ibnu Fajar Auliya", "Indra Kusuma", "Inayah Nurul Hidayah", "Jihan Aulia", "Joko Susilo", "Kartika Sari", "Lia Nur Fitriani", "Maulana Ridwan", "Nadia Rachmawati", "Oktavia Putri Ramadhani", "Putra Pratama", "Qori Ramadhan", "Rahma Wahyuningrum", "Rendi Pratama", "Siti Nurjanah", "Taufik Hidayat", "Ulfa Khairunnisa", "Vivi Septiani", "Wahyu Setiawan", "Xena Putri Arifin", "Yoga Pratama", "Zahra Rizki Amalia", "Zainal Arifin",  "Zuhair Alami"},
+            // Jenis Kelamin 1
+            {"L",                       "P",                    "P",            "P",                    "L",            "P",                    "P",                "L",                "P",                    "P",        "L",            "P",                "P",            "L.",               "P",                "L",                "L",                    "P",            "P",                "L",            "L",                "L",                "L",            "P",                    "P",            "L",          "P",          "P",                "L",                "P",                "L",                        "L",            "L",            "P",                    "L",            "P",            "L",               "P",                 "P",            "L",              "P",                  "L",          "P",                  "L",                    "L"},
+            // Tempat lahir 2
+            {"Malang",                  "Magetan",           "Sleman",          "Surabaya",             "Sidoarjo",     "Pasuruan",             "Probolinggo",      "Banyuwangi",       "Jember",           "Blitar",       "Kediri",       "Mojokerto",        "Madiun",       "Tuban",        "Bojonegoro",         "Ngawi",              "Tulungagung",        "Pamekasan",  "Sumenep",          "Lamongan",      "Ponorogo",        "Pacitan",          "Bondowoso",        "Situbondo",        "Trenggalek", "Madiun",         "Gresik",       "Bangkalan",        "Tulungagung",   "Tulungagung",       "Nganjuk",                "Magetan",      "Pacitan",      "Lumajang",             "Batu",         "Malang",        "Blitar",          "Kediri",           "Tulungagung",      "Banyuwangi", "Jombang",            "Sampang",      "Malang",            "Malang",              "Kudus"},
+            // Tanggal lahir 3
+            {"2004-01-15",              "2004-03-27",       "2004-05-10",       "2004-07-18",       "2004-09-05",     "2004-11-12",         "2005-02-22",         "2005-04-30",         "2005-06-07",       "2005-08-14", "2004-02-01", "2004-04-18",       "2004-06-25",       "2004-08-03",   "2004-10-20",       "2005-01-08",           "2005-03-19",        "2005-05-28", "2005-07-09",        "2005-09-16",   "2004-01-25",      "2004-03-08",        "2004-05-17",    "2004-07-21",          "2004-09-30", "2004-11-05",   "2005-02-12",   "2005-04-20",         "2005-06-29",   "2005-08-10",       "2004-02-10",               "2004-04-28",   "2004-06-07",    "2004-08-18",          "2004-10-22",   "2005-01-05",    "2005-03-15",      "2005-05-24",       "2005-07-30",   "2005-09-11",     "2004-01-12",         "2004-03-21",   "2004-05-30",        "2004-07-04",      "2004-09-10"},
+            // agama 4
+            {"Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam"},
+            // alamat 5
+            {"Jalan Pisang Kipas, Gang VI, Nomor 21", "Jalan Veteran Nomor 23", "Jalan Bunga Mawar, Gang Berduri Nomor 11", "Jalan Cendana Nomor 7", "Jalan Kenanga, Perumahan Citra Indah Blok C2 Nomor 15", "Jalan Dahlia, Gang Melati Nomor 3", "Jalan Melati, Perumahan Bumi Asri Blok D Nomor 8", "Jalan Flamboyan Nomor 12", "Jalan Mawar, Perumahan Mekar Jaya Blok E Nomor 5", "Jalan Anggrek, Gang Seroja Nomor 9", "Jalan Kenari, Perumahan Bunga Indah Blok F Nomor 4", "Jalan Rafflesia Nomor 6", "Jalan Dahlia, Perumahan Bumi Asri Blok G Nomor 10", "Jalan Flamboyan Nomor 18", "Jalan Melati, Gang Mawar Nomor 7", "Jalan Dahlia, Perumahan Anggrek Indah Blok H Nomor 14", "Jalan Kenanga, Gang Flamboyan Nomor 13", "Jalan Mawar Nomor 16", "Jalan Rafflesia, Perumahan Bunga Citra Blok I Nomor 2", "Jalan Flamboyan, Gang Dahlia Nomor 17", "Jalan Kenari Nomor 19", "Jalan Mawar, Perumahan Kenanga Indah Blok J Nomor 22", "Jalan Dahlia, Gang Anggrek Nomor 20", "Jalan Melati Nomor 25", "Jalan Flamboyan, Perumahan Rafflesia Blok K Nomor 28", "Jalan Rafflesia Nomor 27", "Jalan Anggrek Nomor 30", "Jalan Kenanga, Gang Flamboyan Nomor 32", "Jalan Mawar Nomor 34", "Jalan Dahlia Nomor 36", "Jalan Melati, Perumahan Kenari Indah Blok L Nomor 38", "Jalan Flamboyan, Gang Rafflesia Nomor 40", "Jalan Rafflesia Nomor 42", "Jalan Anggrek Nomor 44", "Jalan Kenanga Nomor 46", "Jalan Mawar Nomor 48", "Jalan Dahlia Nomor 50", "Jalan Melati Nomor 52", "Jalan Flamboyan Nomor 54", "Jalan Rafflesia Nomor 56", "Jalan Anggrek Nomor 58", "Jalan Kenanga Nomor 60", "Jalan Mawar Nomor 62", "Jalan Dahlia Nomor 64", "Dusun Kenangan, Desa Rindu"},
+            // nama ayah 6
+            {"Ahmad", "Muhammad", "Abdullah", "Rizky", "Fahmi", "Irfan", "Syamsul", "Haris", "Ari", "Fandi", "Ridwan", "Ilham", "Hendra", "Rizaldi", "Dede", "Ricky", "Budi", "Arif", "Yudi", "Eko", "Maulana", "Rizki", "Adi", "Hadi", "Firman", "Yoga", "Dian", "Rendi", "Surya", "Andi", "Joko", "Eko", "Fajar", "Rizal", "Suryadi", "Agus", "Aldi", "Galih", "Hendri", "Anwar", "Aditya", "Bayu", "Irfan", "Irsan", "Krisna"},
+            // nama ibu 7
+            {"Siti", "Lina", "Ayu", "Ratna", "Sinta", "Rina", "Eka", "Dewi", "Laras", "Yuni", "Novi", "Rini", "Nur", "Rina", "Sari", "Dian", "Dewi", "Putri", "Indah", "Lia", "Wulan", "Ani", "Fita", "Maya", "Nina", "Sari", "Citra", "Sari", "Ayu", "Nur", "Sari", "Ria", "Mega", "Anisa", "Sari", "Sri", "Rika", "Lia", "Yuli", "Evi", "Lesti", "Rini", "Ayu", "Dwi", "Rina", "Lia"},
+            // pekerjaan ayah 8
+            {"Pengacara", "Dokter", "Insinyur", "Pilot", "Polisi", "Pengusaha", "Desainer", "Programmer", "Penulis", "Musisi", "Guru", "Aktor", "Ahli IT", "Peneliti", "Pengembang Perangkat Lunak", "Analis Keuangan", "Dosen", "Petani", "Teknisi", "Ahli Bedah", "Ahli Biologi", "Psikolog", "Ilmuwan", "Arsitek", "Konsultan", "Manajer Proyek", "Pengrajin", "Montir", "Pedagang", "Jurnalis", "Editor", "Teknisi Listrik", "Koki", "Tukang Kayu", "Pemadam Kebakaran", "Pemimpin Bisnis", "Ahli Kimia", "Pengacara", "Desainer Interior", "Pembuat Film", "Ahli Geologi", "Pemrogram", "Penyiar", "Ahli Bahasa", "Pemilik Bisnis Kecil", "Ahli Fisika"},
+            // pekerjaan ibu 9
+            {"Pegawai Negeri Sipil", "Guru", "Wiraswasta", "Pengusaha", "Dokter", "Pengacara", "Insinyur", "Petani", "Pilot", "Pedagang", "Arsitek", "Polisi", "Pramusaji", "Pengemudi Taksi", "Peneliti", "Seniman", "Tentara", "Nelayan", "Peternak", "Sopir Truk", "Ahli IT", "Seniman", "Koki", "Birokrat", "Guru", "Atlet", "Penulis", "Konsultan", "Bidan", "Montir", "Penyanyi", "Sopir Bus", "Dosen", "Psikolog", "Perawat", "Desainer", "Tukang Kayu", "Petugas Kebersihan", "Manajer", "Pemadam Kebakaran", "Pengemudi Ojek Online", "Petugas Keamanan", "Petani", "Teknisi Komputer", "Jurutulis", "Pekerja Sosial"}
+            };
+        
+            System.out.println("╔═══════════════════════╗");
+            System.out.println("║      B I O D A T A    ║");
+            System.out.println("╚═══════════════════════╝\n");
 
-    System.out.println("\n=============== NILAI ===============");
-    cetakMapel("Matematika", nUMat, nAMat);
-    cetakMapel("IPA", nUIpa, nAIpa);
-    cetakMapel("Bahasa Indoneisa", nUBin, nABin);
-
-    System.out.println("\n=============== KEHADIRAN ===============");
-    System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensi);
-
-
-    System.out.println("\n=============== HASIL ===============");
-    System.out.println(" Indeks Prestasi  : " + indeksPrestasi);
-    System.out.println("Rata-rata Nilai : " + rataRata);
-}
-    static void cetakMapel(String Mapel, double nUjian, double nAKhir){
-    System.out.println("Mata Pelajaran : " + Mapel);
-    
-    System.out.printf("Ujian : %.1f\n", nUjian);
-    System.out.printf("Nilai Akhir : %.1f\n", nAKhir);
-}
-
-public static void Biodata(String murid[][]){
-    String nama;
-    boolean isEnd = false;
-    String biodata[][] = {
-        // Nama 0
-        {"Abdul Khamid Jalaludin", "Aifatul Khoiridah", "Alya Nur Azizah", "Alia Dzikrussofiana", "Amin Ustadzi", "Anggun Puspita Sari", "Azkiyatul Falihah", "Bambang Sudarsono", "Citra Indah Sari", "Dewi Sofiah", "Dika Putra", "Elisa Andriani", "Eva Nia Maulida", "Fajar Setiawan", "Fariska Naftalia", "Farzan Abdul Latif", "Fernando Ardiansyah", "Gina Melati", "Gita Putri Utami", "Hafizh Satrio", "Hendra Gunawan", "Ibnu Fajar Auliya", "Indra Kusuma", "Inayah Nurul Hidayah", "Jihan Aulia", "Joko Susilo", "Kartika Sari", "Lia Nur Fitriani", "Maulana Ridwan", "Nadia Rachmawati", "Oktavia Putri Ramadhani", "Putra Pratama", "Qori Ramadhan", "Rahma Wahyuningrum", "Rendi Pratama", "Siti Nurjanah", "Taufik Hidayat", "Ulfa Khairunnisa", "Vivi Septiani", "Wahyu Setiawan", "Xena Putri Arifin", "Yoga Pratama", "Zahra Rizki Amalia", "Zainal Arifin",  "Zuhair Alami"},
-        // Jenis Kelamin 1
-        {"L",                       "P",                    "P",            "P",                    "L",            "P",                    "P",                "L",                "P",                    "P",        "L",            "P",                "P",            "L.",               "P",                "L",                "L",                    "P",            "P",                "L",            "L",                "L",                "L",            "P",                    "P",            "L",          "P",          "P",                "L",                "P",                "L",                        "L",            "L",            "P",                    "L",            "P",            "L",               "P",                 "P",            "L",              "P",                  "L",          "P",                  "L",                    "L"},
-        // Tempat lahir 2
-        {"Malang",                  "Magetan",           "Sleman",          "Surabaya",             "Sidoarjo",     "Pasuruan",             "Probolinggo",      "Banyuwangi",       "Jember",           "Blitar",       "Kediri",       "Mojokerto",        "Madiun",       "Tuban",        "Bojonegoro",         "Ngawi",              "Tulungagung",        "Pamekasan",  "Sumenep",          "Lamongan",      "Ponorogo",        "Pacitan",          "Bondowoso",        "Situbondo",        "Trenggalek", "Madiun",         "Gresik",       "Bangkalan",        "Tulungagung",   "Tulungagung",       "Nganjuk",                "Magetan",      "Pacitan",      "Lumajang",             "Batu",         "Malang",        "Blitar",          "Kediri",           "Tulungagung",      "Banyuwangi", "Jombang",            "Sampang",      "Malang",            "Malang",              "Kudus"},
-        // Tanggal lahir 3
-        {"2004-01-15",              "2004-03-27",       "2004-05-10",       "2004-07-18",       "2004-09-05",     "2004-11-12",         "2005-02-22",         "2005-04-30",         "2005-06-07",       "2005-08-14", "2004-02-01", "2004-04-18",       "2004-06-25",       "2004-08-03",   "2004-10-20",       "2005-01-08",           "2005-03-19",        "2005-05-28", "2005-07-09",        "2005-09-16",   "2004-01-25",      "2004-03-08",        "2004-05-17",    "2004-07-21",          "2004-09-30", "2004-11-05",   "2005-02-12",   "2005-04-20",         "2005-06-29",   "2005-08-10",       "2004-02-10",               "2004-04-28",   "2004-06-07",    "2004-08-18",          "2004-10-22",   "2005-01-05",    "2005-03-15",      "2005-05-24",       "2005-07-30",   "2005-09-11",     "2004-01-12",         "2004-03-21",   "2004-05-30",        "2004-07-04",      "2004-09-10"},
-        // agama 4
-        {"Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam"},
-        // alamat 5
-        {"Jalan Pisang Kipas, Gang VI, Nomor 21", "Jalan Veteran Nomor 23", "Jalan Bunga Mawar, Gang Berduri Nomor 11", "Jalan Cendana Nomor 7", "Jalan Kenanga, Perumahan Citra Indah Blok C2 Nomor 15", "Jalan Dahlia, Gang Melati Nomor 3", "Jalan Melati, Perumahan Bumi Asri Blok D Nomor 8", "Jalan Flamboyan Nomor 12", "Jalan Mawar, Perumahan Mekar Jaya Blok E Nomor 5", "Jalan Anggrek, Gang Seroja Nomor 9", "Jalan Kenari, Perumahan Bunga Indah Blok F Nomor 4", "Jalan Rafflesia Nomor 6", "Jalan Dahlia, Perumahan Bumi Asri Blok G Nomor 10", "Jalan Flamboyan Nomor 18", "Jalan Melati, Gang Mawar Nomor 7", "Jalan Dahlia, Perumahan Anggrek Indah Blok H Nomor 14", "Jalan Kenanga, Gang Flamboyan Nomor 13", "Jalan Mawar Nomor 16", "Jalan Rafflesia, Perumahan Bunga Citra Blok I Nomor 2", "Jalan Flamboyan, Gang Dahlia Nomor 17", "Jalan Kenari Nomor 19", "Jalan Mawar, Perumahan Kenanga Indah Blok J Nomor 22", "Jalan Dahlia, Gang Anggrek Nomor 20", "Jalan Melati Nomor 25", "Jalan Flamboyan, Perumahan Rafflesia Blok K Nomor 28", "Jalan Rafflesia Nomor 27", "Jalan Anggrek Nomor 30", "Jalan Kenanga, Gang Flamboyan Nomor 32", "Jalan Mawar Nomor 34", "Jalan Dahlia Nomor 36", "Jalan Melati, Perumahan Kenari Indah Blok L Nomor 38", "Jalan Flamboyan, Gang Rafflesia Nomor 40", "Jalan Rafflesia Nomor 42", "Jalan Anggrek Nomor 44", "Jalan Kenanga Nomor 46", "Jalan Mawar Nomor 48", "Jalan Dahlia Nomor 50", "Jalan Melati Nomor 52", "Jalan Flamboyan Nomor 54", "Jalan Rafflesia Nomor 56", "Jalan Anggrek Nomor 58", "Jalan Kenanga Nomor 60", "Jalan Mawar Nomor 62", "Jalan Dahlia Nomor 64", "Dusun Kenangan, Desa Rindu"},
-        // nama ayah 6
-        {"Ahmad", "Muhammad", "Abdullah", "Rizky", "Fahmi", "Irfan", "Syamsul", "Haris", "Ari", "Fandi", "Ridwan", "Ilham", "Hendra", "Rizaldi", "Dede", "Ricky", "Budi", "Arif", "Yudi", "Eko", "Maulana", "Rizki", "Adi", "Hadi", "Firman", "Yoga", "Dian", "Rendi", "Surya", "Andi", "Joko", "Eko", "Fajar", "Rizal", "Suryadi", "Agus", "Aldi", "Galih", "Hendri", "Anwar", "Aditya", "Bayu", "Irfan", "Irsan", "Krisna"},
-        // nama ibu 7
-        {"Siti", "Lina", "Ayu", "Ratna", "Sinta", "Rina", "Eka", "Dewi", "Laras", "Yuni", "Novi", "Rini", "Nur", "Rina", "Sari", "Dian", "Dewi", "Putri", "Indah", "Lia", "Wulan", "Ani", "Fita", "Maya", "Nina", "Sari", "Citra", "Sari", "Ayu", "Nur", "Sari", "Ria", "Mega", "Anisa", "Sari", "Sri", "Rika", "Lia", "Yuli", "Evi", "Lesti", "Rini", "Ayu", "Dwi", "Rina", "Lia"},
-        // pekerjaan ayah 8
-        {"Pengacara", "Dokter", "Insinyur", "Pilot", "Polisi", "Pengusaha", "Desainer", "Programmer", "Penulis", "Musisi", "Guru", "Aktor", "Ahli IT", "Peneliti", "Pengembang Perangkat Lunak", "Analis Keuangan", "Dosen", "Petani", "Teknisi", "Ahli Bedah", "Ahli Biologi", "Psikolog", "Ilmuwan", "Arsitek", "Konsultan", "Manajer Proyek", "Pengrajin", "Montir", "Pedagang", "Jurnalis", "Editor", "Teknisi Listrik", "Koki", "Tukang Kayu", "Pemadam Kebakaran", "Pemimpin Bisnis", "Ahli Kimia", "Pengacara", "Desainer Interior", "Pembuat Film", "Ahli Geologi", "Pemrogram", "Penyiar", "Ahli Bahasa", "Pemilik Bisnis Kecil", "Ahli Fisika"},
-        // pekerjaan ibu 9
-        {"Pegawai Negeri Sipil", "Guru", "Wiraswasta", "Pengusaha", "Dokter", "Pengacara", "Insinyur", "Petani", "Pilot", "Pedagang", "Arsitek", "Polisi", "Pramusaji", "Pengemudi Taksi", "Peneliti", "Seniman", "Tentara", "Nelayan", "Peternak", "Sopir Truk", "Ahli IT", "Seniman", "Koki", "Birokrat", "Guru", "Atlet", "Penulis", "Konsultan", "Bidan", "Montir", "Penyanyi", "Sopir Bus", "Dosen", "Psikolog", "Perawat", "Desainer", "Tukang Kayu", "Petugas Kebersihan", "Manajer", "Pemadam Kebakaran", "Pengemudi Ojek Online", "Petugas Keamanan", "Petani", "Teknisi Komputer", "Jurutulis", "Pekerja Sosial"}
-        };
-    
-        System.out.println("╔═══════════════════════╗");
-        System.out.println("║      B I O D A T A    ║");
-        System.out.println("╚═══════════════════════╝\n");
-    
-
-    for (; isEnd == false;) {
-        System.out.print("Silakan pilih siswa (1 s.d. 45) : ");
-        int i = sc.nextInt();
-        for (int j = 0; j < biodata.length; j++) {
-            switch (j) {
-                case 0:
-                    System.out.print("Nama Lengkap    : ");
-                    break;
-                
-                case 1:
-                    System.out.print("Jenis Kelamin   : ");
-                    break;
-                case 2:
-                    System.out.print("Tempat Lahir    : ");
-                    break;
-                case 3:
-                    System.out.print("Tanggal Lahir   : ");
-                    break;
-                case 4:
-                    System.out.print("Agama           : ");
-                    break;
-                case 5:
-                    System.out.print("Alamat          : ");
-                    break;
-                case 6:
-                    System.out.print("Nama Ayah       : ");
-                    break;
-                case 7:
-                    System.out.print("Nama Ibu        : ");
-                    break;
-                case 8:
-                    System.out.print("Pekerjaan Ayah  : ");
-                    break;
-                case 9:
-                    System.out.print("Pekerjaan Ibu   : ");
-                default:
-                    break;
+        for (; isEnd == false;) {
+            System.out.print("Silakan nomor induk siswa (1 s.d. 45) : ");
+            int i = sc.nextInt();
+            for (int j = 0; j < biodata.length; j++) {
+                switch (j) {
+                    case 0:
+                        System.out.print("Nama Lengkap    : ");
+                        break;
+                    
+                    case 1:
+                        System.out.print("Jenis Kelamin   : ");
+                        break;
+                    case 2:
+                        System.out.print("Tempat Lahir    : ");
+                        break;
+                    case 3:
+                        System.out.print("Tanggal Lahir   : ");
+                        break;
+                    case 4:
+                        System.out.print("Agama           : ");
+                        break;
+                    case 5:
+                        System.out.print("Alamat          : ");
+                        break;
+                    case 6:
+                        System.out.print("Nama Ayah       : ");
+                        break;
+                    case 7:
+                        System.out.print("Nama Ibu        : ");
+                        break;
+                    case 8:
+                        System.out.print("Pekerjaan Ayah  : ");
+                        break;
+                    case 9:
+                        System.out.print("Pekerjaan Ibu   : ");
+                    default:
+                        break;
+                }
+                System.out.print(biodata[j][(i-1)]+"\n");
             }
-            System.out.print(biodata[j][(i-1)]+"\n");
+            System.out.print("\nIngin melihat siswa lain? (y/n) :");
+            char isLagi = sc.next().charAt(0);
+            if (isLagi == 'n') {
+                isEnd = true;
+                siakad(isEnd, pilih, isLagi, i, i, isLagi, i, i, null, null, null, i, isLagi, i, i, i, isLagi, i, isLagi, null, null, null, i, i, i, isLagi, i, i, isLagi, i);
+            }
         }
 
-        System.out.print("\nIngin melihat siswa lain? (y/t) :");
-        char isLagi = sc.next().charAt(0);
-        if (isLagi == 't') {
-            isEnd = true;
+    }
+    static void login (boolean loginSucces, String username, String password, String user[], String pass[]) {
+
+        System.out.println("\n\n#######################################################");
+        System.out.println("#                                                     #");
+        System.out.println("#     SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK     #");
+        System.out.println("#                                                     #");
+        System.out.println("#######################################################\n");
+
+        boolean loginSuccess = false;
+        do {
+            System.out.print("Masukkan username : ");
+            username = sc.next();
+            System.out.print("Masukkan password : ");
+            password = sc.next();
+
+            for (int i = 0; i < user.length; i++) {
+                if (username.equals(user[i]) && pass[i].equals(password)) {
+                    System.out.println("\nAnda berhasil login");
+                    loginSuccess = true;
+                    break;
+                }
+            }
+            if (!loginSuccess) {
+                System.out.println("\nUsername atau Password yang Anda masukkan salah!");
+                System.out.println("Silahkan mencoba kembali\n");
+            }
+        } while (!loginSuccess);
+
+        System.out.println("\n\n###################################################################");
+        System.out.println("     Selamat datang di Sistem Informasi Akademik SMAN x Malang     ");
+        System.out.println("###################################################################\n");
+    }
+    static void Menu (String menu, String murid[][], String kelas[], String nama, String pilihKelas) {
+        System.out.println("Biodata\nKelas");
+        System.out.print("Pilih menu Anda : ");
+        menu = sc.next();
+        switch (menu) {
+            case "biodata":
+                Biodata(false, murid, pilihKelas, pilihKelas, kelas);
+                break;
+            case "kelas":
+                Kelas(kelas);
+                break;
         }
     }
-
-}
-
 }
