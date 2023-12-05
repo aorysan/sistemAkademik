@@ -142,9 +142,9 @@ public class sistemAkademik {
         
         System.out.print("Hasil Nilai Akhir Matematika : " + nAMat);
         if (nAMat<75) {
-            System.out.println("Remedi.");
+            System.out.println("\nRemedi.");
         } else {
-            System.out.println("Tidak Remedi.\n");
+            System.out.println("\nTidak Remedi.");
         }
             
         // INPUT NILAI ARRAY - IPA
@@ -201,9 +201,9 @@ public class sistemAkademik {
         nAIpa = (rata_nIpa*proporsiTugas+nUIpa*proporsiU+rata_nUHIpa*proporsiUH)*bIpa;
         System.out.print("Hasil Nilai Akhir Matematika : " + nAIpa);
         if (nAIpa<75) {
-            System.out.println("Remedi.");
+            System.out.println("\nRemedi.");
         } else {
-            System.out.println("Tidak Remedi.\n");
+            System.out.println("\nTidak Remedi.");
         }
         
         // INPUT NILAI ARRAY - BIN
@@ -260,9 +260,9 @@ public class sistemAkademik {
         nABin = (rata_nBin*proporsiTugas+nUBin*proporsiU+rata_nUHBin*proporsiUH)*bBin;
         System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
         if (nABin<75) {
-            System.out.println("Remedi.");
+            System.out.println("\nRemedi.");
         } else {
-            System.out.println("Tidak Remedi.\n");
+            System.out.println("\nTidak Remedi.");
         }
 
         // PENCETAK RAPOR
