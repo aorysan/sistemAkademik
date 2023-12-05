@@ -142,9 +142,9 @@ public class sistemAkademik {
         
         System.out.print("Hasil Nilai Akhir Matematika : " + nAMat);
         if (nAMat<75) {
-            System.out.println("Remedi.");
+            System.out.println("\nRemedi.");
         } else {
-            System.out.println("Tidak Remedi.\n");
+            System.out.println("\nTidak Remedi.");
         }
             
         // INPUT NILAI ARRAY - IPA
@@ -201,9 +201,9 @@ public class sistemAkademik {
         nAIpa = (rata_nIpa*proporsiTugas+nUIpa*proporsiU+rata_nUHIpa*proporsiUH)*bIpa;
         System.out.print("Hasil Nilai Akhir Matematika : " + nAIpa);
         if (nAIpa<75) {
-            System.out.println("Remedi.");
+            System.out.println("\nRemedi.");
         } else {
-            System.out.println("Tidak Remedi.\n");
+            System.out.println("\nTidak Remedi.");
         }
         
         // INPUT NILAI ARRAY - BIN
@@ -258,11 +258,11 @@ public class sistemAkademik {
         rata_nUHBin= j/nUHBin.length;
         
         nABin = (rata_nBin*proporsiTugas+nUBin*proporsiU+rata_nUHBin*proporsiUH)*bBin;
-        System.out.print("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
+        System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
         if (nABin<75) {
-            System.out.println("Remedi.");
+            System.out.println("\nRemedi.");
         } else {
-            System.out.println("Tidak Remedi.\n");
+            System.out.println("\nTidak Remedi.");
         }
 
         // PENCETAK RAPOR
@@ -286,20 +286,20 @@ public class sistemAkademik {
     }
     
     static void cetakRapor(String nama, String pilihKelas, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
-        System.out.println("Nama Siswa : " + nama);
-        System.out.println("Kelas      : " + pilihKelas);
+        System.out.println("Nama Siswa\t: " + nama);
+        System.out.println("Kelas\t\t: " + pilihKelas);
 
-        System.out.println("\n=============== NILAI ===============");
+        System.out.println("\n============================== NILAI ==============================");
         cetakMapel("Matematika", rata_nMat, rata_nUHMat, nUMat, nAMat);
         cetakMapel("IPA", rata_nIpa, rata_nUHIpa, nUIpa, nAIpa);
         cetakMapel("Bahasa Indoneisa", rata_nBin, rata_nUHBin, nUBin, nABin);
 
-        System.out.println("\n=============== KEHADIRAN ===============");
+        System.out.println("\n============================== KEHADIRAN ==============================");
         System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensi);
 
-        System.out.println("\n=============== HASIL ===============");
-        System.out.println("Indeks Prestasi  : " + indeksPrestasi);
-        System.out.println("Rata-rata Nilai : " + rataRata);
+        System.out.println("\n============================== HASIL ==============================");
+        System.out.println("Indeks Prestasi\t\t: " + indeksPrestasi);
+        System.out.println("Rata-rata Nilai\t\t: " + rataRata);
         kelulusan(indeksPrestasi, jmlPresensi);
     }
     static void cetakMapel(String Mapel, double rataTugas, double rataUH, double nUjian, double nAKhir){
@@ -311,24 +311,24 @@ public class sistemAkademik {
     }
     static void pilih (boolean loginSucces, String username, String password, String user[], String pass[], String pilih, String murid[][], String pilihKelas, String nama, String kelas[], double nMat[], double nUHMat[], double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
         
-        System.out.print("Apakah Anda ingin mencetek rapor?(y/n)");
+        System.out.print("Apakah Anda ingin mencetek rapor?(y/n) : ");
         pilih = sc.next();
         
         if(pilih.equalsIgnoreCase("y")) {
             //Pemanggilan Fungsi Cetak Rapor
             cetakRapor(nama, pilihKelas, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
-            System.out.print("Apakah Anda ingin kembali ke menu awal?(y/n)");
+            System.out.print("Apakah Anda ingin kembali ke menu awal?(y/n) : ");
             pilih = sc.next();
             if (pilih.equalsIgnoreCase("y")) {
                 Menu(pilih, murid, kelas, nama, pilihKelas);
             }
         } else if (pilih.equalsIgnoreCase("n")) {
-            System.out.print("Apakah Anda ingin kembali ke menu?(y/n)");
+            System.out.print("Apakah Anda ingin kembali ke menu?(y/n) : ");
             pilih = sc.next();
             if (pilih.equalsIgnoreCase("y")) {
                 Menu(pilih, murid, kelas, nama, pilihKelas);
             } else if (pilih.equalsIgnoreCase("n")) {
-                System.out.print("Apakah Anda ingin logout?(y/n)");
+                System.out.print("Apakah Anda ingin logout?(y/n) : ");
                 pilih = sc.next();
                 if (pilih.equalsIgnoreCase("y")) {
                     loginSucces = false;
@@ -353,7 +353,7 @@ public class sistemAkademik {
 
     //Fungsi untuk print out kelas
     static void Kelas (String kelas[]) {
-        System.out.println("Berikut kelas yang ada di sekolah ini :");
+        System.out.println("Berikut kelas yang ada di sekolah ini : ");
         for (int i = 0; i < kelas.length; i++) {
             System.out.print(kelas[i] + "\t");
         }
@@ -404,41 +404,41 @@ public class sistemAkademik {
             for (int j = 0; j < biodata.length; j++) {
                 switch (j) {
                     case 0:
-                        System.out.print("Nama Lengkap    : ");
+                        System.out.print("Nama Lengkap\t\t: ");
                         break;
                     
                     case 1:
-                        System.out.print("Jenis Kelamin   : ");
+                        System.out.print("Jenis Kelamin\t\t: ");
                         break;
                     case 2:
-                        System.out.print("Tempat Lahir    : ");
+                        System.out.print("Tempat Lahir\t\t: ");
                         break;
                     case 3:
-                        System.out.print("Tanggal Lahir   : ");
+                        System.out.print("Tanggal Lahir\t\t: ");
                         break;
                     case 4:
-                        System.out.print("Agama           : ");
+                        System.out.print("Agama\t\t\t: ");
                         break;
                     case 5:
-                        System.out.print("Alamat          : ");
+                        System.out.print("Alamat\t\t\t: ");
                         break;
                     case 6:
-                        System.out.print("Nama Ayah       : ");
+                        System.out.print("Nama Ayah\t\t: ");
                         break;
                     case 7:
-                        System.out.print("Nama Ibu        : ");
+                        System.out.print("Nama Ibu\t\t: ");
                         break;
                     case 8:
-                        System.out.print("Pekerjaan Ayah  : ");
+                        System.out.print("Pekerjaan Ayah\t\t: ");
                         break;
                     case 9:
-                        System.out.print("Pekerjaan Ibu   : ");
+                        System.out.print("Pekerjaan Ibu\t\t: ");
                     default:
                         break;
                 }
                 System.out.print(biodata[j][(i-1)]+"\n");
             }
-            System.out.print("\nIngin melihat siswa lain? (y/n) :");
+            System.out.print("\nIngin melihat siswa lain? (y/n) : ");
             char isLagi = sc.next().charAt(0);
             if (isLagi == 'n') {
                 isEnd = true;
@@ -449,11 +449,11 @@ public class sistemAkademik {
     }
     static void login (boolean loginSucces, String username, String password, String user[], String pass[]) {
 
-        System.out.println("\n\n#######################################################");
-        System.out.println("#                                                     #");
-        System.out.println("#     SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK     #");
-        System.out.println("#                                                     #");
-        System.out.println("#######################################################\n");
+        System.out.println("\n\n#################################################################");
+        System.out.println("#                                                               #");
+        System.out.println("#          SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK          #");
+        System.out.println("#                                                               #");
+        System.out.println("#################################################################\n");
 
         boolean loginSuccess = false;
         do {
@@ -475,9 +475,9 @@ public class sistemAkademik {
             }
         } while (!loginSuccess);
 
-        System.out.println("\n\n###################################################################");
-        System.out.println("     Selamat datang di Sistem Informasi Akademik SMAN x Malang     ");
-        System.out.println("###################################################################\n");
+        System.out.println("\n\n#############################################################################");
+        System.out.println("          Selamat datang di Sistem Informasi Akademik SMAN x Malang          ");
+        System.out.println("#############################################################################\n");
     }
     static void Menu (String menu, String murid[][], String kelas[], String nama, String pilihKelas) {
         System.out.println("Biodata\nKelas");
