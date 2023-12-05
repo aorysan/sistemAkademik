@@ -442,7 +442,17 @@ public class sistemAkademik {
             char isLagi = sc.next().charAt(0);
             if (isLagi == 'n') {
                 isEnd = true;
-                siakad(isEnd, pilih, isLagi, i, i, isLagi, i, i, null, null, null, i, isLagi, i, i, i, isLagi, i, isLagi, null, null, null, i, i, i, isLagi, i, i, isLagi, i);
+                System.out.print("Apakah Anda ingin kembali ke menu?(y/n)");
+                pilih = sc.next();
+                if (pilih.equalsIgnoreCase("y")) {
+                    Menu(nama, murid, kelas, nama, pilih);
+                } else if (pilih.equalsIgnoreCase("n")) {
+                    System.out.print("Apakah Anda ingin logout?(y/n)");
+                    pilih = sc.next();
+                    if (pilih.equalsIgnoreCase("y")) {
+                        siakad(loginSucces, pilih, isLagi, i, i, isLagi, i, i, null, null, null, i, isLagi, i, i, i, isLagi, i, isLagi, null, null, null, i, i, i, isLagi, i, i, isLagi, i);
+                    }
+                }
             }
         }
 
