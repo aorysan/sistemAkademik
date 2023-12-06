@@ -399,7 +399,7 @@ public class sistemAkademik {
             System.out.println("╚═══════════════════════╝\n");
 
         for (; isEnd == false;) {
-            System.out.print("Silakan nomor induk siswa (1 s.d. 45) : ");
+            System.out.print("Silakan masukkan nomor induk siswa (1 s.d. 45) : ");
             int i = sc.nextInt();
             for (int j = 0; j < biodata.length; j++) {
                 switch (j) {
