@@ -340,12 +340,9 @@ public class sistemAkademik {
 
     //Fungsi untuk pembuat keputusan kelulusan
     static void kelulusan(double indeksPrestasi, double jmlPresensi){
-        if(indeksPrestasi >= 2.5) {
-            if(jmlPresensi >= 0.7) {
+        if(indeksPrestasi >= 2.5 && jmlPresensi >= 70)  {
+            
                 System.out.println("\nSiswa memenuhi syarat untuk naik kelas.\n");
-            } else {
-                System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.\n");
-            }
         } else {
             System.out.println("\nSiswa tidak memenuhi syarat untuk naik kelas.\n");
         }
