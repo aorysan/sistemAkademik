@@ -1,15 +1,55 @@
 import java.util.*;
 public class sistemAkademik {
+    
+    static int bMat            = 4;
+    static int bIpa            = 4;
+    static int bBin            = 4;
+    static double proporsiTugas   = 0.3;
+    static double proporsiUH      = 0.35;
+    static double proporsiU       = 0.35;
     static Scanner sc = new Scanner(System.in);
+
+    // Deklarasi untuk inp-kalk nilai
+        // Masukkan banyak mapel
+    static int banyakMapel = 3;
+    static double tugas[][] = new double[banyakMapel][4];
+    static double uH[][] = new double[banyakMapel][4];
+    static double ujian[] = new double[banyakMapel];
+    static String mapel[] = {"Matematika", "Ilmu Pengetahuan Alam", "Bahasa Indonesia"};
+    static double nilaiA[] = new double[banyakMapel];
+    static double rata[][] = new double[banyakMapel][2]; 
+    static int bobotMapel[] = {4,4,4,4,4,4,4,4};
+
+    // BIODATA MURID
+    static String biodata[][] = {
+    // Nama 0
+    {"Abdul Khamid Jalaludin", "Aifatul Khoiridah", "Alya Nur Azizah", "Alia Dzikrussofiana", "Amin Ustadzi", "Anggun Puspita Sari", "Azkiyatul Falihah", "Bambang Sudarsono", "Citra Indah Sari", "Dewi Sofiah", "Dika Putra", "Elisa Andriani", "Eva Nia Maulida", "Fajar Setiawan", "Fariska Naftalia", "Farzan Abdul Latif", "Fernando Ardiansyah", "Gina Melati", "Gita Putri Utami", "Hafizh Satrio", "Hendra Gunawan", "Ibnu Fajar Auliya", "Indra Kusuma", "Inayah Nurul Hidayah", "Jihan Aulia", "Joko Susilo", "Kartika Sari", "Lia Nur Fitriani", "Maulana Ridwan", "Nadia Rachmawati", "Oktavia Putri Ramadhani", "Putra Pratama", "Qori Ramadhan", "Rahma Wahyuningrum", "Rendi Pratama", "Siti Nurjanah", "Taufik Hidayat", "Ulfa Khairunnisa", "Vivi Septiani", "Wahyu Setiawan", "Xena Putri Arifin", "Yoga Pratama", "Zahra Rizki Amalia", "Zainal Arifin",  "Zuhair Alami"},
+    // Jenis Kelamin 1
+    {"L",                       "P",                    "P",            "P",                    "L",            "P",                    "P",                "L",                "P",                    "P",        "L",            "P",                "P",            "L.",               "P",                "L",                "L",                    "P",            "P",                "L",            "L",                "L",                "L",            "P",                    "P",            "L",          "P",          "P",                "L",                "P",                "L",                        "L",            "L",            "P",                    "L",            "P",            "L",               "P",                 "P",            "L",              "P",                  "L",          "P",                  "L",                    "L"},
+    // Tempat lahir 2
+    {"Malang",                  "Magetan",           "Sleman",          "Surabaya",             "Sidoarjo",     "Pasuruan",             "Probolinggo",      "Banyuwangi",       "Jember",           "Blitar",       "Kediri",       "Mojokerto",        "Madiun",       "Tuban",        "Bojonegoro",         "Ngawi",              "Tulungagung",        "Pamekasan",  "Sumenep",          "Lamongan",      "Ponorogo",        "Pacitan",          "Bondowoso",        "Situbondo",        "Trenggalek", "Madiun",         "Gresik",       "Bangkalan",        "Tulungagung",   "Tulungagung",       "Nganjuk",                "Magetan",      "Pacitan",      "Lumajang",             "Batu",         "Malang",        "Blitar",          "Kediri",           "Tulungagung",      "Banyuwangi", "Jombang",            "Sampang",      "Malang",            "Malang",              "Kudus"},
+    // Tanggal lahir 3
+    {"2004-01-15",              "2004-03-27",       "2004-05-10",       "2004-07-18",       "2004-09-05",     "2004-11-12",         "2005-02-22",         "2005-04-30",         "2005-06-07",       "2005-08-14", "2004-02-01", "2004-04-18",       "2004-06-25",       "2004-08-03",   "2004-10-20",       "2005-01-08",           "2005-03-19",        "2005-05-28", "2005-07-09",        "2005-09-16",   "2004-01-25",      "2004-03-08",        "2004-05-17",    "2004-07-21",          "2004-09-30", "2004-11-05",   "2005-02-12",   "2005-04-20",         "2005-06-29",   "2005-08-10",       "2004-02-10",               "2004-04-28",   "2004-06-07",    "2004-08-18",          "2004-10-22",   "2005-01-05",    "2005-03-15",      "2005-05-24",       "2005-07-30",   "2005-09-11",     "2004-01-12",         "2004-03-21",   "2004-05-30",        "2004-07-04",      "2004-09-10"},
+    // agama 4
+    {"Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam"},
+    // alamat 5
+    {"Jalan Pisang Kipas, Gang VI, Nomor 21", "Jalan Veteran Nomor 23", "Jalan Bunga Mawar, Gang Berduri Nomor 11", "Jalan Cendana Nomor 7", "Jalan Kenanga, Perumahan Citra Indah Blok C2 Nomor 15", "Jalan Dahlia, Gang Melati Nomor 3", "Jalan Melati, Perumahan Bumi Asri Blok D Nomor 8", "Jalan Flamboyan Nomor 12", "Jalan Mawar, Perumahan Mekar Jaya Blok E Nomor 5", "Jalan Anggrek, Gang Seroja Nomor 9", "Jalan Kenari, Perumahan Bunga Indah Blok F Nomor 4", "Jalan Rafflesia Nomor 6", "Jalan Dahlia, Perumahan Bumi Asri Blok G Nomor 10", "Jalan Flamboyan Nomor 18", "Jalan Melati, Gang Mawar Nomor 7", "Jalan Dahlia, Perumahan Anggrek Indah Blok H Nomor 14", "Jalan Kenanga, Gang Flamboyan Nomor 13", "Jalan Mawar Nomor 16", "Jalan Rafflesia, Perumahan Bunga Citra Blok I Nomor 2", "Jalan Flamboyan, Gang Dahlia Nomor 17", "Jalan Kenari Nomor 19", "Jalan Mawar, Perumahan Kenanga Indah Blok J Nomor 22", "Jalan Dahlia, Gang Anggrek Nomor 20", "Jalan Melati Nomor 25", "Jalan Flamboyan, Perumahan Rafflesia Blok K Nomor 28", "Jalan Rafflesia Nomor 27", "Jalan Anggrek Nomor 30", "Jalan Kenanga, Gang Flamboyan Nomor 32", "Jalan Mawar Nomor 34", "Jalan Dahlia Nomor 36", "Jalan Melati, Perumahan Kenari Indah Blok L Nomor 38", "Jalan Flamboyan, Gang Rafflesia Nomor 40", "Jalan Rafflesia Nomor 42", "Jalan Anggrek Nomor 44", "Jalan Kenanga Nomor 46", "Jalan Mawar Nomor 48", "Jalan Dahlia Nomor 50", "Jalan Melati Nomor 52", "Jalan Flamboyan Nomor 54", "Jalan Rafflesia Nomor 56", "Jalan Anggrek Nomor 58", "Jalan Kenanga Nomor 60", "Jalan Mawar Nomor 62", "Jalan Dahlia Nomor 64", "Dusun Kenangan, Desa Rindu"},
+    // nama ayah 6
+    {"Ahmad", "Muhammad", "Abdullah", "Rizky", "Fahmi", "Irfan", "Syamsul", "Haris", "Ari", "Fandi", "Ridwan", "Ilham", "Hendra", "Rizaldi", "Dede", "Ricky", "Budi", "Arif", "Yudi", "Eko", "Maulana", "Rizki", "Adi", "Hadi", "Firman", "Yoga", "Dian", "Rendi", "Surya", "Andi", "Joko", "Eko", "Fajar", "Rizal", "Suryadi", "Agus", "Aldi", "Galih", "Hendri", "Anwar", "Aditya", "Bayu", "Irfan", "Irsan", "Krisna"},
+    // nama ibu 7
+    {"Siti", "Lina", "Ayu", "Ratna", "Sinta", "Rina", "Eka", "Dewi", "Laras", "Yuni", "Novi", "Rini", "Nur", "Rina", "Sari", "Dian", "Dewi", "Putri", "Indah", "Lia", "Wulan", "Ani", "Fita", "Maya", "Nina", "Sari", "Citra", "Sari", "Ayu", "Nur", "Sari", "Ria", "Mega", "Anisa", "Sari", "Sri", "Rika", "Lia", "Yuli", "Evi", "Lesti", "Rini", "Ayu", "Dwi", "Rina", "Lia"},
+    // pekerjaan ayah 8
+    {"Pengacara", "Dokter", "Insinyur", "Pilot", "Polisi", "Pengusaha", "Desainer", "Programmer", "Penulis", "Musisi", "Guru", "Aktor", "Ahli IT", "Peneliti", "Pengembang Perangkat Lunak", "Analis Keuangan", "Dosen", "Petani", "Teknisi", "Ahli Bedah", "Ahli Biologi", "Psikolog", "Ilmuwan", "Arsitek", "Konsultan", "Manajer Proyek", "Pengrajin", "Montir", "Pedagang", "Jurnalis", "Editor", "Teknisi Listrik", "Koki", "Tukang Kayu", "Pemadam Kebakaran", "Pemimpin Bisnis", "Ahli Kimia", "Pengacara", "Desainer Interior", "Pembuat Film", "Ahli Geologi", "Pemrogram", "Penyiar", "Ahli Bahasa", "Pemilik Bisnis Kecil", "Ahli Fisika"},
+    // pekerjaan ibu 9
+    {"Pegawai Negeri Sipil", "Guru", "Wiraswasta", "Pengusaha", "Dokter", "Pengacara", "Insinyur", "Petani", "Pilot", "Pedagang", "Arsitek", "Polisi", "Pramusaji", "Pengemudi Taksi", "Peneliti", "Seniman", "Tentara", "Nelayan", "Peternak", "Sopir Truk", "Ahli IT", "Seniman", "Koki", "Birokrat", "Guru", "Atlet", "Penulis", "Konsultan", "Bidan", "Montir", "Penyanyi", "Sopir Bus", "Dosen", "Psikolog", "Perawat", "Desainer", "Tukang Kayu", "Petugas Kebersihan", "Manajer", "Pemadam Kebakaran", "Pengemudi Ojek Online", "Petugas Keamanan", "Petani", "Teknisi Komputer", "Jurutulis", "Pekerja Sosial"}
+    };
+    
     public static void main(String[] args) {
         siakad(false, null, 0, 0, 0, 0, 0, 0, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0, null, null, null, 0, 0, 0, 0, 0, 0, 0, 0);
     }
     static void siakad (boolean loginSucces, String pilih, double nUmat, double nUIpa, double nUBin, double bMat, double bIpa, double bBin, double nUHBin[], double nUHIpa[], double nUHMat[], double rata_nBin, double rata_nMat, double rata_nIpa, double rata_nUHBin, double rata_nUHIpa, double rata_nUHMat, double jmlPresensi, double nUMat, double nIpa[], double nMat[], double nBin[], double proporsiTugas, double proporsiUH, double proporsiU, double rataRata, double indeksPrestasi, double nAIpa, double nAMat, double nABin) {
         loginSucces = false;
         pilih           = "";
-        bMat            = 4;
-        bIpa            = 4;
-        bBin            = 4;
         nMat            = new double[4];
         nUHMat          = new double[4];
         nIpa            = new double[4];
@@ -88,195 +128,205 @@ public class sistemAkademik {
         } while (presensi > 132);
                 
         //INPUT NILAI DENGAN ARRAY - MATEMATIKA
-        int i = 0;
-        do {
-            System.out.print("\nNilai Tugas Matematika \n Tugas ke-"+(i+1)+" : ");
-            do {
-                nMat[i] = sc.nextDouble();
-                if (nMat[i] < 0 || nMat[i] > 100) {
-                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                System.out.print("\nNilai Tugas Matematika \n Tugas ke-"+(i+1)+" : ");
-                }
-            } while (nMat[i] < 0 || nMat[i] > 100);
-            i++;
-        } while (i<4);
+        
+        for (int i = 0; i < nilaiA.length; i++) {
+           nilaiA[i] = KalkulasiNilai(i);
+        }
+        
+
+        // int i = 0;
+        // do {
+        //     System.out.print("\nNilai Tugas Matematika \n Tugas ke-"+(i+1)+" : ");
+        //     do {
+        //         nMat[i] = sc.nextDouble();
+        //         if (nMat[i] < 0 || nMat[i] > 100) {
+        //             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //         System.out.print("\nNilai Tugas Matematika \n Tugas ke-"+(i+1)+" : ");
+        //         }
+        //     } while (nMat[i] < 0 || nMat[i] > 100);
+        //     i++;
+        // } while (i<4);
             
-        i = 0;
-        do {
-            System.out.print("\nNilai Ulangan Harian Matematika \n UH ke-"+(i+1)+" : ");
-            do {
-                nUHMat[i] = sc.nextDouble();
-                if (nUHMat[i] < 0 || nUHMat[i] > 100) {
-                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                    System.out.print("\nNilai Ulangan Harian Matematika \n UH ke-"+(i+1)+" : ");
-                }
-            } while (nUHMat[i] < 0 || nUHMat[i] > 100);
-                i++;
-        } while (i<nUHMat.length);
+        // i = 0;
+        // do {
+        //     System.out.print("\nNilai Ulangan Harian Matematika \n UH ke-"+(i+1)+" : ");
+        //     do {
+        //         nUHMat[i] = sc.nextDouble();
+        //         if (nUHMat[i] < 0 || nUHMat[i] > 100) {
+        //             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //             System.out.print("\nNilai Ulangan Harian Matematika \n UH ke-"+(i+1)+" : ");
+        //         }
+        //     } while (nUHMat[i] < 0 || nUHMat[i] > 100);
+        //         i++;
+        // } while (i<nUHMat.length);
                 
-        System.out.print("\nNilai Ujian Matematika : ");
-        do {
-            nUMat = sc.nextDouble();
-            if (nUMat < 0 || nUMat > 100) {
-                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                System.out.print("Nilai Ujian Matematika : ");
-            }
-        } while (nUMat < 0 || nUMat > 100);
+        // System.out.print("\nNilai Ujian Matematika : ");
+        // do {
+        //     nUMat = sc.nextDouble();
+        //     if (nUMat < 0 || nUMat > 100) {
+        //         System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //         System.out.print("Nilai Ujian Matematika : ");
+        //     }
+        // } while (nUMat < 0 || nUMat > 100);
                 
-                //rata-rata nilai mat dalam array
-        double j=0;
-        for(i=0; i<nMat.length; i++){
-            j = nMat[i] +j;
-        }
+        //         //rata-rata nilai mat dalam array
+        // double j=0;
+        // for(i=0; i<nMat.length; i++){
+        //     j = nMat[i] +j;
+        // }
 
-        rata_nMat = j/nMat.length;
+        // rata_nMat = j/nMat.length;
                 
-        j=0;
-        for(i=0; i<4; i++){
-            j= nUHMat[i]+j;
-        }
+        // j=0;
+        // for(i=0; i<4; i++){
+        //     j= nUHMat[i]+j;
+        // }
 
-        rata_nUHMat= j/nUHMat.length;
+        // rata_nUHMat= j/nUHMat.length;
                 
-        nAMat = (rata_nMat*proporsiTugas+nUMat*proporsiU+rata_nUHMat*proporsiUH)*bMat;
+        // nAMat = (rata_nMat*proporsiTugas+nUMat*proporsiU+rata_nUHMat*proporsiUH)*bMat;
         
-        System.out.print("Hasil Nilai Akhir Matematika : " + nAMat);
-        if (nAMat<75) {
-            System.out.println("\nRemedi.");
-        } else {
-            System.out.println("\nTidak Remedi.");
-        }
+        // System.out.print("Hasil Nilai Akhir Matematika : " + nAMat);
+        // if (nAMat<75) {
+        //     System.out.println("\nRemedi.");
+        // } else {
+        //     System.out.println("\nTidak Remedi.");
+        // }
             
-        // INPUT NILAI ARRAY - IPA
-        i = 0;
-        do {
-            System.out.print("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
-            do {
-                nIpa[i] = sc.nextDouble();
-                if (nIpa[i] < 0 || nIpa[i] > 100) {
-                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                    System.out.print("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
-                }
-            } while (nIpa[i] < 0 || nIpa[i] > 100);
-            i++;
-        } while (i<nIpa.length);
+        // // INPUT NILAI ARRAY - IPA
+        // i = 0;
+        // do {
+        //     System.out.print("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
+        //     do {
+        //         nIpa[i] = sc.nextDouble();
+        //         if (nIpa[i] < 0 || nIpa[i] > 100) {
+        //             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //             System.out.print("\nNilai Tugas IPA \n Tugas ke-"+(i+1)+" : ");
+        //         }
+        //     } while (nIpa[i] < 0 || nIpa[i] > 100);
+        //     i++;
+        // } while (i<nIpa.length);
         
-        i = 0;
-        do {
-            System.out.print("\nNilai Ulangan Harian IPA \n UH ke-"+(i+1)+" : ");
-            do {
-                nUHIpa[i] = sc.nextDouble();
-                if (nUHIpa[i] < 0 || nUHIpa[i] > 100) {
-                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                    System.out.print("\nNilai Ulangan Harian IPA \n UH ke-"+(i+1)+" : ");
-                }
-            } while (nUHIpa[i] < 0 || nUHIpa[i] > 100);
-            i++;
-        } while (i<nUHIpa.length);
+        // i = 0;
+        // do {
+        //     System.out.print("\nNilai Ulangan Harian IPA \n UH ke-"+(i+1)+" : ");
+        //     do {
+        //         nUHIpa[i] = sc.nextDouble();
+        //         if (nUHIpa[i] < 0 || nUHIpa[i] > 100) {
+        //             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //             System.out.print("\nNilai Ulangan Harian IPA \n UH ke-"+(i+1)+" : ");
+        //         }
+        //     } while (nUHIpa[i] < 0 || nUHIpa[i] > 100);
+        //     i++;
+        // } while (i<nUHIpa.length);
         
-        System.out.print("\nNilai Ujian IPA : ");
-        do {
-            nUIpa = sc.nextDouble();
-            if (nUIpa < 0 || nUIpa > 100) {
-                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                System.out.print("Nilai Ujian IPA : ");
-            }
-        } while (nUIpa < 0 || nUIpa > 100);
+        // System.out.print("\nNilai Ujian IPA : ");
+        // do {
+        //     nUIpa = sc.nextDouble();
+        //     if (nUIpa < 0 || nUIpa > 100) {
+        //         System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //         System.out.print("Nilai Ujian IPA : ");
+        //     }
+        // } while (nUIpa < 0 || nUIpa > 100);
         
-        //rata-rata nilai ipa dalam array
-        j=0;
-        for(i=0; i<nIpa.length; i++){
-            j = nIpa[i] +j;
-        }
+        // //rata-rata nilai ipa dalam array
+        // j=0;
+        // for(i=0; i<nIpa.length; i++){
+        //     j = nIpa[i] +j;
+        // }
 
-        rata_nIpa = j/nIpa.length;
+        // rata_nIpa = j/nIpa.length;
         
-        j=0;
-        for(i=0; i<4; i++){
-            j= nUHIpa[i]+j;
-        }
+        // j=0;
+        // for(i=0; i<4; i++){
+        //     j= nUHIpa[i]+j;
+        // }
 
-        rata_nUHIpa= j/nUHIpa.length;
+        // rata_nUHIpa= j/nUHIpa.length;
         
-        nAIpa = (rata_nIpa*proporsiTugas+nUIpa*proporsiU+rata_nUHIpa*proporsiUH)*bIpa;
-        System.out.print("Hasil Nilai Akhir Matematika : " + nAIpa);
-        if (nAIpa<75) {
-            System.out.println("\nRemedi.");
-        } else {
-            System.out.println("\nTidak Remedi.");
-        }
+        // nAIpa = (rata_nIpa*proporsiTugas+nUIpa*proporsiU+rata_nUHIpa*proporsiUH)*bIpa;
+        // System.out.print("Hasil Nilai Akhir Matematika : " + nAIpa);
+        // if (nAIpa<75) {
+        //     System.out.println("\nRemedi.");
+        // } else {
+        //     System.out.println("\nTidak Remedi.");
+        // }
         
-        // INPUT NILAI ARRAY - BIN
-        i = 0;
-        do {
-            System.out.print("\nNilai Tugas Bahasa Indonesia \n Tugas ke-"+(i+1)+" : ");
-            do {
-                nBin[i] = sc.nextDouble();
-                if (nBin[i] < 0 || nBin[i] > 100) {
-                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                    System.out.print("\nNilai Tugas Bahasa Indonesia \n Tugas ke-"+(i+1)+" : ");
-                }
-            } while (nBin[i] < 0 || nBin[i] > 100);
-            i++;
-        } while (i<nBin.length);
+        // // INPUT NILAI ARRAY - BIN
+        // i = 0;
+        // do {
+        //     System.out.print("\nNilai Tugas Bahasa Indonesia \n Tugas ke-"+(i+1)+" : ");
+        //     do {
+        //         nBin[i] = sc.nextDouble();
+        //         if (nBin[i] < 0 || nBin[i] > 100) {
+        //             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //             System.out.print("\nNilai Tugas Bahasa Indonesia \n Tugas ke-"+(i+1)+" : ");
+        //         }
+        //     } while (nBin[i] < 0 || nBin[i] > 100);
+        //     i++;
+        // } while (i<nBin.length);
         
-        i = 0;
-        do {
-            System.out.print("\nNilai Ulangan Harian Bahasa Indonesia \n UH ke-"+(i+1)+" : ");
-            do {
-                nUHBin[i] = sc.nextDouble();
-                if (nUHBin[i] < 0 || nUHBin[i] > 100) {
-                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                    System.out.print("\nNilai Ulangan Harian Bahasa Indonesia \n UH ke-"+(i+1)+" : ");
-                }
-            } while (nUHBin[i] < 0 || nUHBin[i] > 100);
-            i++;
-        } while (i<nUHBin.length);
+        // i = 0;
+        // do {
+        //     System.out.print("\nNilai Ulangan Harian Bahasa Indonesia \n UH ke-"+(i+1)+" : ");
+        //     do {
+        //         nUHBin[i] = sc.nextDouble();
+        //         if (nUHBin[i] < 0 || nUHBin[i] > 100) {
+        //             System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //             System.out.print("\nNilai Ulangan Harian Bahasa Indonesia \n UH ke-"+(i+1)+" : ");
+        //         }
+        //     } while (nUHBin[i] < 0 || nUHBin[i] > 100);
+        //     i++;
+        // } while (i<nUHBin.length);
         
-        System.out.print("\nNilai Ujian Bahasa Indonesia : ");
-        do {
-            nUBin = sc.nextDouble();
-            if (nUBin < 0 || nUBin > 100) {
-                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
-                System.out.println("Nilai Ujian Bahasa Indonesia : ");
-            }
-        } while (nUBin < 0 || nUBin > 100);
+        // System.out.print("\nNilai Ujian Bahasa Indonesia : ");
+        // do {
+        //     nUBin = sc.nextDouble();
+        //     if (nUBin < 0 || nUBin > 100) {
+        //         System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+        //         System.out.println("Nilai Ujian Bahasa Indonesia : ");
+        //     }
+        // } while (nUBin < 0 || nUBin > 100);
         
-        //rata-rata nilai BIN dalam array
-        j=0;
-        for(i=0; i<nBin.length; i++){
-            j = nBin[i] +j;
-        }
+        // //rata-rata nilai BIN dalam array
+        // j=0;
+        // for(i=0; i<nBin.length; i++){
+        //     j = nBin[i] +j;
+        // }
 
-        rata_nBin = j/4;
+        // rata_nBin = j/4;
         
-        j=0;
-        for(i=0; i<4; i++){
-            j= nUHBin[i]+j;
-        }
+        // j=0;
+        // for(i=0; i<4; i++){
+        //     j= nUHBin[i]+j;
+        // }
         
-        rata_nUHBin= j/nUHBin.length;
+        // rata_nUHBin= j/nUHBin.length;
         
-        nABin = (rata_nBin*proporsiTugas+nUBin*proporsiU+rata_nUHBin*proporsiUH)*bBin;
-        System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
-        if (nABin<75) {
-            System.out.println("\nRemedi.");
-        } else {
-            System.out.println("\nTidak Remedi.");
-        }
+        // nABin = (rata_nBin*proporsiTugas+nUBin*proporsiU+rata_nUHBin*proporsiUH)*bBin;
+        // System.out.println("Hasil Nilai Akhir Bahasa Indonesia : " + nABin);
+        // if (nABin<75) {
+        //     System.out.println("\nRemedi.");
+        // } else {
+        //     System.out.println("\nTidak Remedi.");
+        // }
 
         // PENCETAK RAPOR
         // VAR MASUK: nama, presensi, nAMat, nAIpa, nABin, bMat, bIpa, bBin, nAMat, nAIpa, nABin
         
         jmlPresensi = (presensi/132)*100;
         //System.out.printf("Persentase kehadiran siswa dalam 1 semester : %.1f\n", jmlPresensi);
-        
-        indeksPrestasi = (nAMat+nAIpa+nABin)/((bMat+bIpa+bBin)*25);
+        double totalNilaiAkhir=0, totalBobotMapel=0;
+        for (int i = 0; i < banyakMapel; i++) {
+            totalNilaiAkhir =+ nilaiA[i];
+            totalBobotMapel =+ bobotMapel[i];
+        } 
+        indeksPrestasi = (totalNilaiAkhir)/((totalBobotMapel)*25);
         // System.out.println((nAMat+nAIpa+nABin));
         // System.out.println((bMat+bIpa+bBin)); untuk tes
         //System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
         
-        rataRata = (nAMat+nAIpa+nABin)/(4);
+        rataRata = (totalNilaiAkhir)/(banyakMapel);
         //System.out.println("Nilai rata-rata siswa : " + rataRata);
         
         //  MESIN DECISION KELULUSAN
@@ -285,14 +335,18 @@ public class sistemAkademik {
         pilih(loginSucces, username, password, user, pass, pilih, murid, pilihKelas, nama, kelas, nUHBin, nUHBin, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
     }
     
+    private static void KalkulasiNilai(double[] nMat, double[] nUHMat, double nUMat) {
+    }
     static void cetakRapor(String nama, String pilihKelas, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
-        System.out.println("Nama Siswa\t: " + nama);
+        System.out.println("Nama Siswa\t: " + biodata[0][Integer.parseInt(nama)-1]);
         System.out.println("Kelas\t\t: " + pilihKelas);
 
         System.out.println("\n============================== NILAI ==============================");
-        cetakMapel("Matematika", rata_nMat, rata_nUHMat, nUMat, nAMat);
-        cetakMapel("IPA", rata_nIpa, rata_nUHIpa, nUIpa, nAIpa);
-        cetakMapel("Bahasa Indoneisa", rata_nBin, rata_nUHBin, nUBin, nABin);
+        for (int i = 0; i < mapel.length; i++) {
+            cetakMapel(i);
+        }
+        // cetakMapel("IPA", rata_nIpa, rata_nUHIpa, nUIpa, nAIpa);
+        // cetakMapel("Bahasa Indoneisa", rata_nBin, rata_nUHBin, nUBin, nABin);
 
         System.out.println("\n============================== KEHADIRAN ==============================");
         System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensi);
@@ -302,12 +356,12 @@ public class sistemAkademik {
         System.out.println("Rata-rata Nilai\t\t: " + rataRata);
         kelulusan(indeksPrestasi, jmlPresensi);
     }
-    static void cetakMapel(String Mapel, double rataTugas, double rataUH, double nUjian, double nAKhir){
-        System.out.println("Mata Pelajaran : " + Mapel);
-        System.out.printf("Tugas\t\t: %.1f\n", rataTugas);
-        System.out.printf("UH\t\t: %.1f\n", rataUH);
-        System.out.printf("Ujian\t\t: %.1f\n", nUjian);
-        System.out.printf("Nilai Akhir\t: %.1f\n", nAKhir);
+    static void cetakMapel(int i){
+        System.out.println("Mata Pelajaran : " + mapel[i]);
+        System.out.printf("Tugas\t\t: %.1f\n", rata[i][0]); // rata[i][0] untuk rata2 tugas
+        System.out.printf("UH\t\t: %.1f\n", rata[i][1]); // rata[i][1] untuk rata2 uh
+        System.out.printf("Ujian\t\t: %.1f\n", ujian[i]);
+        System.out.printf("Nilai Akhir\t: %.1f\n", nilaiA[i]);
     }
     static void pilih (boolean loginSucces, String username, String password, String user[], String pass[], String pilih, String murid[][], String pilihKelas, String nama, String kelas[], double nMat[], double nUHMat[], double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
         
@@ -368,28 +422,7 @@ public class sistemAkademik {
     
     public static void Biodata(boolean loginSucces, String murid[][], String pilih, String nama, String kelas[]){
         boolean isEnd = false;
-        String biodata[][] = {
-            // Nama 0
-            {"Abdul Khamid Jalaludin", "Aifatul Khoiridah", "Alya Nur Azizah", "Alia Dzikrussofiana", "Amin Ustadzi", "Anggun Puspita Sari", "Azkiyatul Falihah", "Bambang Sudarsono", "Citra Indah Sari", "Dewi Sofiah", "Dika Putra", "Elisa Andriani", "Eva Nia Maulida", "Fajar Setiawan", "Fariska Naftalia", "Farzan Abdul Latif", "Fernando Ardiansyah", "Gina Melati", "Gita Putri Utami", "Hafizh Satrio", "Hendra Gunawan", "Ibnu Fajar Auliya", "Indra Kusuma", "Inayah Nurul Hidayah", "Jihan Aulia", "Joko Susilo", "Kartika Sari", "Lia Nur Fitriani", "Maulana Ridwan", "Nadia Rachmawati", "Oktavia Putri Ramadhani", "Putra Pratama", "Qori Ramadhan", "Rahma Wahyuningrum", "Rendi Pratama", "Siti Nurjanah", "Taufik Hidayat", "Ulfa Khairunnisa", "Vivi Septiani", "Wahyu Setiawan", "Xena Putri Arifin", "Yoga Pratama", "Zahra Rizki Amalia", "Zainal Arifin",  "Zuhair Alami"},
-            // Jenis Kelamin 1
-            {"L",                       "P",                    "P",            "P",                    "L",            "P",                    "P",                "L",                "P",                    "P",        "L",            "P",                "P",            "L.",               "P",                "L",                "L",                    "P",            "P",                "L",            "L",                "L",                "L",            "P",                    "P",            "L",          "P",          "P",                "L",                "P",                "L",                        "L",            "L",            "P",                    "L",            "P",            "L",               "P",                 "P",            "L",              "P",                  "L",          "P",                  "L",                    "L"},
-            // Tempat lahir 2
-            {"Malang",                  "Magetan",           "Sleman",          "Surabaya",             "Sidoarjo",     "Pasuruan",             "Probolinggo",      "Banyuwangi",       "Jember",           "Blitar",       "Kediri",       "Mojokerto",        "Madiun",       "Tuban",        "Bojonegoro",         "Ngawi",              "Tulungagung",        "Pamekasan",  "Sumenep",          "Lamongan",      "Ponorogo",        "Pacitan",          "Bondowoso",        "Situbondo",        "Trenggalek", "Madiun",         "Gresik",       "Bangkalan",        "Tulungagung",   "Tulungagung",       "Nganjuk",                "Magetan",      "Pacitan",      "Lumajang",             "Batu",         "Malang",        "Blitar",          "Kediri",           "Tulungagung",      "Banyuwangi", "Jombang",            "Sampang",      "Malang",            "Malang",              "Kudus"},
-            // Tanggal lahir 3
-            {"2004-01-15",              "2004-03-27",       "2004-05-10",       "2004-07-18",       "2004-09-05",     "2004-11-12",         "2005-02-22",         "2005-04-30",         "2005-06-07",       "2005-08-14", "2004-02-01", "2004-04-18",       "2004-06-25",       "2004-08-03",   "2004-10-20",       "2005-01-08",           "2005-03-19",        "2005-05-28", "2005-07-09",        "2005-09-16",   "2004-01-25",      "2004-03-08",        "2004-05-17",    "2004-07-21",          "2004-09-30", "2004-11-05",   "2005-02-12",   "2005-04-20",         "2005-06-29",   "2005-08-10",       "2004-02-10",               "2004-04-28",   "2004-06-07",    "2004-08-18",          "2004-10-22",   "2005-01-05",    "2005-03-15",      "2005-05-24",       "2005-07-30",   "2005-09-11",     "2004-01-12",         "2004-03-21",   "2004-05-30",        "2004-07-04",      "2004-09-10"},
-            // agama 4
-            {"Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam", "Islam"},
-            // alamat 5
-            {"Jalan Pisang Kipas, Gang VI, Nomor 21", "Jalan Veteran Nomor 23", "Jalan Bunga Mawar, Gang Berduri Nomor 11", "Jalan Cendana Nomor 7", "Jalan Kenanga, Perumahan Citra Indah Blok C2 Nomor 15", "Jalan Dahlia, Gang Melati Nomor 3", "Jalan Melati, Perumahan Bumi Asri Blok D Nomor 8", "Jalan Flamboyan Nomor 12", "Jalan Mawar, Perumahan Mekar Jaya Blok E Nomor 5", "Jalan Anggrek, Gang Seroja Nomor 9", "Jalan Kenari, Perumahan Bunga Indah Blok F Nomor 4", "Jalan Rafflesia Nomor 6", "Jalan Dahlia, Perumahan Bumi Asri Blok G Nomor 10", "Jalan Flamboyan Nomor 18", "Jalan Melati, Gang Mawar Nomor 7", "Jalan Dahlia, Perumahan Anggrek Indah Blok H Nomor 14", "Jalan Kenanga, Gang Flamboyan Nomor 13", "Jalan Mawar Nomor 16", "Jalan Rafflesia, Perumahan Bunga Citra Blok I Nomor 2", "Jalan Flamboyan, Gang Dahlia Nomor 17", "Jalan Kenari Nomor 19", "Jalan Mawar, Perumahan Kenanga Indah Blok J Nomor 22", "Jalan Dahlia, Gang Anggrek Nomor 20", "Jalan Melati Nomor 25", "Jalan Flamboyan, Perumahan Rafflesia Blok K Nomor 28", "Jalan Rafflesia Nomor 27", "Jalan Anggrek Nomor 30", "Jalan Kenanga, Gang Flamboyan Nomor 32", "Jalan Mawar Nomor 34", "Jalan Dahlia Nomor 36", "Jalan Melati, Perumahan Kenari Indah Blok L Nomor 38", "Jalan Flamboyan, Gang Rafflesia Nomor 40", "Jalan Rafflesia Nomor 42", "Jalan Anggrek Nomor 44", "Jalan Kenanga Nomor 46", "Jalan Mawar Nomor 48", "Jalan Dahlia Nomor 50", "Jalan Melati Nomor 52", "Jalan Flamboyan Nomor 54", "Jalan Rafflesia Nomor 56", "Jalan Anggrek Nomor 58", "Jalan Kenanga Nomor 60", "Jalan Mawar Nomor 62", "Jalan Dahlia Nomor 64", "Dusun Kenangan, Desa Rindu"},
-            // nama ayah 6
-            {"Ahmad", "Muhammad", "Abdullah", "Rizky", "Fahmi", "Irfan", "Syamsul", "Haris", "Ari", "Fandi", "Ridwan", "Ilham", "Hendra", "Rizaldi", "Dede", "Ricky", "Budi", "Arif", "Yudi", "Eko", "Maulana", "Rizki", "Adi", "Hadi", "Firman", "Yoga", "Dian", "Rendi", "Surya", "Andi", "Joko", "Eko", "Fajar", "Rizal", "Suryadi", "Agus", "Aldi", "Galih", "Hendri", "Anwar", "Aditya", "Bayu", "Irfan", "Irsan", "Krisna"},
-            // nama ibu 7
-            {"Siti", "Lina", "Ayu", "Ratna", "Sinta", "Rina", "Eka", "Dewi", "Laras", "Yuni", "Novi", "Rini", "Nur", "Rina", "Sari", "Dian", "Dewi", "Putri", "Indah", "Lia", "Wulan", "Ani", "Fita", "Maya", "Nina", "Sari", "Citra", "Sari", "Ayu", "Nur", "Sari", "Ria", "Mega", "Anisa", "Sari", "Sri", "Rika", "Lia", "Yuli", "Evi", "Lesti", "Rini", "Ayu", "Dwi", "Rina", "Lia"},
-            // pekerjaan ayah 8
-            {"Pengacara", "Dokter", "Insinyur", "Pilot", "Polisi", "Pengusaha", "Desainer", "Programmer", "Penulis", "Musisi", "Guru", "Aktor", "Ahli IT", "Peneliti", "Pengembang Perangkat Lunak", "Analis Keuangan", "Dosen", "Petani", "Teknisi", "Ahli Bedah", "Ahli Biologi", "Psikolog", "Ilmuwan", "Arsitek", "Konsultan", "Manajer Proyek", "Pengrajin", "Montir", "Pedagang", "Jurnalis", "Editor", "Teknisi Listrik", "Koki", "Tukang Kayu", "Pemadam Kebakaran", "Pemimpin Bisnis", "Ahli Kimia", "Pengacara", "Desainer Interior", "Pembuat Film", "Ahli Geologi", "Pemrogram", "Penyiar", "Ahli Bahasa", "Pemilik Bisnis Kecil", "Ahli Fisika"},
-            // pekerjaan ibu 9
-            {"Pegawai Negeri Sipil", "Guru", "Wiraswasta", "Pengusaha", "Dokter", "Pengacara", "Insinyur", "Petani", "Pilot", "Pedagang", "Arsitek", "Polisi", "Pramusaji", "Pengemudi Taksi", "Peneliti", "Seniman", "Tentara", "Nelayan", "Peternak", "Sopir Truk", "Ahli IT", "Seniman", "Koki", "Birokrat", "Guru", "Atlet", "Penulis", "Konsultan", "Bidan", "Montir", "Penyanyi", "Sopir Bus", "Dosen", "Psikolog", "Perawat", "Desainer", "Tukang Kayu", "Petugas Kebersihan", "Manajer", "Pemadam Kebakaran", "Pengemudi Ojek Online", "Petugas Keamanan", "Petani", "Teknisi Komputer", "Jurutulis", "Pekerja Sosial"}
-            };
+
         
             System.out.println("╔═══════════════════════╗");
             System.out.println("║      B I O D A T A    ║");
@@ -498,5 +531,71 @@ public class sistemAkademik {
                 Kelas(kelas);
                 break;
         }
+    }
+
+    public static double KalkulasiNilai(int i){
+        
+        int j =0;
+        System.out.println("===== "+mapel[i]+" =====");
+        do {
+            System.out.print("\nNilai Tugas "+mapel[i] +"\n Tugas ke-"+(j+1)+" : ");
+            do {
+                tugas[i][j] = sc.nextDouble();
+                if (tugas[i][j] < 0 || tugas[i][j] > 100) {
+                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                System.out.print("\nNilai Tugas "+mapel[i]+" \n Tugas ke-"+(j+1)+" : ");
+                }
+            } while (tugas[i][j] < 0 || tugas[i][j] > 100);
+            j++;
+        } while (j<tugas[i].length);
+            
+        j = 0;
+        do {
+            System.out.print("\nNilai Ulangan Harian "+ mapel[i] +"\n UH ke-"+(j+1)+" : ");
+            do {
+                uH[i][j] = sc.nextDouble();
+                if (uH[i][j] < 0 || uH[i][j] > 100) {
+                    System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                    System.out.print("\nNilai Ulangan Harian "+mapel[i]+" \n UH ke-"+(j+1)+" : ");
+                }
+            } while (uH[i][j] < 0 || uH[i][j] > 100);
+                j++;
+        } while (j<uH[i].length);
+
+        j=0;
+        System.out.print("\nNilai Ujian "+mapel[i]+" : ");
+        do {
+            ujian[i] = sc.nextDouble();
+            if (ujian[i] < 0 || ujian[i] > 100) {
+                System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
+                System.out.print("Nilai Ujian "+mapel[i]+" : ");
+            }
+        } while (ujian[i] < 0 || ujian[i] > 100);
+                
+                //rata-rata nilai mat dalam array
+        double total=0;
+        for(j=0; j<tugas[i].length; j++){
+            total += tugas[i][j];
+        }
+
+        rata[i][0] = total/tugas[i].length;
+                
+        total=0;
+        for(j=0; j<uH[i].length; j++){
+            total+= uH[i][j];
+        }
+
+        rata[i][1]= total/uH[i].length;
+                
+        double nilaiAkhir = (rata[i][0]*proporsiTugas+ujian[i]*proporsiU+rata[i][1]*proporsiUH)*bMat;
+        
+        System.out.print("Hasil Nilai Akhir "+mapel[i]+" : " + nilaiAkhir);
+        if (nilaiAkhir<75) {
+            System.out.println("\nRemedi.");
+        } else {
+            System.out.println("\nTidak Remedi.");
+        }
+
+        return nilaiAkhir;
     }
 }
