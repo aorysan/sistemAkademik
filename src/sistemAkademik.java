@@ -76,7 +76,7 @@ public class sistemAkademik {
         rataRata        = 0;
         String[] user   = {"admin", "userA", "userB"};
         String pass[]   = {"admin", "passA", "passB"};
-        String username = "", password = "", menu = "", biodata, pilihKelas = "";
+        String username = "", password = "", menu = "", pilihKelas = "";
         String kelas[]  = {"1A", "1B", "1C", "2A", "2B", "2C", "3A", "3B", "3C",};
         String nama     = "";
         String murid[][]= {
@@ -141,21 +141,11 @@ public class sistemAkademik {
             totalBobotMapel =+ bobotMapel[i];
         } 
         indeksPrestasi = (totalNilaiAkhir)/((totalBobotMapel)*25);
-        // System.out.println((nAMat+nAIpa+nABin));
-        // System.out.println((bMat+bIpa+bBin)); untuk tes
-        //System.out.println("\nIndeks Prestasi siswa : " + indeksPrestasi);
-        
         rataRata = (totalNilaiAkhir)/(banyakMapel);
-        //System.out.println("Nilai rata-rata siswa : " + rataRata);
-        
-        //  MESIN DECISION KELULUSAN
-        // VAR MASUK: indeksPrestasi, jmlPresensi
         
         pilih(loginSucces, username, password, user, pass, pilih, murid, pilihKelas, nama, kelas, nUHBin, nUHBin, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
     }
     
-    private static void KalkulasiNilai(double[] nMat, double[] nUHMat, double nUMat) {
-    }
     static void cetakRapor(String nama, String pilihKelas, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
         System.out.println("Nama Siswa\t: " + biodata[0][Integer.parseInt(nama)-1]);
         System.out.println("Kelas\t\t: " + pilihKelas);
@@ -164,8 +154,6 @@ public class sistemAkademik {
         for (int i = 0; i < mapel.length; i++) {
             cetakMapel(i);
         }
-        // cetakMapel("IPA", rata_nIpa, rata_nUHIpa, nUIpa, nAIpa);
-        // cetakMapel("Bahasa Indoneisa", rata_nBin, rata_nUHBin, nUBin, nABin);
 
         System.out.println("\n============================== KEHADIRAN ==============================");
         System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensi);
@@ -241,7 +229,6 @@ public class sistemAkademik {
     
     public static void Biodata(boolean loginSucces, String murid[][], String pilih, String nama, String kelas[]){
         boolean isEnd = false;
-
         
             System.out.println("╔═══════════════════════╗");
             System.out.println("║      B I O D A T A    ║");
@@ -304,7 +291,6 @@ public class sistemAkademik {
                 }
             }
         }
-
     }
     static void login (boolean loginSucces, String username, String password, String user[], String pass[]) {
 
@@ -414,7 +400,6 @@ public class sistemAkademik {
         } else {
             System.out.println("\nTidak Remedi.");
         }
-
         return nilaiAkhir;
     }
 }
