@@ -11,11 +11,11 @@ public class sistemAkademik {
 
     // Deklarasi untuk inp-kalk nilai
         // Masukkan banyak mapel
-    static int banyakMapel = 3;
+        static int banyakMapel = 8;
     static double tugas[][] = new double[banyakMapel][4];
     static double uH[][] = new double[banyakMapel][4];
     static double ujian[] = new double[banyakMapel];
-    static String mapel[] = {"Matematika", "Ilmu Pengetahuan Alam", "Bahasa Indonesia"};
+    static String mapel[] = {"Matematika", "Ilmu Pengetahuan Alam", "Bahasa Indonesia", "Bahasa Inggris", "Ilmu Pengetahuan Sosial", "Pendidikan Pancasila dan Kewarganegaraan", "Pendidikan Agama dan Budi Pekerti", "Seni Budaya"};
     static double nilaiA[] = new double[banyakMapel];
     static double rata[][] = new double[banyakMapel][2]; 
     static int bobotMapel[] = {4,4,4,4,4,4,4,4};
