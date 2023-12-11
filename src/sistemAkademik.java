@@ -100,7 +100,7 @@ public class sistemAkademik {
         System.out.print("Silahkan pilih kelas : ");
         pilihKelas = sc.next();
         for (int i = 0; i < kelas.length; i++) {
-            if (pilihKelas.equals(kelas[i])) {
+            if (pilihKelas.equalsIgnoreCase(kelas[i])) {
                 int j = 0;
                 plusMurid(j, murid, i);
             }
@@ -140,6 +140,7 @@ public class sistemAkademik {
             totalNilaiAkhir =+ nilaiA[i];
             totalBobotMapel =+ bobotMapel[i];
         } 
+    
         indeksPrestasi = (totalNilaiAkhir)/((totalBobotMapel)*25);
         rataRata = (totalNilaiAkhir)/(banyakMapel);
         
