@@ -11,7 +11,7 @@ public class sistemAkademik {
 
     // Deklarasi untuk inp-kalk nilai
         // Masukkan banyak mapel
-        static int banyakMapel = 1;
+        static int banyakMapel = 8;
     static double tugas[][] = new double[banyakMapel][4];
     static double uH[][] = new double[banyakMapel][4];
     static double ujian[] = new double[banyakMapel];
