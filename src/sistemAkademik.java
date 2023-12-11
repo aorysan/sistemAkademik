@@ -11,7 +11,7 @@ public class sistemAkademik {
 
     // Deklarasi untuk inp-kalk nilai
         // Masukkan banyak mapel
-        static int banyakMapel = 8;
+        static int banyakMapel = 1;
     static double tugas[][] = new double[banyakMapel][4];
     static double uH[][] = new double[banyakMapel][4];
     static double ujian[] = new double[banyakMapel];
@@ -152,7 +152,7 @@ public class sistemAkademik {
         System.out.println("Kelas\t\t: " + pilihKelas);
 
         System.out.println("\n============================== NILAI ==============================");
-        for (int i = 0; i < mapel.length; i++) {
+        for (int i = 0; i < banyakMapel; i++) {
             cetakMapel(i);
         }
 
