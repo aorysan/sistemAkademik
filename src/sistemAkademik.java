@@ -154,7 +154,7 @@ public class sistemAkademik {
     }
     
     static void cetakRapor(String nama, String pilihKelas, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata) {
-        System.out.println("Nama Siswa\t: " + biodata[0][Integer.parseInt(nama)-1]);
+        System.out.println("Nama Siswa\t: " + nama);
         System.out.println("Kelas\t\t: " + pilihKelas);
 
         System.out.println("\n============================== NILAI ==============================");
@@ -315,6 +315,7 @@ public class sistemAkademik {
                 if (username.equals(akunGuru[0][i]) && akunGuru[1][i].equals(password)) {
                     System.out.println("\nAnda berhasil login");
                     loginSuccess = true;
+                    nama = akunGuru[0][i];
                     break;
                 } 
             }
