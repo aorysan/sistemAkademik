@@ -117,6 +117,8 @@ public class sistemAkademik {
             for (int j = 0; j < murid[i].length; j++) {
                 if (nama.equalsIgnoreCase(murid[i][j])) {
                     System.out.print("\n" + murid[i][j] + "\n\n");
+                    int k = murid[i][j].length();
+                    nama = biodata[0][k-1];
                 }
             }
         }
