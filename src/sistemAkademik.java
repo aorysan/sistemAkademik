@@ -1,5 +1,10 @@
 import java.util.*;
+import java.util.Random;
 public class sistemAkademik {
+    static Random rand = new Random();
+
+    static String username = "", password = "", menu = "", pilihKelas = "";
+    static String kelas[]  = {"1A", "1B", "1C", "2A", "2B", "2C", "3A", "3B", "3C",};
     
     static int bMat            = 4;
     static int bIpa            = 4;
@@ -21,6 +26,10 @@ public class sistemAkademik {
     static int bobotMapel[] = {4,4,4,4,4,4,4,4};
     static double presensi  = 0;
     double jmlPresensi      = 0;
+
+    // deklarasi presensi
+    static double presensiNew;
+    static double jmlPresensiNew;
 
     // BIODATA MURID
     static String biodata[][] = {
@@ -84,8 +93,7 @@ public class sistemAkademik {
             {"user1", "user2", "user3", "user4", "user5", "user6", "user7", "user8", "user9", "user10", "user11", "user12", "user13", "user14", "user15", "user16", "user17", "user18", "user19", "user20", "user21", "user22", "user23", "user24", "user25", "user26", "user27", "user28", "user29", "user30", "user31", "user32", "user33", "user34", "user35", "user36", "user37", "user38", "use39r", "user40", "user41", "user42", "user43", "user44", "user45"},
             {"pass1", "pass2", "pass3", "pass4", "pass5", "pass6", "pass7", "pass8", "pass9", "pass10", "pass11", "pass12", "pass13", "pass14", "pass15", "pass16", "pass17", "pass18", "pass19", "pass20", "pass21", "pass22", "pass23", "pass24", "pass25", "pass26", "pass27", "pass28", "pass29", "pass30", "pass31", "pass32", "pass33", "pass34", "pass35", "pass36", "pass37", "pass38", "pass39", "pass40", "pass41", "pass42", "pass43", "pass44", "pass45"}
         };
-        String username = "", password = "", menu = "", pilihKelas = "";
-        String kelas[]  = {"1A", "1B", "1C", "2A", "2B", "2C", "3A", "3B", "3C",};
+
         String nama     = "";
         String murid[][]= {
             {"1", "2", "3", "4", "5"},
@@ -129,12 +137,12 @@ public class sistemAkademik {
         System.out.println("Masukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
         
         do {
-            presensi = sc.nextDouble();
-            if (presensi > 132) {
+            presensiNew = sc.nextDouble();
+            if (presensiNew > 132) {
                 System.out.println("\nAnda memasukkan jumlah yang tidak valid.\nSilakan coba lagi.");
                 System.out.println("\nMasukkan jumlah kehadiran siswa dalam satu semester (maksimal 132 hari) : ");
                 }
-        } while (presensi > 132);
+        } while (presensiNew > 132);
                 
         //INPUT NILAI DENGAN ARRAY - MATEMATIKA
         
@@ -142,7 +150,7 @@ public class sistemAkademik {
            nilaiA[i] = KalkulasiNilai(i);
         }
         
-        jmlPresensi = (presensi/132)*100;
+        jmlPresensiNew = (presensiNew/132)*100;
         //System.out.printf("Persentase kehadiran siswa dalam 1 semester : %.1f\n", jmlPresensi);
         double totalNilaiAkhir=0, totalBobotMapel=0;
         for (int i = 0; i < banyakMapel; i++) {
@@ -155,7 +163,7 @@ public class sistemAkademik {
         pilih(loginSuccess, username, password, akunGuru, akunMurid, pilih, murid, pilihKelas, nama, kelas, nUHBin, nUHBin, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
     }
     
-    static void cetakRapor(String nama, double presensi, double rataRata2, String pilihKelas, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata, double totalNilaiAkhir, int totalBobotMapel, int nilai[]) {
+    static void cetakRapor(String nama, double presensi, double rataRata2, String pilihKelass, double rata_nMat, double rata_nUHMat, double nUMat, double nAMat, double rata_nIpa, double rata_nUHIpa, double nUIpa, double nAIpa, double rata_nBin, double rata_nUHBin, double nUBin, double nABin, double jmlPresensi, double indeksPrestasi, double rataRata, double totalNilaiAkhir, int totalBobotMapel, int nilai[]) {
         System.out.println("Nama Siswa\t: " + nama);
         System.out.println("Kelas\t\t: " + pilihKelas);
 
@@ -165,8 +173,8 @@ public class sistemAkademik {
         }
 
         System.out.println("\n============================== KEHADIRAN ==============================");
-        jmlPresensi = (presensi/132)*100;
-        System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensi);
+        jmlPresensiNew = (presensiNew/132)*100;
+        System.out.printf("Presentase Kehadiran : %.1f\n ", jmlPresensiNew);
 
         System.out.println("\n============================== HASIL ==============================");
         totalNilaiAkhir=0;
@@ -179,7 +187,7 @@ public class sistemAkademik {
         System.out.println("Indeks Prestasi\t\t: " + indeksPrestasi);
         rataRata = (totalNilaiAkhir)/(banyakMapel);
         System.out.println("Rata-rata Nilai\t\t: " + rataRata);
-        kelulusan(indeksPrestasi, jmlPresensi);
+        kelulusan(indeksPrestasi, jmlPresensiNew);
     }
     static void cetakMapel(int i){
         System.out.println("Mata Pelajaran : " + mapel[i]);
@@ -219,7 +227,7 @@ public class sistemAkademik {
 
     //Fungsi untuk pembuat keputusan kelulusan
     static void kelulusan(double indeksPrestasi, double jmlPresensi){
-        if(indeksPrestasi >= 2.5 && jmlPresensi >= 70)  {
+        if(indeksPrestasi >= 2.5 && jmlPresensiNew >= 70)  {
             
                 System.out.println("\nSiswa memenuhi syarat untuk naik kelas.\n");
         } else {
@@ -432,7 +440,7 @@ public class sistemAkademik {
         do {
             System.out.print("\nNilai Tugas "+mapel[i] +"\n Tugas ke-"+(j+1)+" : ");
             do {
-                tugas[i][j] = sc.nextDouble();
+                tugas[i][j] = Acak();
                 if (tugas[i][j] < 0 || tugas[i][j] > 100) {
                     System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
                 System.out.print("\nNilai Tugas "+mapel[i]+" \n Tugas ke-"+(j+1)+" : ");
@@ -445,7 +453,7 @@ public class sistemAkademik {
         do {
             System.out.print("\nNilai Ulangan Harian "+ mapel[i] +"\n UH ke-"+(j+1)+" : ");
             do {
-                uH[i][j] = sc.nextDouble();
+                uH[i][j] = Acak();
                 if (uH[i][j] < 0 || uH[i][j] > 100) {
                     System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
                     System.out.print("\nNilai Ulangan Harian "+mapel[i]+" \n UH ke-"+(j+1)+" : ");
@@ -457,7 +465,7 @@ public class sistemAkademik {
         j=0;
         System.out.print("\nNilai Ujian "+mapel[i]+" : ");
         do {
-            ujian[i] = sc.nextDouble();
+            ujian[i] = Acak();
             if (ujian[i] < 0 || ujian[i] > 100) {
                 System.out.println("Anda memasukkan nilai yang tidak valid. \nSilahkan coba lagi.");
                 System.out.print("Nilai Ujian "+mapel[i]+" : ");
@@ -489,4 +497,10 @@ public class sistemAkademik {
         }
         return nilaiAkhir;
     }
+
+    public static int Acak(){
+    int acak = rand.nextInt(70,100);
+    return acak;
+    }
+
 }
