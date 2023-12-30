@@ -220,6 +220,9 @@ public class sistemAkademik {
             pilih = sc.next();
             if (pilih.equalsIgnoreCase("y")) {
                 Menu(pilih, murid, kelas, nama, pilihKelas);
+            } else {
+                loginSuccess = false;
+                siakad(loginSuccess, rataRata, pilihKelas, nUMat, nUIpa, nUBin, nAMat, nUIpa, nABin, nUHMat, nUHMat, nUHMat, rata_nBin, rata_nMat, rata_nIpa, rata_nUHBin, rata_nUHIpa, rata_nUHMat, jmlPresensi, nUMat, nUHMat, nMat, nUHMat, rata_nUHBin, nUBin, jmlPresensi, rataRata, indeksPrestasi, nAIpa, nAMat, nABin);
             }
         } else if (pilih.equalsIgnoreCase("n")) {
             System.out.print("Apakah Anda ingin kembali ke menu?(y/n) : ");
