@@ -192,12 +192,12 @@ public class sistemAkademik {
         totalNilaiAkhir=0;
         totalBobotMapel=0;
         for (int i = 0; i < banyakMapel; i++) {
-            totalNilaiAkhir =+ nilaiA[i];
-            totalBobotMapel =+ bobotMapel[i];
+            totalNilaiAkhir = totalNilaiAkhir + nilaiA[i];
+            totalBobotMapel = totalBobotMapel + bobotMapel[i];
         } 
         indeksPrestasi = (totalNilaiAkhir)/((totalBobotMapel)*25);
         System.out.println("Indeks Prestasi\t\t: " + indeksPrestasi);
-        rataRata = (totalNilaiAkhir)/(banyakMapel);
+        rataRata = indeksPrestasi*25;
         System.out.println("Rata-rata Nilai\t\t: " + rataRata);
         kelulusan(indeksPrestasi, jmlPresensiNew);
     }
