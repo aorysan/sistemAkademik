@@ -1,6 +1,18 @@
 import java.util.*;
 import java.util.Random;
 public class sistemAkademik {
+    private static final boolean loginSuccess = false;
+
+    private static final String[][] akunGuru = null;
+
+    private static final String[][] akunMurid = null;
+
+    private static final String nama = null;
+
+    private static final double indeksPrestasi = 0;
+
+    private static final int i = 0;
+
     static Random rand = new Random();
 
     static String username = "", password = "", menu = "", pilihKelas = "";
@@ -158,7 +170,7 @@ public class sistemAkademik {
             totalBobotMapel =+ bobotMapel[i];
         } 
         indeksPrestasi = (totalNilaiAkhir)/((totalBobotMapel)*25);
-        rataRata = (totalNilaiAkhir)/(banyakMapel);
+        rataRata = ((totalNilaiAkhir)/(banyakMapel))*2;
         
         pilih(loginSuccess, username, password, akunGuru, akunMurid, pilih, murid, pilihKelas, nama, kelas, nUHBin, nUHBin, rata_nMat, rata_nUHMat, nUMat, nAMat, rata_nIpa, rata_nUHIpa, nUIpa, nAIpa, rata_nBin, rata_nUHBin, nUBin, nABin, jmlPresensi, indeksPrestasi, rataRata);
     }
@@ -403,23 +415,21 @@ public class sistemAkademik {
                         }
                         System.out.print(biodata[j][i]+"\n");
                     }
-                    System.out.println("Apakah Anda ingin melihat rapor?(y/n)");
-                    pilih = sc.next();
-                    if (pilih.equals("y")) {
-                        cetakRapor(nama, i, indeksPrestasi, pilihKelas, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, bobotMapel);
-                    }
+                    pilih(loginSuccess, username, password, akunGuru, akunMurid, pilih, akunMurid, pilihKelas, nama, kelas, ujian, nilaiA, i, i, i, i, i, i, i, i, i, i, i, i, i, indeksPrestasi, i);
                 } else if (menu.equalsIgnoreCase("rapor")) {
                     cetakRapor(nama, i, indeksPrestasi, pilihKelas, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, i, bobotMapel);
                 }
-                System.out.println("Apakah Anda ingin kembali ke laman awal?(y/n)");
+                System.out.println("Apakah Anda ingin kembali ke beranda?(y/n)");
                 pilih = sc.next();
                 if (pilih.equalsIgnoreCase("y")) {
-                    loginSuccess = false;
-                    login(loginSuccess, pilih, menu, username, password, password, akunGuru, akunMurid, pilihKelas, indeksPrestasi, indeksPrestasi, indeksPrestasi);
-                } 
+                    akunMurid(akunMurid, username, password, menu, pilih, nama, indeksPrestasi, pilihKela, pilihKelas, loginSuccess, akunGuru);
+                } else if (pilih.equalsIgnoreCase("n")) {
+                    siakad(loginSuccess, i, pilihKelas, i, i, i, i, i, i, nilaiA, nilaiA, nilaiA, i, i, i, i, i, i, i, i, nilaiA, ujian, nilaiA, i, i, i, i, indeksPrestasi, i, indeksPrestasi, i);
+                }
             }
         }
     }
+
     static void Menu (String menu, String murid[][], String kelas[], String nama, String pilihKelas) {
         System.out.println("Biodata\nKelas");
         System.out.print("Pilih menu Anda : \n");
